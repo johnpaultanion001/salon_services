@@ -1,5 +1,5 @@
 @extends('../layouts.site')
-@section('sub-title','Login')
+@section('sub-title','Register')
 
 @section('navbar')
     @include('../partials.site.navbar')

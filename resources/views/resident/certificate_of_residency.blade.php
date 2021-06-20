@@ -315,7 +315,7 @@ $(document).on('click', '.cancel', function(){
                       },
                       dataType:"json",
                       beforeSend:function(){
-                        $('#titletable').text('Loading...');
+                        $('.cancel').html('Canceling..');
                       },
                       success:function(data){
                           if(data.success){

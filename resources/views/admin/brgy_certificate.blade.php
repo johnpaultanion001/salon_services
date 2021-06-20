@@ -164,7 +164,7 @@
       $('#myForm')[0].reset();
       $('.form-control').removeClass('is-invalid');
       $('#status').select2({
-        placeholder: 'Select Size'
+        placeholder: 'Select Status'
       })
 
       var id = $(this).attr('change');

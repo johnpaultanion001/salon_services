@@ -158,21 +158,23 @@
         </div>
       </div>
       <div class="container">
-        <article class="postcard light blue">
-              <a class="postcard__img_link" href="#">
-                <img class="postcard__img" src="https://picsum.photos/1000/1000" alt="Image Title" />
+      <article class="postcard light blue">
+              <a class="postcard__img_link" target="_blank" href="https://covid19.govt.nz/iwi-and-communities/translations/tagalog/the-covid-19-virus-and-symptoms/?fbclid=IwAR2sjUg9kWNDUXEjfTCZFrjK2NQLb5Ml76cscsDfwuR3VTY5_Fy_9f2VArc">
+                <img class="postcard__img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrY2alSOWVCk3gd-9ezRbovBZzFytKW3ERISfKRF5D6eaCEpXqBqdhydBc0CmVb7GoIGQ&usqp=CAU" alt="Image Title" />
               </a>
               <div class="postcard__text t-dark">
-                <h1 class="postcard__title blue"><a href="#">Podcast Title</a></h1>
+                <h1 class="postcard__title blue"><a target="_blank" href="https://covid19.govt.nz/iwi-and-communities/translations/tagalog/the-covid-19-virus-and-symptoms/?fbclid=IwAR2sjUg9kWNDUXEjfTCZFrjK2NQLb5Ml76cscsDfwuR3VTY5_Fy_9f2VArc">Ano ang COVID-19</a></h1>
                 <div class="postcard__subtitle small">
                   <time datetime="2020-05-25 12:00:00">
-                    <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+                    <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020 <i class="fas fa-user ml-2 mr-2"></i>Admin
                   </time>
                 </div>
                 <div class="postcard__bar"></div>
-                <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+                <div class="postcard__preview-txt">Ang COVID-19 ay isangbagonguri ng coronavirus naumaapektosaiyongbaga at mgadaanan ng hininga. 
+                Ang mga coronavirus ay malaki at iba'tibangpamilya ng mga virus nanagigingsanhi ng mgakaramdamanggaya ng karaniwangsipon.
+                </div>
                 <ul class="postcard__tagbox">
-                  <li class="tag__item"><i class="fas fa-tag mr-2"></i>Read More</li>
+                  <li class="tag__item"><i class="fas fa-eye fa-lg p-2"></i><a target="_blank" href="https://covid19.govt.nz/iwi-and-communities/translations/tagalog/the-covid-19-virus-and-symptoms/?fbclid=IwAR2sjUg9kWNDUXEjfTCZFrjK2NQLb5Ml76cscsDfwuR3VTY5_Fy_9f2VArc">Read More</a></li>
                 </ul>
             </div>
           </article>
