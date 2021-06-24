@@ -87,14 +87,14 @@
                         </span>
                     @enderror
                 </div>
-
+                <label class="label-control">Date Of Birth</label>
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text">
                      <i class="fas fa-calendar-alt fa-lg p-1"></i>
                     </span>
                   </div>
-                  <label class="label-control">Date Of Birth</label>
+                  
                   <input type="date" id="date_of_birth" name="date_of_birth" class="form-control @error('date_of_birth') is-invalid @enderror" placeholder="Date Of Birth..." value="{{ old('date_of_birth') }}" required autocomplete="date_of_birth">
                     @error('date_of_birth')
                         <span class="invalid-feedback" role="alert">
