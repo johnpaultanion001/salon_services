@@ -89,7 +89,7 @@
                 </div>
                 
                 <div class="input-group">
-                <label class="label-control">Date Of Birth</label>
+                <label class="label-control">Date Of Birth</label>  <br>
                   <div class="input-group-prepend">
                     <span class="input-group-text">
                      <i class="fas fa-calendar-alt fa-lg p-1"></i>
