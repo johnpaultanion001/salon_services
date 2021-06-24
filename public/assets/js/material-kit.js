@@ -105,6 +105,10 @@ materialKit = {
   },
 
   initFormExtendedDatetimepickers: function() {
+    var today = new Date();
+    var tomorrow = new Date();
+    tomorrow.setDate(today.getDate() + 1);
+
     $('.datetimepicker').datetimepicker({
       icons: {
         time: "fa fa-clock-o",
@@ -116,7 +120,32 @@ materialKit = {
         today: 'fa fa-screenshot',
         clear: 'fa fa-trash',
         close: 'fa fa-remove'
-      }
+      },
+      format: 'YYYY-MM-DD',
+      locale: 'en',
+      minDate: tomorrow,
+      
+      
+    });
+
+    $('.timepicker').datetimepicker({
+      format: 'LT',
+      stepping: 60,
+      enabledHours:[9,10,11,12,13,14,15,16],
+      icons: 
+      {
+        time: "fa fa-clock-o",
+        date: "fa fa-calendar",
+        up: "fa fa-chevron-up",
+        down: "fa fa-chevron-down",
+        previous: 'fa fa-chevron-left',
+        next: 'fa fa-chevron-right',
+        today: 'fa fa-screenshot',
+        clear: 'fa fa-trash',
+        close: 'fa fa-remove'
+      },
+      
+     
     });
   },
 

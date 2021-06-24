@@ -21,6 +21,15 @@ Route::group(['prefix' => 'resident', 'as' => 'resident.', 'namespace' => 'Resid
     // Business Permit Clearance
     Route::resource('business_permit_clearance', 'BusinessPermitClearanceController');
 
+     // Appointments
+     Route::resource('appointments', 'AppointmentController');
+
+     //barangay_health_certificate
+     Route::resource('barangay_health_certificate', 'BarangayHealthCertificateController');
+
+     //Barangay Indigency
+     Route::resource('barangay_indigency', 'BarangayIndigencyController');
+
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
@@ -39,6 +48,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
      // Resident
      Route::get('resident_list', 'ResidentListController@index')->name('resident');
 
-    
+     // Appointments
+     Route::resource('appointments', 'AppointmentController');
+
+     //barangay_health_certificate
+     Route::resource('barangay_health_certificate', 'BarangayHealthCertificateController');
+
+     //Barangay Indigency
+     Route::resource('barangay_indigency', 'BarangayIndigencyController');
+
+     // Appointments
+     Route::resource('appointments', 'AppointmentController');
+     
 
 });

@@ -26,7 +26,7 @@
   <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
       <div class="container">
         <div class="navbar-translate">
-          <a class="navbar-brand" href="/">
+          <a class="navbar-brand " href="/">
           {{ trans('panel.site_title') }} </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -51,6 +51,12 @@
                 <a href="/resident/business_permit_clearance" class="dropdown-item">
                   <i class="material-icons">content_paste</i> Business Permit Clearance
                 </a>
+                <a href="/resident/barangay_health_certificate" class="dropdown-item">
+                  <i class="material-icons">content_paste</i> Barangay Health Certificate
+                </a>
+                <a href="/resident/barangay_indigency" class="dropdown-item">
+                  <i class="material-icons">content_paste</i> Barangay Indigency
+                </a>
               </div>
             </li>
             <li class="dropdown nav-item">
@@ -58,9 +64,8 @@
                 <i class="material-icons">apps</i> Services
               </a>
               <div class="dropdown-menu dropdown-with-icons">
-              
-                <a href="/" class="dropdown-item">
-                <i class="far fa-calendar-plus fa-lg p-2"></i> Appointment
+                <a href="/resident/appointments" class="dropdown-item">
+                  <i class="far fa-calendar-plus fa-lg p-2"></i> Appointment
                 </a>
               </div>
             </li>
@@ -137,8 +142,8 @@
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
           <div class="brand">
-            <h1>{{ trans('panel.site_title') }}</h1>
-            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi.</h3>
+            <!-- <h1>{{ trans('panel.site_title') }}</h1>
+            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi.</h3> -->
           </div>
         </div>
       </div>
@@ -181,12 +186,16 @@
       </div>
     </div>
 
-    <div class="section" id="carousel">
-      <div class="container">
-        <div class="title text-center">
-          <h2 class="text-center title">Carousel</h2>
-        </div>
-        <div class="row">
+    <div class="section section-about" id="about">
+      <div class="container tim-container">
+        <!--     	        typography -->
+        <div id="typography" class="cd-section">
+          <div class="title text-center">
+            <h2 class="text-center title">About Us</h2>
+          </div>
+          <div class="row">
+          
+          <div class="row">
           <div class="col-md-12 mr-auto ml-auto">
             <!-- Carousel Card -->
             <div class="card card-raised card-carousel">
@@ -238,19 +247,6 @@
             <!-- End Carousel Card -->
           </div>
         </div>
-      </div>
-    </div>
-    
-    <div class="section section-about" id="about">
-      <div class="container tim-container">
-        <!--     	        typography -->
-        <div id="typography" class="cd-section">
-          <div class="title text-center">
-            <h2 class="text-center title">About Us</h2>
-          </div>
-          <div class="row">
-          
-     
          
    
             <div class="tim-typo">
@@ -273,8 +269,8 @@
     </div>
 
     <div class="section section-contacts" id="contact">
-        <div class="row">
-          <div class="col-md-8 ml-auto mr-auto">
+        <div class="row p-2">
+          <div class="col-md-8 ml-auto mr-auto ">
             <h2 class="text-center title">Contact Us</h2>
            
             <form class="contact-form">

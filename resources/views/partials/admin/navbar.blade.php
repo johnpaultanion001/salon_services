@@ -15,6 +15,12 @@
                       Business Permit Clearance
                   @elseif(request()->is('admin/resident_list'))
                       Resident List
+                  @elseif(request()->is('admin/barangay_health_certificate'))
+                       Barangay Health Certificate
+                  @elseif(request()->is('admin/barangay_indigency'))
+                       Barangay Indigency
+                  @elseif(request()->is('admin/appointments'))
+                       Appointments
                   @endif
                 
                  

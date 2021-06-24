@@ -1,4 +1,4 @@
-<footer class="footer pt-0 bg-default" >
+<footer class="footer pt-0" style="background-color: #F0F2F0;">
    
         <div class="col-lg-6">
             <div class="copyright text-center  text-lg-left  text-muted">

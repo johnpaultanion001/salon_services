@@ -35,6 +35,7 @@
             <thead class="thead-light">
               <tr>
                 <th scope="col">Actions</th>
+                <th scope="col">Purpose</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Contact Number</th>
@@ -50,6 +51,9 @@
                       <td>
                           <button type="button" name="change" change="{{  $brgyCertificate->id ?? '' }}"  class="change  btn btn-sm btn-link text-primary">Change Status</button>
                           <button type="button" name="remove" remove="{{  $brgyCertificate->id ?? '' }}" class="remove btn btn-sm btn-link text-danger">Remove</button>
+                      </td>
+                      <td>
+                          {{  $brgyCertificate->purpose ?? '' }}
                       </td>
                       <td>
                           {{  $brgyCertificate->user->name ?? '' }}

@@ -54,6 +54,12 @@
               <a href="/resident/business_permit_clearance" class="dropdown-item">
                 <i class="material-icons">content_paste</i> Business Permit Clearance
               </a>
+              <a href="/resident/barangay_health_certificate" class="dropdown-item">
+                  <i class="material-icons">content_paste</i> Barangay Health Certificate
+              </a>
+              <a href="/resident/barangay_indigency" class="dropdown-item">
+                <i class="material-icons">content_paste</i> Barangay Indigency
+              </a>
             </div>
           </li>
           <li class="dropdown nav-item">
@@ -61,9 +67,8 @@
               <i class="material-icons">apps</i> Services
             </a>
             <div class="dropdown-menu dropdown-with-icons">
-            
-              <a href="/" class="dropdown-item">
-              <i class="far fa-calendar-plus fa-lg p-2"></i> Appointment
+              <a href="/resident/appointments" class="dropdown-item">
+                <i class="far fa-calendar-plus fa-lg p-2"></i> Appointment
               </a>
             </div>
           </li>
@@ -140,8 +145,8 @@
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
           <div class="brand">
-            <h1>{{ trans('panel.site_title') }}</h1>
-            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi.</h3>
+            <!-- <h1>{{ trans('panel.site_title') }}</h1>
+            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi.</h3> -->
           </div>
         </div>
       </div>
@@ -158,7 +163,7 @@
         </div>
       </div>
       <div class="container">
-      <article class="postcard light blue">
+        <article class="postcard light blue">
               <a class="postcard__img_link" target="_blank" href="https://covid19.govt.nz/iwi-and-communities/translations/tagalog/the-covid-19-virus-and-symptoms/?fbclid=IwAR2sjUg9kWNDUXEjfTCZFrjK2NQLb5Ml76cscsDfwuR3VTY5_Fy_9f2VArc">
                 <img class="postcard__img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrY2alSOWVCk3gd-9ezRbovBZzFytKW3ERISfKRF5D6eaCEpXqBqdhydBc0CmVb7GoIGQ&usqp=CAU" alt="Image Title" />
               </a>
@@ -178,15 +183,22 @@
                 </ul>
             </div>
           </article>
+         
+         
+         
       </div>
     </div>
 
-    <div class="section" id="carousel">
-      <div class="container">
-        <div class="title text-center">
-          <h2 class="text-center title">Carousel</h2>
-        </div>
-        <div class="row">
+    <div class="section section-about" id="about">
+      <div class="container tim-container">
+        <!--     	        typography -->
+        <div id="typography" class="cd-section">
+          <div class="title text-center">
+            <h2 class="text-center title">About Us</h2>
+          </div>
+          <div class="row">
+          
+          <div class="row">
           <div class="col-md-12 mr-auto ml-auto">
             <!-- Carousel Card -->
             <div class="card card-raised card-carousel">
@@ -198,7 +210,7 @@
                 </ol>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img class="d-block w-100" src="../assets/img/bg2.jpg" alt="First slide">
+                    <img class="d-block w-100" src="./assets/img/bg2.jpg" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
                       <h4>
                         <i class="material-icons">location_on</i>
@@ -207,7 +219,7 @@
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100" src="../assets/img/bg3.jpg" alt="Second slide">
+                    <img class="d-block w-100" src="./assets/img/bg3.jpg" alt="Second slide">
                     <div class="carousel-caption d-none d-md-block">
                       <h4>
                         <i class="material-icons">location_on</i>
@@ -216,7 +228,7 @@
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100" src="../assets/img/bg.jpg" alt="Third slide">
+                    <img class="d-block w-100" src="./assets/img/bg.jpg" alt="Third slide">
                     <div class="carousel-caption d-none d-md-block">
                       <h4>
                         <i class="material-icons">location_on</i>
@@ -238,19 +250,6 @@
             <!-- End Carousel Card -->
           </div>
         </div>
-      </div>
-    </div>
-    
-    <div class="section section-about" id="about">
-      <div class="container tim-container">
-        <!--     	        typography -->
-        <div id="typography" class="cd-section">
-          <div class="title text-center">
-            <h2 class="text-center title">About Us</h2>
-          </div>
-          <div class="row">
-          
-     
          
    
             <div class="tim-typo">
@@ -273,8 +272,8 @@
     </div>
 
     <div class="section section-contacts" id="contact">
-        <div class="row">
-          <div class="col-md-8 ml-auto mr-auto">
+        <div class="row p-2">
+          <div class="col-md-8 ml-auto mr-auto ">
             <h2 class="text-center title">Contact Us</h2>
            
             <form class="contact-form">

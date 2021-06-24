@@ -48,6 +48,28 @@
                 </a>
               </li>
 
+              <li class="nav-item">
+                <a class="nav-link {{ request()->is('admin/barangay_health_certificate') || request()->is('admin/barangay_health_certificate/*') ? 'active' : '' }}" href="{{ route("admin.barangay_health_certificate.index") }}">
+                  <i class="far fa-list-alt fa-lg "></i>
+                  <span class="nav-link-text text-uppercase">Manage Barangay Health Certificate</span>
+                </a>
+              </li>
+    
+
+              <li class="nav-item">
+                <a class="nav-link {{ request()->is('admin/barangay_indigency') || request()->is('admin/barangay_indigency/*') ? 'active' : '' }}" href="{{ route("admin.barangay_indigency.index") }}">
+                  <i class="far fa-list-alt fa-lg "></i>
+                  <span class="nav-link-text text-uppercase">Manage Barangay Indigency</span>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link {{ request()->is('admin/appointments') || request()->is('admin/appointments/*') ? 'active' : '' }}" href="{{ route("admin.appointments.index") }}">
+                  <i class="far fa-list-alt fa-lg "></i>
+                  <span class="nav-link-text text-uppercase">Manage Appointments</span>
+                </a>
+              </li>
+
            
 
               

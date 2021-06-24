@@ -20,11 +20,11 @@
      
       <div class="row">
         <div class="col-lg-6 col-md-6 ml-auto mr-auto">
-          <div class="card card-login">
+          <div class="card card-login"> 
           <form method="POST" action="{{ route('login') }}">
               @csrf
               <div class="card-header card-header-primary text-center">
-                <h4 class="card-title">Login</h4>
+                <h4 class="card-title">Login</h4>   
                 <p class="description text-white text-center">Your Credentials</p>
               </div>
               <br><br>

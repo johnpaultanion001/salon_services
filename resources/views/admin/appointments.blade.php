@@ -1,5 +1,5 @@
 @extends('../layouts.admin')
-@section('sub-title','Business Permit Clearance')
+@section('sub-title','Appointments')
 @section('navbar')
     @include('../partials.admin.navbar')
 @endsection
@@ -24,7 +24,7 @@
         <div class="card-header border-0">
           <div class="row align-items-center">
             <div class="col">
-              <h3 class="mb-0 text-uppercase" id="titletable">Manage Business Permit Clearance</h3>
+              <h3 class="mb-0 text-uppercase" id="titletable">Manage Appointments</h3>
             </div>
             
           </div>
@@ -36,6 +36,8 @@
               <tr>
                 <th scope="col">Actions</th>
                 <th scope="col">Purpose</th>
+                <th scope="col">Date Of Appointment</th>
+                <th scope="col">Time Of Appointment</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Contact Number</th>
@@ -54,6 +56,13 @@
                       </td>
                       <td>
                           {{  $brgyCertificate->purpose ?? '' }}
+                      </td>
+                      <td>
+                         
+                          {{ \Carbon\Carbon::parse($brgyCertificate->date)->isoFormat('MMM Do YYYY')}}
+                      </td>
+                      <td>
+                          {{  $brgyCertificate->time ?? '' }}
                       </td>
                       <td>
                           {{  $brgyCertificate->user->name ?? '' }}
@@ -175,7 +184,7 @@
       $('#hidden_id').val(id);
 
       $.ajax({
-          url :"/admin/business_permit_clearance/"+id,
+          url :"/admin/appointments/"+id,
           dataType:"json",
           beforeSend:function(){
               $("#action_button").attr("disabled", true);
@@ -211,7 +220,7 @@
     event.preventDefault();
     
     var id = $('#hidden_id').val();
-    var action_url = "business_permit_clearance/" + id;
+    var action_url = "appointments/" + id;
     var type = "PUT"; 
 
     $.ajax({
@@ -288,7 +297,7 @@ $(document).on('click', '.remove', function(){
               keys: ['enter', 'shift'],
               action: function(){
                   return $.ajax({
-                      url:"business_permit_clearance/"+id,
+                      url:"appointments/"+id,
                       method:'DELETE',
                       data: {
                           _token: '{!! csrf_token() !!}',

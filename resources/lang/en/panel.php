@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => 'San Roque',
+    'site_title' => 'BRGY. SAN ROQUE',
 ];

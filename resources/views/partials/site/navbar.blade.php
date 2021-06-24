@@ -19,7 +19,7 @@
             </li>
 
             <li class="dropdown nav-item">
-              <a href="#" class="dropdown-toggle nav-link {{ request()->is('resident/brgy_certificate') || request()->is('resident/certificate_of_residency') || request()->is('resident/business_permit_clearance') ? 'active' : '' }}" data-toggle="dropdown">
+              <a href="#" class="dropdown-toggle nav-link {{ request()->is('resident/brgy_certificate') || request()->is('resident/certificate_of_residency') || request()->is('resident/business_permit_clearance') || request()->is('resident/barangay_health_certificate') || request()->is('resident/barangay_indigency') ? 'active' : '' }}" data-toggle="dropdown">
                 <i class="material-icons">content_paste</i> Request
               </a>
               <div class="dropdown-menu dropdown-with-icons">
@@ -32,15 +32,23 @@
                 <a href="/resident/business_permit_clearance" class="dropdown-item">
                   <i class="material-icons">content_paste</i> Business Permit Clearance
                 </a>
+                <a href="/resident/barangay_health_certificate" class="dropdown-item">
+                  <i class="material-icons">content_paste</i> Barangay Health Certificate
+                </a>
+                <a href="/resident/barangay_indigency" class="dropdown-item">
+                  <i class="material-icons">content_paste</i> Barangay Indigency
+                </a>
+                
+                
               </div>
             </li>
             <li class="dropdown nav-item">
-              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+              <a href="#" class="dropdown-toggle nav-link {{ request()->is('resident/appointments') ? 'active' : '' }}" data-toggle="dropdown">
                 <i class="material-icons">apps</i> Services
               </a>
               <div class="dropdown-menu dropdown-with-icons">
               
-                <a href="/" class="dropdown-item">
+                <a href="/resident/appointments" class="dropdown-item">
                 <i class="far fa-calendar-plus fa-lg p-2"></i> Appointment
                 </a>
               </div>
