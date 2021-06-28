@@ -10,7 +10,7 @@
     <title>@yield('sub-title') | {{ trans('panel.site_title') }}</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="{{ asset('/assets/img/logo.png') }}">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- css -->

@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
 
   <link  rel="apple-touch-icon" sizes="76x76" href="{{ asset('/assets/img/apple-icon.png') }}"/>
-  <link  rel="icon" href="{{ asset('/assets/img/favicon.png') }}"  type="image/png" rel="stylesheet" />
+  <link  rel="icon" href="{{ asset('/assets/img/logo.png') }}"  type="image/png" rel="stylesheet" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
   {{ trans('panel.site_title') }}
@@ -140,7 +140,7 @@
       </div>
     </div>
   </nav>
-  <div class="page-header header-filter clear-filter purple-filter" data-parallax="true" style="background-image: url('../assets/img/bg2.jpg');">
+  <div class="page-header header-filter clear-filter purple-filter" data-parallax="true" style="background-image: url('../assets/img/logo.png'); background-size: contain; background-repeat: no-repeat;">
     <div class="container">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
@@ -210,7 +210,7 @@
                 </ol>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img class="d-block w-100" src="./assets/img/bg2.jpg" alt="First slide">
+                    <img class="d-block w-100" src="../assets/img/bg2.jpg" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
                       <h4>
                         <i class="material-icons">location_on</i>
@@ -219,7 +219,7 @@
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100" src="./assets/img/bg3.jpg" alt="Second slide">
+                    <img class="d-block w-100" src="../assets/img/bg3.jpg" alt="Second slide">
                     <div class="carousel-caption d-none d-md-block">
                       <h4>
                         <i class="material-icons">location_on</i>
@@ -228,7 +228,7 @@
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100" src="./assets/img/bg.jpg" alt="Third slide">
+                    <img class="d-block w-100" src="../assets/img/bg.jpg" alt="Third slide">
                     <div class="carousel-caption d-none d-md-block">
                       <h4>
                         <i class="material-icons">location_on</i>

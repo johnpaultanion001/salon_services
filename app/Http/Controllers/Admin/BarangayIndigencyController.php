@@ -33,13 +33,6 @@ class BarangayIndigencyController extends Controller
         }
     }
 
-  
-    public function edit(BarangayIndigency $barangayIndigency)
-    {
-        //
-    }
-
-   
     public function update(Request $request, BarangayIndigency $barangayIndigency)
     {
         date_default_timezone_set('Asia/Manila');

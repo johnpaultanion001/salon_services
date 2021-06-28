@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <link rel="icon" type="image/png" href="{{ asset('/assets/img/logo.png') }}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
   {{ trans('panel.site_title') }}
@@ -27,7 +27,9 @@
       <div class="container">
         <div class="navbar-translate">
           <a class="navbar-brand " href="/">
-          {{ trans('panel.site_title') }} </a>
+            
+            {{ trans('panel.site_title') }} 
+          </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon"></span>
@@ -137,7 +139,7 @@
         </div>
       </div>
   </nav>
-  <div class="page-header header-filter clear-filter purple-filter" data-parallax="true" style="background-image: url('./assets/img/bg2.jpg');">
+  <div class="page-header header-filter clear-filter purple-filter" data-parallax="true" style="background-image: url('./assets/img/logo.png'); background-size: contain; background-repeat: no-repeat;">
     <div class="container">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
