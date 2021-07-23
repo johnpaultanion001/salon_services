@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Resident;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Announcements;
 
 class HomeController extends Controller
 {
@@ -24,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('resident.home');
+        $announcements = Announcements::where('isRemove', 0)->latest()->get();
+        return view('resident.home', compact('announcements'));
     }
+       
+   
+    
 }
