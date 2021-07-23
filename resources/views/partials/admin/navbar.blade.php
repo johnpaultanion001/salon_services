@@ -21,6 +21,8 @@
                        Barangay Indigency
                   @elseif(request()->is('admin/appointments'))
                        Appointments
+                  @elseif(request()->is('admin/announcements'))
+                       Announcements
                   @endif
                 
                  

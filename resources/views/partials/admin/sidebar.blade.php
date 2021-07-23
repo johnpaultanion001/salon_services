@@ -70,6 +70,13 @@
                 </a>
               </li>
 
+              <li class="nav-item">
+                <a class="nav-link {{ request()->is('admin/announcements') || request()->is('admin/announcements/*') ? 'active' : '' }}" href="{{ route("admin.announcements.index") }}">
+                  <i class="far fa-list-alt fa-lg "></i>
+                  <span class="nav-link-text text-uppercase">Manage Announcements</span>
+                </a>
+              </li>
+
            
 
               

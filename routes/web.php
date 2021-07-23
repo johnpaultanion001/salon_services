@@ -2,9 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'LandingpageController@index')->name('landingpage');
+Route::get('view/{announcement}', 'LandingpageController@view')->name('view');
 
 Auth::routes();
 
@@ -59,6 +58,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
      // Appointments
      Route::resource('appointments', 'AppointmentController');
-     
+
+     // Announcements 
+     Route::resource('announcements', 'AnnouncementsController');
+     Route::post('announcements/update/{announcement}', 'AnnouncementsController@updateannouncement')->name('announcements.updateannouncement');
 
 });
