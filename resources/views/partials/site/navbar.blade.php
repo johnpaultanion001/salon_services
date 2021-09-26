@@ -122,4 +122,4 @@
       </div>
   </nav>
 
-  <div class="page-header header-filter" data-parallax="true" style="background-image: url('../assets/img/city-profile.jpg');"></div>
+  <div class="page-header header-filter clear-filter purple-filter"></div>
