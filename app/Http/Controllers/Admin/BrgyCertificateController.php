@@ -6,6 +6,7 @@ use App\Models\BrgyCertificate;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Validator;
+use App\Models\Notification;
 
 class BrgyCertificateController extends Controller
 {
@@ -58,6 +59,23 @@ class BrgyCertificateController extends Controller
         BrgyCertificate::find($brgyCertificate->id)->update([
             'status' => $request->input('status'),
             'comment' => $request->input('comment'),
+        ]);
+
+        $status = $request->input('status');
+        if($status == 0){
+            $message = "Pending";
+        }
+        if($status == 1){
+            $message = "Approved";
+        }
+        if($status == 2){
+            $message = "Declined";
+        }
+
+        Notification::create([
+            'user_id' => $brgyCertificate->user_id,
+            'status' => "Your Brgy Certificate has been " . $message,
+            'link' => "/resident/brgy_certificate",
         ]);
 
         return response()->json(['success' => 'Updated Successfully.']);

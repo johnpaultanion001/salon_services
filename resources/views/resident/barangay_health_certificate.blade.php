@@ -19,13 +19,14 @@
         </div>
 
         <div class="row">
-          <div class="col-md-10 ml-auto mr-auto">
+          
+          <div class="col-md-12 text-center">
             <h2 class="text-center title">Barangay Health Certificate</h2>
           </div>
-          <div class="col-2">
-          <button class="btn btn-primary btn-raised" name="create_record" id="create_record" >Barangay Health Certificate</button>
-          
+          <div class="col-md-12 text-right">
+            <button class="btn btn-primary btn-raised" name="create_record" id="create_record" >Barangay Health Certificate</button>
           </div>
+
           <div class="col-md-12">
             <div class="row p-2">
               
@@ -44,7 +45,7 @@
                                 @elseif ($brgyCertificate->status == 1)
                                   <h6 class="card-subtitle mb-2 text-muted">Admin Comment:</h6>
                                   <p class="card-text">{{$brgyCertificate->comment}}</p>
-                                  <p class="badge badge-primary">Approved</p>
+                                  <p class="badge badge-success">Approved</p>
 
                                 @elseif ($brgyCertificate->status == 2)
                                   <h6 class="card-subtitle mb-2 text-muted">Admin Comment:</h6>

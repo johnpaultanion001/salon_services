@@ -29,6 +29,15 @@ Route::group(['prefix' => 'resident', 'as' => 'resident.', 'namespace' => 'Resid
      //Barangay Indigency
      Route::resource('barangay_indigency', 'BarangayIndigencyController');
 
+    //User Update
+    Route::get('update', 'UserController@updateshow')->name('updateshow');
+    Route::put('update/{user}', 'UserController@update')->name('update');
+    Route::put('changepassword/{user}', 'UserController@changepassword')->name('changepassword');
+
+    //Notification
+    Route::put('notification/{notif}', 'NotificationController@notification')->name('notification');
+    
+
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {

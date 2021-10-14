@@ -6,6 +6,7 @@ use App\Models\CertificateOfResidency;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Validator;
+use App\Models\Notification;
 
 class CertificateOfResidencyController extends Controller
 {
@@ -60,6 +61,23 @@ class CertificateOfResidencyController extends Controller
         CertificateOfResidency::find($certificateOfResidency->id)->update([
             'status' => $request->input('status'),
             'comment' => $request->input('comment'),
+        ]);
+
+        $status = $request->input('status');
+        if($status == 0){
+            $message = "Pending";
+        }
+        if($status == 1){
+            $message = "Approved";
+        }
+        if($status == 2){
+            $message = "Declined";
+        }
+
+        Notification::create([
+            'user_id' => $certificateOfResidency->user_id,
+            'status' => "Your Certificate Of Residency has been " . $message,
+            'link' => "/resident/certificate_of_residency",
         ]);
 
         return response()->json(['success' => 'Updated Successfully.']);

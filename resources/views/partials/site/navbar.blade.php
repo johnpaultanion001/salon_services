@@ -1,8 +1,9 @@
 <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
       <div class="container">
         <div class="navbar-translate">
-          <a class="navbar-brand" href="/">
-          {{ trans('panel.site_title') }} </a>
+          <a class="navbar-brand font-weight-bold" href="/">
+          {{ trans('panel.site_title') }} 
+        </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon"></span>
@@ -78,19 +79,41 @@
                 <i class="fab fa-instagram fa-2x"></i>
               </a>
             </li>
-
-            
-          
+            @if (Auth::user())
+              <li class="dropdown nav-item">
+                <a href="#" class="nav-link" data-toggle="dropdown">
+                  <i class="fas fa-bell fa-2x"></i><span class="counter counter-lg ">
+                    @php(
+                        [
+                          $notis = App\Models\Notification::where('user_id', Auth::user()->id ?? ''  )->where('isRead', 0)->count(),
+                          $allnotis =  App\Models\Notification::where('user_id', Auth::user()->id ?? ''  )->latest()->get()
+                        ]
+                      )
+                      {{$notis}}
+                  
+                  </span>
+                </a>
+                  <div class="dropdown-menu dropdown-with-icons">
+                      @if(count($allnotis) > 0)
+                        @foreach($allnotis as $an)
+                          <a id="click_notif" click_notif="{{$an->id}}" class="dropdown-item" style="cursor: pointer;">
+                            <i class="fas fa-bell pr-2 {{ $an->isRead == 0 ? 'text-success' : '' }}"></i> {{$an->status}}
+                          </a>
+                        @endforeach
+                      @endif
+                  </div>
+              </li>
+            @endif
           </ul>
         
           <ul class="navbar-nav ml-auto">
               @if (Auth::user())
               <li class="dropdown nav-item">
                   <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  <i class="fas fa-user fa-lg p-2"></i> {{ Auth::user()->name }}
+                    <i class="fas fa-user fa-lg p-2"></i> {{ Auth::user()->name }}
                   </a>
                   <div class="dropdown-menu dropdown-with-icons">
-                      <a href="/" class="dropdown-item">
+                      <a href="/resident/update" class="dropdown-item">
                           <i class="fas fa-user-edit fa-lg p-2"></i> Update Info.
                       </a>
                       <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item">
@@ -122,4 +145,6 @@
       </div>
   </nav>
 
-  <div class="page-header header-filter clear-filter purple-filter"></div>
+  <div class="page-header header-filter clear-filter purple-filter" ></div>
+
+  

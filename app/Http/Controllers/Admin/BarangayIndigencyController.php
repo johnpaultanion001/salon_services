@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\BarangayIndigency;
 use Carbon\Carbon;
 use Validator;
+use App\Models\Notification;
 
 class BarangayIndigencyController extends Controller
 {
@@ -47,6 +48,23 @@ class BarangayIndigencyController extends Controller
         BarangayIndigency::find($barangayIndigency->id)->update([
             'status' => $request->input('status'),
             'comment' => $request->input('comment'),
+        ]);
+
+        $status = $request->input('status');
+        if($status == 0){
+            $message = "Pending";
+        }
+        if($status == 1){
+            $message = "Approved";
+        }
+        if($status == 2){
+            $message = "Declined";
+        }
+
+        Notification::create([
+            'user_id' =>  $barangayIndigency->user_id,
+            'status' => "Your Barangay Indigency has been " . $message,
+            'link' => "/resident/barangay_indigency",
         ]);
 
         return response()->json(['success' => 'Updated Successfully.']);

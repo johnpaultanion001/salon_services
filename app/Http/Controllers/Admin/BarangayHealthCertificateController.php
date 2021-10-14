@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Validator;
 use App\Models\BarangayHealthCertificate;
+use App\Models\Notification;
 
 class BarangayHealthCertificateController extends Controller
 {
@@ -60,6 +61,23 @@ class BarangayHealthCertificateController extends Controller
         BarangayHealthCertificate::find($barangayHealthCertificate->id)->update([
             'status' => $request->input('status'),
             'comment' => $request->input('comment'),
+        ]);
+
+        $status = $request->input('status');
+        if($status == 0){
+            $message = "Pending";
+        }
+        if($status == 1){
+            $message = "Approved";
+        }
+        if($status == 2){
+            $message = "Declined";
+        }
+
+        Notification::create([
+            'user_id' =>  $barangayHealthCertificate->user_id,
+            'status' => "Your Barangay Health Certificate has been " . $message,
+            'link' => "/resident/barangay_health_certificate",
         ]);
 
         return response()->json(['success' => 'Updated Successfully.']);

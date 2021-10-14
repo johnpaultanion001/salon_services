@@ -1,185 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('../layouts.site')
+@section('sub-title','Certificate Of Residency')
 
-<head>
-  <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="{{ asset('../assets/img/logo.png') }}">
+@section('navbar')
+    @include('../partials.site.navbar')
+@endsection
 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-  {{ trans('panel.site_title') }}
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
- 
-  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet" />
-  <link href="{{ asset('/admin/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
-  <!-- CSS Files -->
-  <link href="./assets/css/material-kit.css?v=2.0.7" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="./assets/demo/demo.css" rel="stylesheet" />
-</head>
+@section('content')
+<div class="main main-raised"> 
 
-<body class="index-page sidebar-collapse">
-  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
-      <div class="container">
-        <div class="navbar-translate">
-          <a class="navbar-brand " href="/">
-            
-            {{ trans('panel.site_title') }} 
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon"></span>
-            <span class="navbar-toggler-icon"></span>
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="navbar-nav ml-auto">
-            <li class="dropdown nav-item">
-              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                <i class="material-icons">content_paste</i> Request
-              </a>
-              <div class="dropdown-menu dropdown-with-icons">
-                <a href="/resident/brgy_certificate" class="dropdown-item">
-                <i class="material-icons">content_paste</i> Barangay Certificate
-                </a>
-                <a href="/resident/certificate_of_residency" class="dropdown-item">
-                  <i class="material-icons">content_paste</i> Certificate of Residency
-                </a>
-                <a href="/resident/business_permit_clearance" class="dropdown-item">
-                  <i class="material-icons">content_paste</i> Business Permit Clearance
-                </a>
-                <a href="/resident/barangay_health_certificate" class="dropdown-item">
-                  <i class="material-icons">content_paste</i> Barangay Health Certificate
-                </a>
-                <a href="/resident/barangay_indigency" class="dropdown-item">
-                  <i class="material-icons">content_paste</i> Barangay Indigency
-                </a>
-              </div>
-            </li>
-            <li class="dropdown nav-item">
-              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                <i class="material-icons">apps</i> Services
-              </a>
-              <div class="dropdown-menu dropdown-with-icons">
-                <a href="/resident/appointments" class="dropdown-item">
-                  <i class="far fa-calendar-plus fa-lg p-2"></i> Appointment
-                </a>
-              </div>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0)" onclick="scrollToAbout()">
-              <i class="fas fa-address-card fa-lg p-2"></i> About Us
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0)" onclick="scrollToContact()">
-                <i class="far fa-envelope fa-lg p-2"></i> Contact Us
-              </a>
-            </li>
-          
-        
-            
-            <li class="nav-item">
-              <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="/" target="_blank" data-original-title="Like us on Facebook" rel="nofollow">
-                <i class="fab fa-facebook-square fa-2x"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="/" target="_blank" data-original-title="Follow us on Instagram" rel="nofollow">
-                <i class="fab fa-instagram fa-2x"></i>
-              </a>
-            </li>
-
-            
-          
-          </ul>
-        
-          <ul class="navbar-nav ml-auto">
-              @if (Auth::user())
-              <li class="dropdown nav-item">
-                  <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  <i class="fas fa-user fa-lg p-2"></i> {{ Auth::user()->name }}
-                  </a>
-                  <div class="dropdown-menu dropdown-with-icons">
-                      <a href="/" class="dropdown-item">
-                          <i class="fas fa-user-edit fa-lg p-2"></i> Update Info.
-                      </a>
-                      <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item">
-                          <i class="fas fa-sign-out-alt fa-lg p-2"></i> Logout
-                      </a>
-                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                      </form> 
-                  </div>
-              </li>
-              @else
-              <li class="dropdown nav-item">
-                  <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  <i class="fas fa-users fa-lg p-2"></i> Accounts
-                  </a>
-                  <div class="dropdown-menu dropdown-with-icons">
-                      <a href="/login" class="dropdown-item">
-                          <i class="fas fa-sign-in-alt fa-lg p-2"></i> Login
-                      </a>
-                      <a href="/register" class="dropdown-item">
-                      <i class="fas fa-user-plus fa-lg p-2"></i> Register
-                      </a>
-                  </div>
-              </li>
-              @endif
-          </ul>
-
-        </div>
-      </div>
-  </nav>
-  <div class="page-header header-filter clear-filter purple-filter" data-parallax="true" style="background-image: url('./assets/img/logo.png'); background-size: contain; background-repeat: no-repeat;">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 ml-auto mr-auto">
-          <div class="brand">
-            <!-- <h1>{{ trans('panel.site_title') }}</h1>
-            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi.</h3> -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="main main-raised"> 
     <div class="section">
-     
       <div class="container">
-            <div class="title">
-                <h2  class="title">Announcements</h2>
-            </div>
-            @foreach($announcements as $announcement)
-              <article class="view postcard light blue" view="{{  $announcement->id ?? '' }}">
-                  
-                  <img class="postcard__img"src="{{URL::asset('./assets/img/announcements/'.$announcement->image)}}" alt="Image Title" />
+        <div class="title">
+            <h2  class="title">Announcements</h2>
+        </div>
+        @foreach($announcements as $announcement)
+          <article class="view postcard light blue" view="{{  $announcement->id ?? '' }}">
+              
+              <img class="postcard__img"src="{{URL::asset('/assets/img/announcements/'.$announcement->image)}}" alt="Image Title" />
 
-                  <div class="postcard__text t-dark">
-                    <h1 class="postcard__title blue">{{$announcement->title}}</h1>
-                    <div class="postcard__subtitle small">
-                      <time datetime="2020-05-25 12:00:00">
-                        <i class="fas fa-calendar-alt mr-2"></i> {{ $announcement->created_at->format('F d,Y h:i A') }} <i class="fas fa-user ml-2 mr-2"></i>{{  $announcement->user->name ?? '' }}
-                      </time>
-                    </div>
-                    <div class="postcard__bar"></div>
-                    <div class="postcard__preview-txt">  {{\Illuminate\Support\Str::limit($announcement->body,150)}}
-                    </div>
-                    <ul class="postcard__tagbox">
-                      <button type="button" name="view" id="view" view="{{  $announcement->id ?? '' }}" class="view tag__item"><i class="fas fa-eye fa-lg p-2"></i>View Announcement</button>
-                    </ul>
+              <div class="postcard__text t-dark">
+                <h1 class="postcard__title blue">{{$announcement->title}}</h1>
+                <div class="postcard__subtitle small">
+                  <time datetime="2020-05-25 12:00:00">
+                    <i class="fas fa-calendar-alt mr-2"></i> {{ $announcement->created_at->format('F d,Y h:i A') }} <i class="fas fa-user ml-2 mr-2"></i>{{  $announcement->user->name ?? '' }}
+                  </time>
                 </div>
-              </article>
-            @endforeach
+                <div class="postcard__bar"></div>
+                <div class="postcard__preview-txt">  {{\Illuminate\Support\Str::limit($announcement->body,150)}}
+                </div>
+                <ul class="postcard__tagbox">
+                  <button type="button" name="view" id="view" view="{{  $announcement->id ?? '' }}" class="view tag__item"><i class="fas fa-eye fa-lg p-2"></i>View Announcement</button>
+                </ul>
+            </div>
+          </article>
+        @endforeach
       </div>
     </div>
 
@@ -206,7 +60,7 @@
                 </ol>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img class="d-block w-100"   src="./assets/img/brgy/bg1.jpg" alt="1 slide">
+                    <img class="d-block w-100"   src="../assets/img/brgy/bg1.jpg" alt="1 slide">
                     <div class="carousel-caption d-none d-md-block">
                       <h2 class="text-white font-weight-bold">
                         
@@ -214,7 +68,7 @@
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100" src="./assets/img/brgy/bg2.jpg" alt="2 slide">
+                    <img class="d-block w-100" src="../assets/img/brgy/bg2.jpg" alt="2 slide">
                     <div class="carousel-caption d-none d-md-block">
                       <h2 class="text-white font-weight-bold">
                         BARANGAY HEALTH WORKERS
@@ -222,7 +76,7 @@
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100"  src="./assets/img/brgy/bg3.jpg" alt="3 slide">
+                    <img class="d-block w-100"  src="../assets/img/brgy/bg3.jpg" alt="3 slide">
                     <div class="carousel-caption d-none d-md-block">
                       <h2 class="text-white font-weight-bold">
                         BARANGAY LUPON 
@@ -230,7 +84,7 @@
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100"  src="./assets/img/brgy/bg4.jpg" alt="4 slide">
+                    <img class="d-block w-100"  src="../assets/img/brgy/bg4.jpg" alt="4 slide">
                     <div class="carousel-caption d-none d-md-block">
                       <h2 class="text-white font-weight-bold">
                         SANGGUNIANG BARANGAY MEMBERS 
@@ -238,7 +92,7 @@
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100"  src="./assets/img/brgy/bg7.jpg" alt="5 slide">
+                    <img class="d-block w-100"  src="../assets/img/brgy/bg7.jpg" alt="5 slide">
                     <div class="carousel-caption d-none d-md-block">
                       <h2 class="text-white font-weight-bold">
                         BARANGAY PEACE AND ORDER DEPARTMENT
@@ -246,7 +100,6 @@
                     </div>
                   </div>
                 </div>
-
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                   <i class="material-icons">keyboard_arrow_left</i>
                   <span class="sr-only">Previous</span>
@@ -260,8 +113,7 @@
             <!-- End Carousel Card -->
           </div>
         </div>
-         
-      <div class="container">
+        <div class="container">
         <div class="row">
           <div class="col-md-6">
               <div class="title">
@@ -287,8 +139,8 @@
           </div>
         </div>
       </div>
-        
-            <div class="container">
+   
+      <div class="container">
               <div class="row">
                 <div class="col-md-12">
                   <div class="title">
@@ -470,26 +322,37 @@
                       <div id="navigation-pills">
                        <div class="row">
                           <div class="col-lg-12">
-                              <ul class="nav nav-pills nav-pills-icons" role="tablist">
+                            <div class="row">
+                             
+                              <div class="col text-right">
+                                <ul class="nav nav-pills nav-pills-icons " role="tablist">
+                                    <li class="nav-item">
+                                      <a class="nav-link  active" href="#list_of_subdivisions_of_brgy_san_roque" rel="tooltip" data-original-title="LIST OF SUBDIVISIONS OF BARANGAY SAN ROQUE"  data-placement="top" role="tab" data-toggle="tab">
+                                          <i class="material-icons">list</i>
+                                          <h6>LIST OF <br> SUBDIVISIONS</h6>
+                                          
+                                      </a>
+                                    </li>
                                   <li class="nav-item">
-                                    <a class="nav-link  active" href="#list_of_subdivisions_of_brgy_san_roque" rel="tooltip" data-original-title="LIST OF SUBDIVISIONS OF BARANGAY SAN ROQUE"  data-placement="top" role="tab" data-toggle="tab">
-                                        <i class="material-icons">list</i>
-                                        LIST OF SUBDIVISIONS
-                                    </a>
-                                  </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="#list_of_streets_of_brgy_san_roque" role="tab" data-toggle="tab" rel="tooltip" data-original-title="LIST OF STREETS OF BARANGAY SAN ROQUE"  data-placement="top">
-                                      <i class="material-icons">list</i>  
-                                      LIST OF STREETS
-                                    </a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="#brgy_awards_and_achievements" role="tab" data-toggle="tab" rel="tooltip" data-original-title="BARANGAY AWARDS AND ACHIEVEMENTS"  data-placement="top">
-                                    <i class="material-icons">diamond</i>  
-                                      AWARDS & ACHIEVEMENTS
-                                    </a>
-                                  </li> 
-                            </ul>
+                                      <a class="nav-link" href="#list_of_streets_of_brgy_san_roque" role="tab" data-toggle="tab" rel="tooltip" data-original-title="LIST OF STREETS OF BARANGAY SAN ROQUE"  data-placement="top">
+                                        <i class="material-icons">list</i>  
+                                        <h6>LIST OF <br> STREETS</h6>
+                                        
+                                      </a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="#brgy_awards_and_achievements" role="tab" data-toggle="tab" rel="tooltip" data-original-title="BARANGAY AWARDS AND ACHIEVEMENTS"  data-placement="top">
+                                      <i class="material-icons">diamond</i>  
+                                      <h6>AWARDS & <br> ACHIEVEMENTS</h6>
+                                        
+                                      </a>
+                                    </li> 
+                                </ul>
+                              </div>
+                              
+                             
+                            </div>
+                              
                             <div class="tab-content tab-space">
                              
                               <div class="tab-pane active" id="list_of_subdivisions_of_brgy_san_roque">
@@ -601,60 +464,61 @@
                                   </p>
                                 </div>
                              
-                                  <div class="title text-left">
+                                <div class="title text-left">
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-6" style="border: 1px solid #111">
                                             <h6 class="font-weight-bold">Name of Subdivision</h6>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6" style="border: 1px solid #111">
                                             <h6 class="font-weight-bold">No. of Residents</h6>
                                         </div>
-                                        <div class="col-6">
+                                       
+                                        <div class="col-6" style="border: 1px solid #111">
                                             <h6 class="font-weight-light">DM 2, 9 and 10 Subdivision</h6>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6" style="border: 1px solid #111">
                                             <h6 class="font-weight-light">318</h6>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6" style="border: 1px solid #111">
                                             <h6 class="font-weight-light">Genesis Royale ii Subdivision</h6>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6" style="border: 1px solid #111">
                                             <h6 class="font-weight-light">114</h6>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6" style="border: 1px solid #111">
                                             <h6 class="font-weight-light">Madera I Subdivision</h6>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6" style="border: 1px solid #111">
                                             <h6 class="font-weight-light">866</h6>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6" style="border: 1px solid #111">
                                             <h6 class="font-weight-light">Rose Ann Subdivision </h6>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6" style="border: 1px solid #111">
                                             <h6 class="font-weight-light">382</h6>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6" style="border: 1px solid #111">
                                             <h6 class="font-weight-light">St. Christopher Subdivision </h6>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6" style="border: 1px solid #111">
                                             <h6 class="font-weight-light">185</h6>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6" style="border: 1px solid #111">
                                             <h6 class="font-weight-light">Summergreen Subdivision Phase II</h6>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6" style="border: 1px solid #111">
                                             <h6 class="font-weight-light">60</h6>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6" style="border: 1px solid #111">
                                             <h6 class="font-weight-light">Verde Grande Subdivision</h6>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6" style="border: 1px solid #111">
                                             <h6 class="font-weight-light">115</h6>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6" style="border: 1px solid #111">
                                             <h6 class="font-weight-light">Greenland Subdivision Phase 7</h6>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6" style="border: 1px solid #111">
                                             <h6 class="font-weight-light">456</h6>
                                         </div>
                                     </div>
@@ -735,7 +599,6 @@
                                           </div>
                                     </div>
                                   </div>
-                                
                                
                               </div>
                             </div>
@@ -747,6 +610,8 @@
                 </div>
               </div>
             </div>
+        
+          
           </div>
         </div>
      
@@ -754,17 +619,15 @@
         
       </div>
     </div>
+
     <h3 class="text-center title">BARANGAY ORGANIZATIONAL CHART</h4>
     <a href="../assets/img/brgy/brgy_chart.png">
-      <div class="navigation-example" style="background-image: url('../assets/img/brgy/brgy_chart.png');">
+      <div class="card border-0 brgy_chart">
+          <img src="../assets/img/brgy/brgy_chart.png" alt="BARANGAY ORGANIZATIONAL CHART">
       </div>
     </a>
-    
 
-
-
-
-        <div class="section section-contacts" id="contact">
+    <div class="section section-contacts" id="contact">
           <div class="container">
               <h3 class="text-center title">Contact Us</h4>
                 <div id="navigation-pills">
@@ -773,17 +636,17 @@
                       <ul class="nav nav-pills nav-pills-icons" role="tablist">
                       <li class="nav-item">
                           <a class="nav-link  active" href="#brgy_directory" role="tab" data-toggle="tab">
-                            BARANGAY DIRECTORY
+                            BARANGAY <br> DIRECTORY
                           </a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="#brief_narrative_description_of_location" role="tab" data-toggle="tab">
-                            BRIEF NARRATIVE DESCRIPTION OF LOCATION
+                            DESCRIPTION <br> OF LOCATION
                           </a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" href="#landmark_with_brief_description" role="tab" data-toggle="tab">
-                            LANDMARK WITH BRIEF DESCRIPTION
+                            LANDMARK WITH <br> BRIEF DESCRIPTION
                           </a>
                         </li>
                       </ul>
@@ -928,27 +791,9 @@
             </form>
           </div>
         </div>
-    </div>
 
-  <!--  End Modal -->
-  <footer class="footer" data-background-color="black">
-    <div class="container">
-      <nav class="float-left">
-        <ul>
-         
-          
-        </ul>
-      </nav>
-      <div class="copyright float-right">
-        &copy;
-        <script>
-          document.write(new Date().getFullYear())
-        </script>,  Copyright <strong><span>{{ trans('panel.site_title') }}</span></strong>. All Rights Reserved
-      </div>
-    </div>
-  </footer>
-
-
+  </div>
+ 
 
   <div class="modal fade" id="viewModal" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -976,21 +821,17 @@
       </div>
     </div>
   </div>
+@endsection
 
-  <!--   Core JS Files   -->
-  <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
-  <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
-  <script src="./assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
-  <script src="./assets/js/plugins/moment.min.js"></script>
-  <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-  <script src="./assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
-  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <script src="./assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-  <!--  Google Maps Plugin    -->
-  <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
-  <script src="./assets/js/material-kit.js?v=2.0.7" type="text/javascript"></script>
-  <script>
-    $(document).ready(function() {
+
+@section('footer')
+    @include('../partials.site.footer')
+@endsection
+
+
+@section('script')
+<script> 
+ $(document).ready(function() {
       //init DateTimePickers
       materialKit.initFormExtendedDatetimepickers();
 
@@ -1048,7 +889,7 @@
     })
 
     });
-  </script>
-</body>
+  
 
-</html>
+</script>
+@endsection

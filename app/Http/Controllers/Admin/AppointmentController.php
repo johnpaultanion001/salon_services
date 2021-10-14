@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Validator;
 use App\Models\BarangayHealthCertificate;
 use App\Models\Appointment;
+use App\Models\Notification;
 
 class AppointmentController extends Controller
 {
@@ -47,6 +48,23 @@ class AppointmentController extends Controller
         Appointment::find($appointment->id)->update([
             'status' => $request->input('status'),
             'comment' => $request->input('comment'),
+        ]);
+        
+        $status = $request->input('status');
+        if($status == 0){
+            $message = "Pending";
+        }
+        if($status == 1){
+            $message = "Approved";
+        }
+        if($status == 2){
+            $message = "Declined";
+        }
+
+        Notification::create([
+            'user_id' => $appointment->user_id,
+            'status' => "Your appointment has been " . $message,
+            'link' => "/resident/appointments",
         ]);
 
         return response()->json(['success' => 'Updated Successfully.']);

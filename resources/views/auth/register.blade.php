@@ -29,104 +29,73 @@
               </div>
               <br><br>
               <div class="card-body">
-              
-                <div class="input-group">
-
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                        <i class="material-icons">face</i>
-                    </span>
-                  </div>
-                  
-                  <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Name..." value="{{ old('name') }}" required autocomplete="name" autofocus>
+                  <div class="form-group">
+                    <label for="name" class="bmd-label-floating">Name</label>
+                    <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required autocomplete="name" autofocus>
                     @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                </div>
-
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="material-icons">mail</i>
-                    </span>
                   </div>
-                  <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email..." value="{{ old('email') }}" required autocomplete="email">
+
+                  <div class="form-group">
+                    <label for="email" class="bmd-label-floating">Email</label>
+                    <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror"  value="{{ old('email') }}" required autocomplete="email">
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                </div>
-
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                    <i class="fas fa-mobile-alt fa-lg p-1"></i>
-                    </span>
                   </div>
-                  <input type="number" id="contact_number" name="contact_number" class="form-control @error('contact_number') is-invalid @enderror" placeholder="Contact Number..." value="{{ old('contact_number') }}" required autocomplete="contact_number">
+
+                  <div class="form-group">
+                    <label for="contact_number" class="bmd-label-floating">Contact Number</label>
+                    <input type="number" id="contact_number" name="contact_number" class="form-control @error('contact_number') is-invalid @enderror"  value="{{ old('contact_number') }}" required autocomplete="contact_number">
                     @error('contact_number')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                </div>
+                  </div>
 
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                        <i class="fas fa-map-marker fa-lg p-1"></i>
-                    </span>
-                  </div>
-                  <input type="text" id="address" name="address" class="form-control @error('address') is-invalid @enderror" placeholder="Address..." value="{{ old('address') }}" required autocomplete="address">
+                  <div class="form-group">
+                    <label for="address" class="bmd-label-floating">Address</label>
+                    <input type="text" id="address" name="address" class="form-control @error('address') is-invalid @enderror" value="{{ old('address') }}" required autocomplete="address">
                     @error('address')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
                     @enderror
-                </div>
-                
-                <div class="input-group">
-               
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                     <i class="fas fa-calendar-alt fa-lg p-1"></i>
-                    </span>
                   </div>
-                  
-                  <input type="date" id="date_of_birth" name="date_of_birth" class="form-control @error('date_of_birth') is-invalid @enderror" placeholder="Date Of Birth..." value="{{ old('date_of_birth') }}" required autocomplete="date_of_birth">
+
+                  <div class="form-group">
+                    <label for="date_of_birth" >Date Of Birth</label>
+                    <input type="date" id="date_of_birth" name="date_of_birth" class="form-control @error('date_of_birth') is-invalid @enderror" value="{{ old('date_of_birth') }}" required autocomplete="date_of_birth">
                     @error('date_of_birth')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                </div>
-                
-                <hr>
-
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="material-icons">lock_outline</i>
-                    </span>
                   </div>
-                  <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password...">
+
+                  <div class="form-group">
+                    <label for="password"class="bmd-label-floating" >Password</label>
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" >
                      @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                </div>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="material-icons">lock_outline</i>
-                    </span>
                   </div>
-                  <input type="password" id="password-confirm" name="password_confirmation" class="form-control" required autocomplete="new-password" placeholder="Confirm Password...">
-                </div>
+
+                  <div class="form-group">
+                    <label for="password-confirm" class="bmd-label-floating">Confirm Password</label>
+                    <input type="password" id="password-confirm" name="password_confirmation" class="form-control" required autocomplete="new-password">
+                  </div>
+
+
+                
 
               </div>
               <br><br><br>

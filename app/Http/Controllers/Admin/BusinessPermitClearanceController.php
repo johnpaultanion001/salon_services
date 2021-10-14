@@ -6,6 +6,7 @@ use App\Models\BusinessPermitClearance;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Validator;
+use App\Models\Notification;
 
 class BusinessPermitClearanceController extends Controller
 {
@@ -58,6 +59,23 @@ class BusinessPermitClearanceController extends Controller
         BusinessPermitClearance::find($businessPermitClearance->id)->update([
             'status' => $request->input('status'),
             'comment' => $request->input('comment'),
+        ]);
+
+        $status = $request->input('status');
+        if($status == 0){
+            $message = "Pending";
+        }
+        if($status == 1){
+            $message = "Approved";
+        }
+        if($status == 2){
+            $message = "Declined";
+        }
+
+        Notification::create([
+            'user_id' =>  $businessPermitClearance->user_id,
+            'status' => "Your Business Permit Clearance has been " . $message,
+            'link' => "/resident/business_permit_clearance",
         ]);
 
         return response()->json(['success' => 'Updated Successfully.']);
