@@ -20,7 +20,7 @@
 
         <div class="row">
           <div class="col-md-12 text-center">
-            <h2 class="text-center title">Certificate Of Residency</h2>
+            <h2 class="text-center title text-white">Certificate Of Residency</h2>
           </div>
           <div class="col-md-12 text-right">
             <button class="btn btn-primary btn-raised" name="create_record" id="create_record" >Certificate Of Residency</button>

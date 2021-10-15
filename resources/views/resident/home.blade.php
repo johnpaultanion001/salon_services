@@ -1,5 +1,5 @@
 @extends('../layouts.site')
-@section('sub-title','Certificate Of Residency')
+@section('sub-title','HOME')
 
 @section('navbar')
     @include('../partials.site.navbar')
@@ -11,7 +11,7 @@
     <div class="section">
       <div class="container">
         <div class="title">
-            <h2  class="title">Announcements</h2>
+            <h2  class="title text-white">Announcements</h2>
         </div>
         @foreach($announcements as $announcement)
           <article class="view postcard light blue" view="{{  $announcement->id ?? '' }}">
@@ -42,7 +42,7 @@
         <!--     	        typography -->
         <div id="typography" class="cd-section">
           <div class="title">
-            <h3 class=" title">ABOUT {{ trans('panel.site_title') }} </h3>
+            <h3 class=" title text-white">ABOUT {{ trans('panel.site_title') }} </h3>
           </div>
           <div class="row">
           
@@ -117,9 +117,9 @@
         <div class="row">
           <div class="col-md-6">
               <div class="title">
-                  <h3 class="font-weight-bold">Vision:</h3>
+                  <h3 class="font-weight-bold text-white">Vision:</h3>
               </div>
-                <div class="blockquote undefined pt-2">
+                <div class="blockquote undefined text-white pt-2">
                   <p>
                     An Independent and progressive barangay advocating principles and practices of good governance that help build and nurture honesty responsibility among its public officials and employee and take appropriate measures to promote transparency in transacting with the public.
                   </p>
@@ -128,9 +128,9 @@
           </div>
           <div class="col-md-6">
             <div class="title">
-                <h3 class="font-weight-bold">Mission:</h3>
+                <h3 class="font-weight-bold text-white">Mission:</h3>
             </div>
-                <div class="blockquote undefined pt-2">
+                <div class="blockquote undefined text-white pt-2">
                   <p>
                     To be able to actively carry out the mandates and ensure transparency, honesty and efficiency in the delivery of services in the barangay.
                   </p>
@@ -144,9 +144,9 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="title">
-                      <h3 class="text-center font-weight-bold">BRIEF HISTORY OF BARANGAY SAN ROQUE CAINTA RIZAL</h3>
+                      <h3 class="text-center font-weight-bold text-white">BRIEF HISTORY OF BARANGAY SAN ROQUE CAINTA RIZAL</h3>
                   </div>
-                    <p>
+                    <p class="text-white">
                     BARANGAY SAN ROQUE was established on 1963 and the barrio lieutenant (Tiniente Del Baryo) was appointed by the Municipal Mayor through the recommendation of Municipal Councilor. This creation was based on RA 3590 and was categorized as URBAN barangay with a land are 66.99 hectares with a total population of 8,342 as of 2009 (4,433-female & 3,909-male) with total households of 2,126 and with a total registered voters of 4,746.
                     <br><br>
                     The barangay basic utilities like power supply is from MERALCO and water were coming from the first level Manila Water. Our way of transportation are mobil/patrol and motorcycle, we provide our communication by way of telephone and mobile. The barangay revenues are coming from Local Source, IRA and other barangay generating income.
@@ -155,10 +155,10 @@
                 </div>
                 <div class="col-md-12">
                   <div class="title">
-                      <h5 class="font-weight-bold">BARANGAY SAN ROQUE was composed of the following personnel:</h5>
+                      <h5 class="font-weight-bold text-white">BARANGAY SAN ROQUE was composed of the following personnel:</h5>
                   </div>
                   <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 text-white">
                           1 Punong Barangay  <br>
                           7 Barangay Kagawads  <br>
                           1 SK-Chairperson  <br>
@@ -166,7 +166,7 @@
                           8 Brgy. Staffs  <br>
                           12 Environmental Crews   <br>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 text-white">
                             18 Barangay Tanods    <br>
                             23 BHW    <br>
                             1 Daycare Worker    <br>
@@ -176,17 +176,17 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-12 mt-4 text-left">
+                <div class="col-md-12 mt-4 text-left ">
                  
-                  <div class="title  text-center">
+                  <div class="title text-white  text-center">
                       <h5 class="font-weight-bold">LIST OF OFFICIALS</h5>
                   </div>
-                  <div class="title">
+                  <div class="title text-white">
                       <h5 class="font-weight-bold">FELIX C. TAGUBA III</h5>
                       <h6 class="font-weight-light">Punong Barangay</h6>
                   </div>
-                  <hr class="my-2 bg-muted">
-                  <div class="title">
+                  <hr class="my-2 bg-white">
+                  <div class="title text-white">
                       <h5 class="font-weight-bold">BENJAMIN S. ZAPANTA, JR.</h5>
                       <div class="row">
                         <div class="col-6"><h6 class="font-weight-light">Kagawad- Committee on:</h6></div>
@@ -201,122 +201,122 @@
                         <div class="col-6"><h6 class="font-weight-light">Kag. June Laranang and Kag. Gregorio C. Cruz, Jr.</h6></div>
                       </div>
                   </div>
-                  <hr class="my-2 bg-muted">
+                  <hr class="my-2 bg-white">
                   <div class="title">
-                      <h5 class="font-weight-bold">JERICO J. SANTOS</h5>
+                      <h5 class="font-weight-bold text-white">JERICO J. SANTOS</h5>
                       <div class="row">
-                        <div class="col-6"><h6 class="font-weight-light">Kagawad- Committee on:</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Kagawad- Committee on:</h6></div>
                         <div class="col-6"></div>
                       </div>
                       <div class="row">
-                        <div class="col-6"><h6 class="font-weight-light">Peace & Order and Human Rights</h6></div>
-                        <div class="col-6"><h6 class="font-weight-light">Kag. Benjamin S. Zapanta, Jr., Kag. June Laranang</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Peace & Order and Human Rights</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Kag. Benjamin S. Zapanta, Jr., Kag. June Laranang</h6></div>
                       </div>
                       <div class="row">
-                        <div class="col-6"><h6 class="font-weight-light">Transportation & Communication</h6></div>
-                        <div class="col-6"><h6 class="font-weight-light">Kag. Willy Sta. Maria, Kag. Rodel Costoy</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Transportation & Communication</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Kag. Willy Sta. Maria, Kag. Rodel Costoy</h6></div>
                       </div>
                   </div>
-                  <hr class="my-2 bg-muted">
+                  <hr class="my-2 bg-white">
                   <div class="title">
-                      <h5 class="font-weight-bold">GREGORIO C. CRUZ, JR.</h5>
+                      <h5 class="font-weight-bold text-white">GREGORIO C. CRUZ, JR.</h5>
                       <div class="row">
-                        <div class="col-6"><h6 class="font-weight-light">Kagawad- Committee on:</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Kagawad- Committee on:</h6></div>
                         <div class="col-6"></div>
                       </div>
                       <div class="row">
-                        <div class="col-6"><h6 class="font-weight-light">Public Works and Infrastracture</h6></div>
-                        <div class="col-6"><h6 class="font-weight-light">Kag. Benjamin S. Zapanta, Jr., Kag. Jericho J. Santos</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Public Works and Infrastracture</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Kag. Benjamin S. Zapanta, Jr., Kag. Jericho J. Santos</h6></div>
                       </div>
                   </div>
-                  <hr class="my-2 bg-muted">
+                  <hr class="my-2 bg-white">
                   <div class="title">
-                      <h5 class="font-weight-bold">WILLY C. STA. MARIA</h5>
+                      <h5 class="font-weight-bold text-white">WILLY C. STA. MARIA</h5>
                       <div class="row">
-                        <div class="col-6"><h6 class="font-weight-light">Kagawad- Committee on:</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Kagawad- Committee on:</h6></div>
                         <div class="col-6"></div>
                       </div>
                       <div class="row">
-                        <div class="col-6"><h6 class="font-weight-light">Ways and Means</h6></div>
-                        <div class="col-6"><h6 class="font-weight-light">Kag. Jericho J. Santos, Kag. Gregorio C. Cruz, Jr.</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Ways and Means</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Kag. Jericho J. Santos, Kag. Gregorio C. Cruz, Jr.</h6></div>
                       </div>
                       <div class="row">
-                        <div class="col-6"><h6 class="font-weight-light">Commerce, Trade & Industries</h6></div>
-                        <div class="col-6"><h6 class="font-weight-light">Kag. Benjamin S. Zapanta, Jr., Kag. Gregorio C. Cruz, Jr</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Commerce, Trade & Industries</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Kag. Benjamin S. Zapanta, Jr., Kag. Gregorio C. Cruz, Jr</h6></div>
                       </div>
                   </div>
-                  <hr class="my-2 bg-muted">
+                  <hr class="my-2 bg-white">
                   <div class="title">
-                      <h5 class="font-weight-bold">RODEL M. COSTOY</h5>
+                      <h5 class="font-weight-bold text-white">RODEL M. COSTOY</h5>
                       <div class="row">
-                        <div class="col-6"><h6 class="font-weight-light">Kagawad- Committee on:</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Kagawad- Committee on:</h6></div>
                         <div class="col-6"></div>
                       </div>
                       <div class="row">
-                        <div class="col-6"><h6 class="font-weight-light">Education & Culture</h6></div>
-                        <div class="col-6"><h6 class="font-weight-light">Kag. June Laranang, Kag. Maria Kaela Cruz</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Education & Culture</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Kag. June Laranang, Kag. Maria Kaela Cruz</h6></div>
                       </div>
                   </div>
-                  <hr class="my-2 bg-muted">
+                  <hr class="my-2 bg-white">
                   <div class="title">
-                      <h5 class="font-weight-bold">JUNE L. LARANANG</h5>
+                      <h5 class="font-weight-bold text-white">JUNE L. LARANANG</h5>
                       <div class="row">
-                        <div class="col-6"><h6 class="font-weight-light">Kagawad- Committee on:</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Kagawad- Committee on:</h6></div>
                         <div class="col-6"></div>
                       </div>
                       <div class="row">
-                        <div class="col-6"><h6 class="font-weight-light">Environmental Protection</h6></div>
-                        <div class="col-6"><h6 class="font-weight-light">Kag. Benjamin S. Zapanta Jr., Kag. Jericho J. Santos <br>Kag. Gregorio C. Cruz, Jr.</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Environmental Protection</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Kag. Benjamin S. Zapanta Jr., Kag. Jericho J. Santos <br>Kag. Gregorio C. Cruz, Jr.</h6></div>
                       </div>
                       <div class="row">
-                        <div class="col-6"><h6 class="font-weight-light">BDRRM</h6></div>
-                        <div class="col-6"><h6 class="font-weight-light">Kag. Benjamin S. Zapanta, Jr.</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">BDRRM</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Kag. Benjamin S. Zapanta, Jr.</h6></div>
                       </div>
                   </div>
-                  <hr class="my-2 bg-muted">
+                  <hr class="my-2 bg-white">
                   <div class="title">
-                      <h5 class="font-weight-bold">MARIA KAELA G. CRUZ</h5>
+                      <h5 class="font-weight-bold text-white">MARIA KAELA G. CRUZ</h5>
                       <div class="row">
-                        <div class="col-6"><h6 class="font-weight-light">Kagawad- Committee on:</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Kagawad- Committee on:</h6></div>
                         <div class="col-6"></div>
                       </div>
                       <div class="row">
-                        <div class="col-6"><h6 class="font-weight-light">Health & Social Services</h6></div>
-                        <div class="col-6"><h6 class="font-weight-light">Kag. Jericho J. Santos,Kag. June Laranang</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Health & Social Services</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Kag. Jericho J. Santos,Kag. June Laranang</h6></div>
                       </div>
                       <div class="row">
-                        <div class="col-6"><h6 class="font-weight-light">Women & Family Affairs</h6></div>
-                        <div class="col-6"><h6 class="font-weight-light">Kag. Benjamin S. Zapanta, Jr., Kag. Willy Sta. Maria</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Women & Family Affairs</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Kag. Benjamin S. Zapanta, Jr., Kag. Willy Sta. Maria</h6></div>
                       </div>
                   </div>
-                  <hr class="my-2 bg-muted">
+                  <hr class="my-2 bg-white">
                   <div class="title">
-                      <h5 class="font-weight-bold">JOHN PAUL C. RICARDO</h5>
+                      <h5 class="font-weight-bold text-white">JOHN PAUL C. RICARDO</h5>
                       <div class="row">
-                        <div class="col-6"><h6 class="font-weight-light">SK Chairman- Committee on:</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">SK Chairman- Committee on:</h6></div>
                         <div class="col-6"></div>
                       </div>
                       <div class="row">
-                        <div class="col-6"><h6 class="font-weight-light">Youth & Sports Development</h6></div>
-                        <div class="col-6"><h6 class="font-weight-light">Kag. Rodel Costoy, Kag. Jerico Santos</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Youth & Sports Development</h6></div>
+                        <div class="col-6"><h6 class="font-weight-light text-white">Kag. Rodel Costoy, Kag. Jerico Santos</h6></div>
                       </div>
                   </div>
-                  <hr class="my-2 bg-muted">
+                  <hr class="my-2 bg-white">
                   <div class="row">
                     <div class="col-6">
                       <div class="title">
-                          <h5 class="font-weight-bold">RELITA G. BRECIA</h5>
-                          <h6 class="font-weight-light">Barangay Secretary</h6>
+                          <h5 class="font-weight-bold text-white">RELITA G. BRECIA</h5>
+                          <h6 class="font-weight-light text-white">Barangay Secretary</h6>
                       </div>
                     </div>
                     <div class="col-6">
                       <div class="title">
-                          <h5 class="font-weight-bold">LAURA L. BOLOS</h5>
-                          <h6 class="font-weight-light">Barangay Treasurer</h6>
+                          <h5 class="font-weight-bold text-white">LAURA L. BOLOS</h5>
+                          <h6 class="font-weight-light text-white">Barangay Treasurer</h6>
                       </div>
                     </div>
                   </div>
-                  <hr class="my-2 bg-muted">
+                  <hr class="my-2 bg-white">
                   <br>
                   <div class="container">
                       <div id="navigation-pills">
@@ -327,23 +327,23 @@
                               <div class="col text-right">
                                 <ul class="nav nav-pills nav-pills-icons " role="tablist">
                                     <li class="nav-item">
-                                      <a class="nav-link  active" href="#list_of_subdivisions_of_brgy_san_roque" rel="tooltip" data-original-title="LIST OF SUBDIVISIONS OF BARANGAY SAN ROQUE"  data-placement="top" role="tab" data-toggle="tab">
-                                          <i class="material-icons">list</i>
-                                          <h6>LIST OF <br> SUBDIVISIONS</h6>
+                                      <a class="nav-link  active " href="#list_of_subdivisions_of_brgy_san_roque" rel="tooltip" data-original-title="LIST OF SUBDIVISIONS OF BARANGAY SAN ROQUE"  data-placement="top" role="tab" data-toggle="tab">
+                                          <i class="material-icons text-white">list</i>
+                                          <h6 class="text-white" >LIST OF <br> SUBDIVISIONS</h6>
                                           
                                       </a>
                                     </li>
                                   <li class="nav-item">
                                       <a class="nav-link" href="#list_of_streets_of_brgy_san_roque" role="tab" data-toggle="tab" rel="tooltip" data-original-title="LIST OF STREETS OF BARANGAY SAN ROQUE"  data-placement="top">
-                                        <i class="material-icons">list</i>  
-                                        <h6>LIST OF <br> STREETS</h6>
+                                        <i class="material-icons text-white">list</i>  
+                                        <h6 class="text-white">LIST OF <br> STREETS</h6>
                                         
                                       </a>
                                     </li>
                                     <li class="nav-item">
                                       <a class="nav-link" href="#brgy_awards_and_achievements" role="tab" data-toggle="tab" rel="tooltip" data-original-title="BARANGAY AWARDS AND ACHIEVEMENTS"  data-placement="top">
-                                      <i class="material-icons">diamond</i>  
-                                      <h6>AWARDS & <br> ACHIEVEMENTS</h6>
+                                      <i class="material-icons text-white">diamond</i>  
+                                      <h6 class="text-white">AWARDS & <br> ACHIEVEMENTS</h6>
                                         
                                       </a>
                                     </li> 
@@ -356,85 +356,85 @@
                             <div class="tab-content tab-space">
                              
                               <div class="tab-pane active" id="list_of_subdivisions_of_brgy_san_roque">
-                                <hr class="my-1 bg-muted">  
+                                <hr class="my-1 bg-white">  
                                   <div class="title text-center">
                                     <div class="row">
                                         <div class="col-6">
-                                            <h6 class="font-weight-bold">DM 2, 9 AND 10 SUBDIVISION</h6>
+                                            <h6 class="font-weight-bold text-white">DM 2, 9 AND 10 SUBDIVISION</h6>
                                         </div>
                                         <div class="col-6">
-                                            <h6 class="font-weight-bold">GENESIS ROYALE II SUBDIVISION</h6>
+                                            <h6 class="font-weight-bold text-white">GENESIS ROYALE II SUBDIVISION</h6>
                                         </div>
                                         <div class="col-6">
-                                            <h6 class="font-weight-bold">MADERA I SUBDIVISION</h6>
+                                            <h6 class="font-weight-bold text-white">MADERA I SUBDIVISION</h6>
                                         </div>
                                         <div class="col-6">
-                                            <h6 class="font-weight-bold">ROSE ANN SUBDIVISION</h6>
+                                            <h6 class="font-weight-bold text-white">ROSE ANN SUBDIVISION</h6>
                                         </div>
                                         <div class="col-6">
-                                            <h6 class="font-weight-bold">ST. CHRISTOPHER SUBDIVISION</h6>
+                                            <h6 class="font-weight-bold text-white">ST. CHRISTOPHER SUBDIVISION</h6>
                                         </div>
                                         <div class="col-6">
-                                            <h6 class="font-weight-bold">SUMMERGREEN SUBDIVISION PHASE II</h6>
+                                            <h6 class="font-weight-bold text-white">SUMMERGREEN SUBDIVISION PHASE II</h6>
                                         </div>
                                         <div class="col-6">
-                                            <h6 class="font-weight-bold">VERDER GRANDE</h6>
+                                            <h6 class="font-weight-bold text-white">VERDER GRANDE</h6>
                                         </div>
                                         <div class="col-6">
-                                            <h6 class="font-weight-bold">BEATRIZ VILLA</h6>
+                                            <h6 class="font-weight-bold text-white">BEATRIZ VILLA</h6>
                                         </div>
                                         <div class="col-6">
-                                            <h6 class="font-weight-bold">NORTH 44 </h6>
+                                            <h6 class="font-weight-bold text-white">NORTH 44 </h6>
                                         </div>
                                         <div class="col-6">
-                                            <h6 class="font-weight-bold">GREENLAND SUBDIVISION PHASE 7 </h6>
+                                            <h6 class="font-weight-bold text-white">GREENLAND SUBDIVISION PHASE 7 </h6>
                                         </div>
                                     </div>
                                   </div>
-                                <hr class="my-1 bg-muted">
+                                <hr class="my-1 bg-white">
                               </div>
                               
                               <div class="tab-pane" id="list_of_streets_of_brgy_san_roque">
-                                  <hr class="my-1 bg-muted">  
+                                  <hr class="my-1 bg-white">  
                                     <div class="title text-center">
                                       <div class="row">
                                           <div class="col-6">
-                                              <h6 class="font-weight-bold">A. BONIFACIO ST.</h6>
+                                              <h6 class="font-weight-bold text-white">A. BONIFACIO ST.</h6>
                                           </div>
                                           <div class="col-6">
-                                              <h6 class="font-weight-bold">E. GONGORA ST.</h6>
+                                              <h6 class="font-weight-bold text-white">E. GONGORA ST.</h6>
                                           </div>
                                           <div class="col-6">
-                                              <h6 class="font-weight-bold">R. DEL VALLE ST.</h6>
+                                              <h6 class="font-weight-bold text-white">R. DEL VALLE ST.</h6>
                                           </div>
                                           <div class="col-6">
-                                              <h6 class="font-weight-bold">J. HERNANDEZ ST.</h6>
+                                              <h6 class="font-weight-bold text-white">J. HERNANDEZ ST.</h6>
                                           </div>
                                           <div class="col-6">
-                                              <h6 class="font-weight-bold">PAROLA ST.</h6>
+                                              <h6 class="font-weight-bold text-white">PAROLA ST.</h6>
                                           </div>
                                           <div class="col-6">
-                                              <h6 class="font-weight-bold">E. TOLENTINO ST.</h6>
+                                              <h6 class="font-weight-bold text-white">E. TOLENTINO ST.</h6>
                                           </div>
                                           <div class="col-6">
-                                              <h6 class="font-weight-bold">M. CRUZ ST.</h6>
+                                              <h6 class="font-weight-bold text-white">M. CRUZ ST.</h6>
                                           </div>
                                           <div class="col-6">
-                                              <h6 class="font-weight-bold">A. RODRIGUEZ AVE.</h6>
+                                              <h6 class="font-weight-bold text-white">A. RODRIGUEZ AVE.</h6>
                                           </div>
                                           <div class="col-6">
-                                              <h6 class="font-weight-bold">P. DE GUZMAN ST.</h6>
+                                              <h6 class="font-weight-bold text-white">P. DE GUZMAN ST.</h6>
                                           </div>
                                           <div class="col-6">
-                                              <h6 class="font-weight-bold">NURSERY ROAD</h6>
+                                              <h6 class="font-weight-bold text-white">NURSERY ROAD</h6>
                                           </div>
                                       </div>
                                     </div>
-                                  <hr class="my-1 bg-muted">
+                                  <hr class="my-1 bg-white">
                               </div>
 
                               <div class="tab-pane" id="brgy_awards_and_achievements">
-                                <div class="text-left text-justify">
+                                <div class="text-left text-justify text-white">
                                   <p>
                                     Barangay San Roque Barangay Anti-Drug Abuse Council (BADAC) continues its mission to reduce level of drug affectation an ultimately achieve drug-free status.
                                   </p>
@@ -464,61 +464,61 @@
                                   </p>
                                 </div>
                              
-                                <div class="title text-left">
+                                <div class="title text-left text-white">
                                     <div class="row">
-                                        <div class="col-6" style="border: 1px solid #111">
+                                        <div class="col-6" style="border: 1px solid #fff">
                                             <h6 class="font-weight-bold">Name of Subdivision</h6>
                                         </div>
-                                        <div class="col-6" style="border: 1px solid #111">
+                                        <div class="col-6" style="border: 1px solid #fff">
                                             <h6 class="font-weight-bold">No. of Residents</h6>
                                         </div>
                                        
-                                        <div class="col-6" style="border: 1px solid #111">
+                                        <div class="col-6" style="border: 1px solid #fff">
                                             <h6 class="font-weight-light">DM 2, 9 and 10 Subdivision</h6>
                                         </div>
-                                        <div class="col-6" style="border: 1px solid #111">
+                                        <div class="col-6" style="border: 1px solid #fff">
                                             <h6 class="font-weight-light">318</h6>
                                         </div>
-                                        <div class="col-6" style="border: 1px solid #111">
+                                        <div class="col-6" style="border: 1px solid #fff">
                                             <h6 class="font-weight-light">Genesis Royale ii Subdivision</h6>
                                         </div>
-                                        <div class="col-6" style="border: 1px solid #111">
+                                        <div class="col-6" style="border: 1px solid #fff">
                                             <h6 class="font-weight-light">114</h6>
                                         </div>
-                                        <div class="col-6" style="border: 1px solid #111">
+                                        <div class="col-6" style="border: 1px solid #fff">
                                             <h6 class="font-weight-light">Madera I Subdivision</h6>
                                         </div>
-                                        <div class="col-6" style="border: 1px solid #111">
+                                        <div class="col-6" style="border: 1px solid #fff">
                                             <h6 class="font-weight-light">866</h6>
                                         </div>
-                                        <div class="col-6" style="border: 1px solid #111">
+                                        <div class="col-6" style="border: 1px solid #fff">
                                             <h6 class="font-weight-light">Rose Ann Subdivision </h6>
                                         </div>
-                                        <div class="col-6" style="border: 1px solid #111">
+                                        <div class="col-6" style="border: 1px solid #fff">
                                             <h6 class="font-weight-light">382</h6>
                                         </div>
-                                        <div class="col-6" style="border: 1px solid #111">
+                                        <div class="col-6" style="border: 1px solid #fff">
                                             <h6 class="font-weight-light">St. Christopher Subdivision </h6>
                                         </div>
-                                        <div class="col-6" style="border: 1px solid #111">
+                                        <div class="col-6" style="border: 1px solid #fff">
                                             <h6 class="font-weight-light">185</h6>
                                         </div>
-                                        <div class="col-6" style="border: 1px solid #111">
+                                        <div class="col-6" style="border: 1px solid #fff">
                                             <h6 class="font-weight-light">Summergreen Subdivision Phase II</h6>
                                         </div>
-                                        <div class="col-6" style="border: 1px solid #111">
+                                        <div class="col-6" style="border: 1px solid #fff">
                                             <h6 class="font-weight-light">60</h6>
                                         </div>
-                                        <div class="col-6" style="border: 1px solid #111">
+                                        <div class="col-6" style="border: 1px solid #fff">
                                             <h6 class="font-weight-light">Verde Grande Subdivision</h6>
                                         </div>
-                                        <div class="col-6" style="border: 1px solid #111">
+                                        <div class="col-6" style="border: 1px solid #fff">
                                             <h6 class="font-weight-light">115</h6>
                                         </div>
-                                        <div class="col-6" style="border: 1px solid #111">
+                                        <div class="col-6" style="border: 1px solid #fff">
                                             <h6 class="font-weight-light">Greenland Subdivision Phase 7</h6>
                                         </div>
-                                        <div class="col-6" style="border: 1px solid #111">
+                                        <div class="col-6" style="border: 1px solid #fff">
                                             <h6 class="font-weight-light">456</h6>
                                         </div>
                                     </div>
@@ -619,33 +619,36 @@
         
       </div>
     </div>
-
-    <h3 class="text-center title">BARANGAY ORGANIZATIONAL CHART</h4>
+<div class="container">
+<h3 class="text-center title text-white">BARANGAY ORGANIZATIONAL CHART</h4>
     <a href="../assets/img/brgy/brgy_chart.png">
       <div class="card border-0 brgy_chart">
           <img src="../assets/img/brgy/brgy_chart.png" alt="BARANGAY ORGANIZATIONAL CHART">
       </div>
     </a>
+</div>
+   
+
 
     <div class="section section-contacts" id="contact">
           <div class="container">
-              <h3 class="text-center title">Contact Us</h4>
+              <h3 class="text-center title text-white">Contact Us</h4>
                 <div id="navigation-pills">
                   <div class="row">
                     <div class="col-lg-12">
                       <ul class="nav nav-pills nav-pills-icons" role="tablist">
                       <li class="nav-item">
-                          <a class="nav-link  active" href="#brgy_directory" role="tab" data-toggle="tab">
+                          <a class="nav-link text-white  active" href="#brgy_directory" role="tab" data-toggle="tab">
                             BARANGAY <br> DIRECTORY
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#brief_narrative_description_of_location" role="tab" data-toggle="tab">
-                            BRIEF NARRATIVE <br> DESCRIPTION OF LOCATION
+                          <a class="nav-link text-white" href="#brief_narrative_description_of_location" role="tab" data-toggle="tab">
+                            DESCRIPTION <br> OF LOCATION
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#landmark_with_brief_description" role="tab" data-toggle="tab">
+                          <a class="nav-link text-white" href="#landmark_with_brief_description" role="tab" data-toggle="tab">
                             LANDMARK WITH <br> BRIEF DESCRIPTION
                           </a>
                         </li>
@@ -653,103 +656,103 @@
                       <div class="tab-content tab-space">
                         
                         <div class="tab-pane active" id="brgy_directory">
-                          <hr class="my-1 bg-muted">  
+                          <hr class="my-1 bg-white">  
                             <div class="title text-left">
                               <div class="row">
-                                  <div class="col-6">
-                                      <h6 class="font-weight-bold">Barangay Hall Address:	</h6>
+                                  <div class="col-md-6">
+                                      <h6 class="font-weight-bold text-white">Barangay Hall Address:	</h6>
                                   </div>
-                                  <div class="col-6">
-                                      <h6 class="font-weight-bold">Amang Rodriquez Avenue, Barangay San Roque Cainta. Rizal</h6>
+                                  <div class="col-md-6">
+                                      <h6 class="font-weight-bold text-white">Amang Rodriquez Avenue, Barangay San Roque Cainta. Rizal</h6>
                                   </div>
-                                  <div class="col-6">
-                                      <h6 class="font-weight-bold">Barangay E-mail Address: </h6>
+                                  <div class="col-md-6">
+                                      <h6 class="font-weight-bold text-white">Barangay E-mail Address: </h6>
                                   </div>
-                                  <div class="col-6">
-                                      <h6 class="font-weight-bold"><a href="#send_us_email">barangaysanroque@gmail.com</a> </h6>
+                                  <div class="col-md-6">
+                                      <h6 class="font-weight-bold text-white"><a href="#send_us_email" class="text-white">barangaysanroque@gmail.com</a> </h6>
                                   </div>
-                                  <div class="col-6">
-                                      <h6 class="font-weight-bold">Barangay Telephone Numbers:</h6>
+                                  <div class="col-md-6">
+                                      <h6 class="font-weight-bold text-white">Barangay Telephone Numbers:</h6>
                                   </div>
-                                  <div class="col-6">
-                                      <h6 class="font-weight-bold"></h6>
+                                  <div class="col-md-6">
+                                      <h6 class="font-weight-bold text-white"></h6>
                                   </div>
-                                  <div class="col-6">
-                                      <h6 class="font-weight-bold">Secretary/Treasurer:	</h6>
+                                  <div class="col-md-6">
+                                      <h6 class="font-weight-bold text-white">Secretary/Treasurer:	</h6>
                                   </div>
-                                  <div class="col-6">
-                                      <h6 class="font-weight-bold">8 420-76-07</h6>
+                                  <div class="col-md-6">
+                                      <h6 class="font-weight-bold text-white">8 420-76-07</h6>
                                   </div>
-                                  <div class="col-6">
-                                      <h6 class="font-weight-bold">Information: </h6>
+                                  <div class="col-md-6">
+                                      <h6 class="font-weight-bold text-white">Information: </h6>
                                   </div>
-                                  <div class="col-6">
-                                      <h6 class="font-weight-bold">8 281-02-06</h6>
+                                  <div class="col-md-6">
+                                      <h6 class="font-weight-bold text-white">8 281-02-06</h6>
                                   </div>
-                                  <div class="col-6">
-                                      <h6 class="font-weight-bold">Tanod:</h6>
+                                  <div class="col-md-6">
+                                      <h6 class="font-weight-bold text-white">Tanod:</h6>
                                   </div>
-                                  <div class="col-6">
-                                      <h6 class="font-weight-bold">8 281-02-50</h6>
+                                  <div class="col-md-6">
+                                      <h6 class="font-weight-bold text-white">8 281-02-50</h6>
                                   </div>
                               </div>
                             </div>
-                          <hr class="my-1 bg-muted">
+                          <hr class="my-1 bg-white">
                         </div>
                         
                         <div class="tab-pane" id="brief_narrative_description_of_location">
-                            <hr class="my-1 bg-muted">  
+                            <hr class="my-1 bg-white">  
                               <div class="title text-left">
                                 <div class="row">
-                                    <div class="col-12">
-                                        <h6 class="font-weight-bold">BARANGAY SAN ROQUE is about two (2) Kilometers away from the center of Cainta. It is surrounded by the following barangays:</h6>
+                                    <div class="col-md-12">
+                                        <h6 class="font-weight-bold text-white">BARANGAY SAN ROQUE is about two (2) Kilometers away from the center of Cainta. It is surrounded by the following barangays:</h6>
                                     </div>
-                                    <div class="col-6">
-                                        <h6 class="font-weight-bold">Hilaga (North)	:</h6>
+                                    <div class="col-md-6">
+                                        <h6 class="font-weight-bold text-white">Hilaga (North)	:</h6>
                                     </div>
-                                    <div class="col-6">
-                                        <h6 class="font-weight-bold">Barangay San Juan</h6>
+                                    <div class="col-md-6">
+                                        <h6 class="font-weight-bold text-white">Barangay San Juan</h6>
                                     </div>
-                                    <div class="col-6">
-                                        <h6 class="font-weight-bold">Timog (South) :</h6>
+                                    <div class="col-md-6">
+                                        <h6 class="font-weight-bold text-white">Timog (South) :</h6>
                                     </div>
-                                    <div class="col-6">
-                                        <h6 class="font-weight-bold">Barangay Sto. Domingo</h6>
+                                    <div class="col-md-6">
+                                        <h6 class="font-weight-bold text-white">Barangay Sto. Domingo</h6>
                                     </div>
-                                    <div class="col-6">
-                                        <h6 class="font-weight-bold">Silangan (East) :</h6>
+                                    <div class="col-md-6">
+                                        <h6 class="font-weight-bold text-white">Silangan (East) :</h6>
                                     </div>
-                                    <div class="col-6">
-                                        <h6 class="font-weight-bold">Barangay San Andres</h6>
+                                    <div class="col-md-6">
+                                        <h6 class="font-weight-bold text-white">Barangay San Andres</h6>
                                     </div>
-                                    <div class="col-6">
-                                        <h6 class="font-weight-bold">Kanluran (West) :</h6>
+                                    <div class="col-md-6">
+                                        <h6 class="font-weight-bold text-white">Kanluran (West) :</h6>
                                     </div>
-                                    <div class="col-6">
-                                        <h6 class="font-weight-bold">Barangay Santa Rosa</h6>
+                                    <div class="col-md-6">
+                                        <h6 class="font-weight-bold text-white">Barangay Santa Rosa</h6>
                                     </div>
-                                    <div class="col-6">
-                                        <h6 class="font-weight-bold">Classification of Barangay :</h6>
+                                    <div class="col-md-6">
+                                        <h6 class="font-weight-bold text-white">Classification of Barangay :</h6>
                                     </div>
-                                    <div class="col-6">
-                                        <h6 class="font-weight-bold">Urban</h6>
+                                    <div class="col-md-6">
+                                        <h6 class="font-weight-bold text-white">Urban</h6>
                                     </div>
                                 </div>
                               </div>
-                            <hr class="my-1 bg-muted">
+                            <hr class="my-1 bg-white">
                         </div>
 
                         <div class="tab-pane" id="landmark_with_brief_description">
-                        <hr class="my-1 bg-muted">  
+                        <hr class="my-1 bg-white">  
                           <div class="text-left text-justify">
-                                <div class="col-12">
-                                    <h6 class="font-weight-bold">Barangay San Roque is near the Diocese of Antipolo Shrine and Parish of Our Lady of Light and Jollibee Parola in Cainta, Rizal.</h6>
+                                <div class="col-md-12">
+                                    <h6 class="font-weight-bold text-white">Barangay San Roque is near the Diocese of Antipolo Shrine and Parish of Our Lady of Light and Jollibee Parola in Cainta, Rizal.</h6>
                                 </div>
-                                <div class="col-12">
-                                    <h6 class="font-weight-bold">Other landmarks are Savemore, Parola and Cainta Municipal Hospital Maternal and Health Hub “Birthing Home” at Amang Rodriquez Avenue.</h6>
+                                <div class="col-md-12">
+                                    <h6 class="font-weight-bold text-white">Other landmarks are Savemore, Parola and Cainta Municipal Hospital Maternal and Health Hub “Birthing Home” at Amang Rodriquez Avenue.</h6>
                                 </div>
                           </div>
-                          <hr class="my-1 bg-muted">  
+                          <hr class="my-1 bg-white">  
                         </div>
                           
                           
@@ -759,27 +762,27 @@
                   </div>
                 </div>
         </div>
-        <h5 class="text-center title">Send Us A Message</h5>
+        <h5 class="text-center title text-white">Send Us A Message</h5>
         <div class="row p-2" id="send_us_email">
           <div class="col-md-8 ml-auto mr-auto ">
             <form class="contact-form">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label class="bmd-label-floating">Your Name</label>
-                    <input type="email" class="form-control">
+                    <label class="bmd-label-floating text-white">Your Name</label>
+                    <input type="email" class="form-control text-white">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label class="bmd-label-floating">Your Email</label>
-                    <input type="email" class="form-control">
+                    <label class="bmd-label-floating text-white">Your Email</label>
+                    <input type="email" class="form-control text-white">
                   </div>
                 </div>
               </div>
               <div class="form-group">
-                <label for="exampleMessage" class="bmd-label-floating">Your Message</label>
-                <textarea type="email" class="form-control" rows="4" id="exampleMessage"></textarea>
+                <label for="exampleMessage" class="bmd-label-floating text-white">Your Message</label>
+                <textarea type="email" class="form-control text-white" rows="4" id="exampleMessage"></textarea>
               </div>
               <div class="row">
                 <div class="col-md-4 ml-auto mr-auto text-center">

@@ -20,7 +20,7 @@
 
         <div class="row">
           <div class="col-md-12 text-center">
-            <h2 class="text-center title">Business Permit Clearance</h2>
+            <h2 class="text-center title text-white">Business Permit Clearance</h2>
           </div>
           <div class="col-md-12 text-right">
             <button class="btn btn-primary btn-raised" name="create_record" id="create_record" >Business Permit Clearance</button>

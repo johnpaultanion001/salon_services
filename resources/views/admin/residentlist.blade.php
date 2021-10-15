@@ -47,7 +47,7 @@
                     <tr>
                       <td>
                           <button type="button" name="edit" edit="{{  $resident->id ?? '' }}"  class="edit  btn btn-sm btn-link text-primary">Edit Info</button>
-                          <button type="button" name="remove" remove="{{  $resident->id ?? '' }}" class="remove btn btn-sm btn-link text-danger">Remove</button>
+                         
                       </td>
                       <td>
                           {{  $resident->name ?? '' }}

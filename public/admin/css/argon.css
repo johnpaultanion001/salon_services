@@ -8777,10 +8777,10 @@ a.close.disabled
 
 .bg-primary
 {
-    background: #200122;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #6f0000, #200122);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #6f0000, #200122); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: #BC7E78;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #888683, #BC7E78);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #888683, #BC7E78); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
 }
 
 a.bg-primary:hover,
@@ -8873,6 +8873,7 @@ button.bg-light:focus
 {
     background-color: #212529 !important;
 }
+
 
 a.bg-dark:hover,
 a.bg-dark:focus,

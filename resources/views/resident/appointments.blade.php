@@ -20,7 +20,7 @@
 
         <div class="row">
           <div class="col-md-12 text-center">
-            <h2 class="text-center title">Appointments</h2>
+            <h2 class="text-center title text-white">Appointments</h2>
           </div>
           <div class="col-md-12 text-right">
             <button class="btn btn-primary btn-raised" name="create_record" id="create_record" >Set A Appointment</button>
@@ -30,13 +30,13 @@
               <div class="col-lg-12 col-md-8">
                 <ul class="nav nav-pills nav-pills-icons" role="tablist">
                   <li class="nav-item">
-                    <a class="nav-link active" href="#calendar-1" role="tab" data-toggle="tab">
+                    <a class="nav-link text-white active" href="#calendar-1" role="tab" data-toggle="tab">
                       <i class="material-icons">dashboard</i>
                       Calendar
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#appointment-1" role="tab" data-toggle="tab">
+                    <a class="nav-link text-white" href="#appointment-1" role="tab" data-toggle="tab">
                       <i class="material-icons">schedule</i>
                       Appointments
                     </a>

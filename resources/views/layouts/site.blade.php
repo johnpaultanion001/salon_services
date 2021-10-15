@@ -60,7 +60,7 @@
     $(document).on('click', '#click_notif', function(){
         var id = $(this).attr('click_notif');
         $.ajax({
-                url:"notification/"+id,
+                url:"../resident/notification/"+id,
                 method:'PUT',
                 data: {
                     _token: '{!! csrf_token() !!}',

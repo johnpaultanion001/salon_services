@@ -20,7 +20,7 @@
 
         <div class="row">
           <div class="col-md-10 ml-auto mr-auto">
-            <h2 class="text-center title">Update Information</h2>
+            <h2 class="text-center title text-white">Update Information</h2>
           </div>
     
           <div class="col-md-12">
