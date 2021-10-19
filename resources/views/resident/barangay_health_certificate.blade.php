@@ -51,6 +51,10 @@
                                   <h6 class="card-subtitle mb-2 text-muted">Admin Comment:</h6>
                                   <p class="card-text">{{$brgyCertificate->comment}}</p>
                                   <p class="badge badge-danger">Decline</p>
+                                @elseif ($brgyCertificate->status == 3)
+                                  <h6 class="card-subtitle mb-2 text-muted">Admin Comment:</h6>
+                                  <p class="card-text">{{$brgyCertificate->comment}}</p>
+                                  <p class="badge badge-primary">Claimed</p>
                                 @endif
 
                             

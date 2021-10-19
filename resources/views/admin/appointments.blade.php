@@ -45,6 +45,7 @@
                 <th scope="col">Status</th>
                 <th scope="col">Admin Comment</th>
                 <th scope="col">Date</th>
+                <th scope="col">Date Completed</th>
               </tr>
             </thead>
             <tbody class="text-uppercase font-weight-bold">
@@ -85,6 +86,8 @@
                                 <p class="badge badge-success">Approved</p>
                             @elseif ($brgyCertificate->status == 2)
                                 <p class="badge badge-danger">Decline</p>
+                            @elseif ($brgyCertificate->status == 3)
+                                <p class="badge badge-primary">Completed</p>
                             @endif
                       </td>
                       <td>
@@ -92,6 +95,11 @@
                       </td>
                       <td>
                           {{ $brgyCertificate->created_at->format('l, j \\/ F / Y h:i:s A') }}
+                      </td>
+                      <td>
+                          @if($brgyCertificate->status == 3)
+                            {{ $brgyCertificate->updated_at->format('l, j \\/ F / Y h:i:s A') }}
+                          @endif
                       </td>
                     </tr>
                 @endforeach
@@ -122,6 +130,7 @@
                               <option value="0">Pending</option>
                               <option value="1">Approve</option>
                               <option value="2">Decline</option>
+                              <option value="3">Completed</option>
                       </select>
                     </div>
                   

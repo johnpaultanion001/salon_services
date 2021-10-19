@@ -7,6 +7,7 @@ use App\Models\BarangayHealthCertificate;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Validator;
+use App\Models\Notification;
 
 class BarangayHealthCertificateController extends Controller
 {
@@ -33,6 +34,7 @@ class BarangayHealthCertificateController extends Controller
             return response()->json(['errors' => $validated->errors()]);
         }
         $userid = auth()->user()->id;
+        $username = auth()->user()->name;
         
         $onepending = BarangayHealthCertificate::where('user_id', $userid)
                                         ->where('status', 0)
@@ -47,6 +49,13 @@ class BarangayHealthCertificateController extends Controller
             'user_id' => $userid,
             'purpose' => $request->input('purpose'),
         ]);
+
+        Notification::create([
+            'user_id' => 1,
+            'status' => "Added Barangay Health Certificate by " .$username,
+            'link' => "/admin/barangay_health_certificate",
+        ]);
+
         return response()->json(['success' => 'Added Successfully.']);
     }
 

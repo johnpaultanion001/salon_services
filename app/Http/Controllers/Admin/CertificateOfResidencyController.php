@@ -73,6 +73,9 @@ class CertificateOfResidencyController extends Controller
         if($status == 2){
             $message = "Declined";
         }
+        if($status == 3){
+            $message = "Claimed";
+        }
 
         Notification::create([
             'user_id' => $certificateOfResidency->user_id,

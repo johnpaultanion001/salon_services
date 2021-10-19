@@ -60,6 +60,9 @@ class BarangayIndigencyController extends Controller
         if($status == 2){
             $message = "Declined";
         }
+        if($status == 3){
+            $message = "Claimed";
+        }
 
         Notification::create([
             'user_id' =>  $barangayIndigency->user_id,

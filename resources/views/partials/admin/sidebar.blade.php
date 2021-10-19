@@ -4,8 +4,7 @@
       <!-- Brand -->
       <div class="sidenav-header  align-items-center">
         <a class="navbar-brand" href="{{ route("admin.home") }}">
-          <!-- <img src="../assets/img/brand/blue.png" class="navbar-brand-img" alt="..."> -->
-          <h2>LOGO</h2>
+         <img src="../assets/img/logo.png"  alt="...">
         </a>
       </div>
       <div class="navbar-inner">
@@ -74,6 +73,12 @@
                 <a class="nav-link {{ request()->is('admin/announcements') || request()->is('admin/announcements/*') ? 'active' : '' }}" href="{{ route("admin.announcements.index") }}">
                   <i class="far fa-list-alt fa-lg "></i>
                   <span class="nav-link-text text-uppercase">Manage Announcements</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{ request()->is('admin/borrow') || request()->is('admin/borrow/*') ? 'active' : '' }}" href="{{ route("admin.borrow.index") }}">
+                  <i class="far fa-list-alt fa-lg "></i>
+                  <span class="nav-link-text text-uppercase">Manage Borrow</span>
                 </a>
               </li>
 

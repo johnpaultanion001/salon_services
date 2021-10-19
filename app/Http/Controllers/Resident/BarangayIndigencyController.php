@@ -7,6 +7,7 @@ use App\Models\BarangayIndigency;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Validator;
+use App\Models\Notification;
 
 class BarangayIndigencyController extends Controller
 {
@@ -32,6 +33,7 @@ class BarangayIndigencyController extends Controller
             return response()->json(['errors' => $validated->errors()]);
         }
         $userid = auth()->user()->id;
+        $username = auth()->user()->name;
         
         $onepending = BarangayIndigency::where('user_id', $userid)
                                         ->where('status', 0)
@@ -46,6 +48,13 @@ class BarangayIndigencyController extends Controller
             'user_id' => $userid,
             'purpose' => $request->input('purpose'),
         ]);
+
+        Notification::create([
+            'user_id' => 1,
+            'status' => "Added Barangay Indigency by " .$username,
+            'link' => "/admin/barangay_indigency",
+        ]);
+
         return response()->json(['success' => 'Added Successfully.']);
     }
 

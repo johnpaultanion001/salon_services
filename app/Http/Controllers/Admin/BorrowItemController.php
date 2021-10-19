@@ -3,38 +3,44 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\BorrowItem;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Validator;
-use App\Models\BarangayHealthCertificate;
-use App\Models\Appointment;
 use App\Models\Notification;
 
-class AppointmentController extends Controller
+class BorrowItemController extends Controller
 {
-
+    
     public function index()
     {
         $userrole = auth()->user()->role;
         if($userrole == 'admin'){
             date_default_timezone_set('Asia/Manila');
-            $dob = auth()->user()->date_of_birth;
-            $age = Carbon::parse($dob)->diff(Carbon::now())->format('%y years old');
-            
-            $brgyCertificates = Appointment::where('isRemove', 0)->latest()->get();
-            return view('admin.appointments', compact('age', 'brgyCertificates'));
+            $borrows = BorrowItem::where('isRemove', 0)->latest()->get();
+            return view('admin.borrow', compact('borrows'));
         }
         return abort('403');
     }
-
-    public function show(Appointment $appointment)
+    public function create()
+    {
+        //
+    }
+    public function store(Request $request)
+    {
+       
+    }
+    public function show(BorrowItem $borrow)
     {
         if (request()->ajax()) {
-            return response()->json(['result' => $appointment]);
+            return response()->json(['result' => $borrow]);
         }
     }
-
-    public function update(Request $request, Appointment $appointment)
+    public function edit(BorrowItem $borrow)
+    {
+        
+    }
+    public function update(Request $request, BorrowItem $borrow)
     {
         date_default_timezone_set('Asia/Manila');
         $validated =  Validator::make($request->all(), [
@@ -45,7 +51,7 @@ class AppointmentController extends Controller
             return response()->json(['errors' => $validated->errors()]);
         }
     
-        Appointment::find($appointment->id)->update([
+        BorrowItem::find($borrow->id)->update([
             'status' => $request->input('status'),
             'comment' => $request->input('comment'),
         ]);
@@ -65,18 +71,16 @@ class AppointmentController extends Controller
         }
 
         Notification::create([
-            'user_id' => $appointment->user_id,
-            'status' => "Your appointment has been " . $message,
-            'link' => "/resident/appointments",
+            'user_id' => $borrow->user_id,
+            'status' => "Your borrowed has been " . $message,
+            'link' => "/resident/borrow",
         ]);
 
         return response()->json(['success' => 'Updated Successfully.']);
     }
-
- 
-    public function destroy(Appointment $appointment)
+    public function destroy(BorrowItem $borrow)
     {
-        Appointment::find($appointment->id)->update([
+        BorrowItem::find($borrow->id)->update([
             'isRemove' => '1',
         ]);
         return response()->json(['success' => 'Removed Successfully.']);

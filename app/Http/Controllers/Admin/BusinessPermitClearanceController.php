@@ -71,6 +71,9 @@ class BusinessPermitClearanceController extends Controller
         if($status == 2){
             $message = "Declined";
         }
+        if($status == 3){
+            $message = "Claimed";
+        }
 
         Notification::create([
             'user_id' =>  $businessPermitClearance->user_id,

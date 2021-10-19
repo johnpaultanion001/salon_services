@@ -36,6 +36,9 @@ Route::group(['prefix' => 'resident', 'as' => 'resident.', 'namespace' => 'Resid
 
     //Notification
     Route::put('notification/{notif}', 'NotificationController@notification')->name('notification');
+
+    // Borrow
+     Route::resource('borrow', 'BorrowItemController');
     
 
 });
@@ -55,6 +58,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
      // Resident
      Route::get('resident_list', 'ResidentListController@index')->name('resident');
+     Route::get('resident_list/{user}/edit', 'ResidentListController@edit')->name('resident.edit');
+     Route::put('resident_list/{user}', 'ResidentListController@update')->name('resident.update');
+     Route::put('resident_list/{user}/dpass', 'ResidentListController@defaultPassowrd')->name('resident.dpass');
 
      // Appointments
      Route::resource('appointments', 'AppointmentController');
@@ -72,4 +78,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
      Route::resource('announcements', 'AnnouncementsController');
      Route::post('announcements/update/{announcement}', 'AnnouncementsController@updateannouncement')->name('announcements.updateannouncement');
 
+     // Borrow
+     Route::resource('borrow', 'BorrowItemController');
 });

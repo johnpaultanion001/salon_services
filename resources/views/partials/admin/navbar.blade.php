@@ -23,6 +23,8 @@
                        Appointments
                   @elseif(request()->is('admin/announcements'))
                        Announcements
+                  @elseif(request()->is('admin/borrow'))
+                       Borrow
                   @endif
                 
                  
@@ -42,7 +44,7 @@
               </div>
             </li>
             <li class="nav-item d-sm-none text-white">
-              LOGO
+              {{ trans('panel.site_title') }}
             </li>
             
             

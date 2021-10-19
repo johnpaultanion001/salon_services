@@ -6,6 +6,8 @@ use App\Models\BrgyCertificate;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Validator;
+use App\Models\Notification;
+
 
 class BrgyCertificateController extends Controller
 {
@@ -31,6 +33,7 @@ class BrgyCertificateController extends Controller
             return response()->json(['errors' => $validated->errors()]);
         }
         $userid = auth()->user()->id;
+        $username = auth()->user()->name;
         
         $onepending = BrgyCertificate::where('user_id', $userid)
                                         ->where('status', 0)
@@ -44,6 +47,12 @@ class BrgyCertificateController extends Controller
         BrgyCertificate::create([
             'user_id' => $userid,
             'purpose' => $request->input('purpose'),
+        ]);
+
+        Notification::create([
+            'user_id' => 1,
+            'status' => "Added Brgy Certificate by " .$username,
+            'link' => "/admin/brgy_certificate",
         ]);
         return response()->json(['success' => 'Added Successfully.']);
         

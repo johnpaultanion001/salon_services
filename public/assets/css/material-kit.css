@@ -4265,7 +4265,7 @@ tbody.collapse.show {
 
 .nav {
   display: flex;
-  flex-wrap: wrap;
+  
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
@@ -11637,6 +11637,7 @@ a .material-icons {
   z-index: 3;
 }
 
+
 .form-check,
 label {
   font-size: 14px;
@@ -11652,7 +11653,7 @@ label {
   
   
 
-  margin: -230px 30px 0px;
+  margin: -240px 30px 0px;
   border-radius: 6px;
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }
@@ -12117,9 +12118,7 @@ label {
     display: none;
   }
 
-  .main.main-raised {
-    margin-top: -30px;
-  }
+
 
   .form-group.is-focused .bootstrap-datetimepicker-widget {
     left: -32px !important;
@@ -14456,6 +14455,7 @@ select.form-control {
     display: inline-flex;
     align-items: center;
   }
+
 }
 
 .form-control-feedback {
@@ -14632,6 +14632,7 @@ textarea {
   border: 0;
   border-radius: 3px;
   padding: 0 15px;
+  
 }
 
 .nav-tabs .nav-link,
@@ -15227,12 +15228,12 @@ textarea {
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 500;
-  min-width: 100px;
+  min-width: 70px;
   text-align: center;
   color: #555;
   transition: all .3s;
   border-radius: 30px;
-  padding: 10px 15px;
+ 
 }
 
 .nav-pills .nav-item .nav-link:hover {
@@ -15247,7 +15248,7 @@ textarea {
 
 .nav-pills .nav-item i {
   display: block;
-  font-size: 30px;
+  font-size: 25px;
   padding: 15px 0;
 }
 
@@ -19409,5 +19410,6 @@ footer .pull-center {
 
 .brgy_chart:hover{
   opacity: .8;
-
 }
+
+

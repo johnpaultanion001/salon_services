@@ -1,5 +1,5 @@
 @extends('../layouts.admin')
-@section('sub-title','Resident')
+@section('sub-title','Borrow Items')
 @section('navbar')
     @include('../partials.admin.navbar')
 @endsection
@@ -24,7 +24,7 @@
         <div class="card-header border-0">
           <div class="row align-items-center">
             <div class="col">
-              <h3 class="mb-0 text-uppercase" id="titletable">Resident List</h3>
+              <h3 class="mb-0 text-uppercase" id="titletable">List of Borrow Items</h3>
             </div>
             
           </div>
@@ -35,35 +35,77 @@
             <thead class="thead-light">
               <tr>
                 <th scope="col">Actions</th>
+                <th scope="col">Purpose</th>
+                <th scope="col">Date Of Needed</th>
+                <th scope="col">End Of Funeral</th>
+                <th scope="col">Time Of Appointment</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Contact Number</th>
                 <th scope="col">Address</th>
+                <th scope="col">Status</th>
+                <th scope="col">Admin Comment</th>
                 <th scope="col">Date</th>
+                <th scope="col">Date Completed</th>
               </tr>
             </thead>
             <tbody class="text-uppercase font-weight-bold">
-              @foreach($residents as $resident)
+              @foreach($borrows as $borrow)
                     <tr>
                       <td>
-                          <button type="button" name="edit" edit="{{  $resident->id ?? '' }}"  class="edit  btn btn-sm btn-link text-primary">Edit Info</button>
-                         
+                          <button type="button" name="change" change="{{  $borrow->id ?? '' }}"  class="change  btn btn-sm btn-link text-primary">Change Status</button>
+                          <button type="button" name="remove" remove="{{  $borrow->id ?? '' }}" class="remove btn btn-sm btn-link text-danger">Remove</button>
                       </td>
                       <td>
-                          {{  $resident->name ?? '' }}
+                          {{  $borrow->purpose ?? '' }}
                       </td>
                       <td>
-                          {{  $resident->email ?? '' }}
+                          {{ \Carbon\Carbon::parse($borrow->date)->isoFormat('MMM Do YYYY')}}
+                      </td>
+                      <td>
+                        @if($borrow->purpose == 'Funeral')
+                           {{ \Carbon\Carbon::parse($borrow->end_of_funeral)->isoFormat('MMM Do YYYY')}}
+                        @endif
+                          
+                      </td>
+                      <td>
+                          {{  $borrow->time ?? '' }}
+                      </td>
+                      <td>
+                          {{  $borrow->user->name ?? '' }}
+                      </td>
+                      <td>
+                          {{  $borrow->user->email ?? '' }}
                       </td>
 
                       <td>
-                            {{  $resident->contact_number ?? '' }}
+                            {{  $borrow->user->contact_number ?? '' }}
                       </td>
                       <td>
-                            {{  $resident->address ?? '' }}
+                            {{  $borrow->user->address ?? '' }}
+                      </td>
+                      
+                      <td>
+                            @if($borrow->status == 0)
+                                  <p class="badge badge-warning">Pending</p><br>
+                            @elseif ($borrow->status == 1)
+                                <p class="badge badge-success">Approved</p>
+                            @elseif ($borrow->status == 2)
+                                <p class="badge badge-danger">Decline</p>
+                            @elseif ($borrow->status == 3)
+                                <p class="badge badge-primary">Completed</p>
+                            @endif
                       </td>
                       <td>
-                          {{ $resident->created_at->format('l, j \\/ F / Y h:i:s A') }}
+                          {{  $borrow->comment ?? '' }}
+                      </td>
+                      <td>
+                          {{ $borrow->created_at->format('l, j \\/ F / Y h:i:s A') }}
+                      </td>
+                      <td>
+                          @if($borrow->status == 3)
+                            {{ $borrow->updated_at->format('l, j \\/ F / Y h:i:s A') }}
+                          @endif
                       </td>
                     </tr>
                 @endforeach
@@ -87,53 +129,30 @@
             </button>
           </div>
           <div class="modal-body">
-                 
-      
+                    <div class="form-group">
+                      <label for="status" class="bmd-label-floating">Status</label>
+                      <select name="status" id="status" class="form-control select2">
+                          <option value="" disabled selected>Select Status</option>
+                              <option value="0">Pending</option>
+                              <option value="1">Approve</option>
+                              <option value="2">Decline</option>
+                              <option value="3">Completed</option>
+                      </select>
+                    </div>
+                  
                 <div class="form-group">
-                  <label for="email" class="bmd-label-floating">Email</label>
-                  <input type="email" name="email" id="email" class="form-control" readonly>
-                </div>
-                       
-                <div class="form-group">
-                  <label for="name" class="bmd-label-floating">Name:</label>
-                    <input type="text" class="form-control" name="name" id="name">
+                  <label for="comment" id="lblpurpose" class="bmd-label-floating">Comment:</label>
+                  <textarea class="form-control comment" rows="4" name="comment" id="comment"></textarea>
                   <span class="invalid-feedback" role="alert">
-                      <strong id="error-name"></strong>
+                      <strong id="error-comment"></strong>
                   </span>
-                </div>
-
-                <div class="form-group">
-                  <label for="contact_number" class="bmd-label-floating">Contact Number</label>
-                  <input type="number" class="form-control" name="contact_number" id="contact_number">
-                  <span class="invalid-feedback" role="alert">
-                      <strong id="error-contact_number"></strong>
-                  </span>
-                </div>
-
-                <div class="form-group">
-                  <label for="address" class="bmd-label-floating">Address</label>
-                  <input type="text" class="form-control" name="address" id="address">
-                  <span class="invalid-feedback" role="alert">
-                      <strong id="error-address"></strong>
-                  </span>
-                </div>
-
-                <div class="form-group">
-                    <label for="date_of_birth" class="bmd-label-floating">Date Of Birth</label>
-                    <input type="date" id="date_of_birth" name="date_of_birth" class="form-control">
-                    <span class="invalid-feedback" role="alert">
-                        <strong id="error-date_of_birth"></strong>
-                    </span>
                 </div>
 
                 <input type="hidden" name="action" id="action" value="Add" />
                 <input type="hidden" name="hidden_id" id="hidden_id" />
               
           </div>
-          
-
           <div class="modal-footer">
-          <button type="button" id="password_default" class="btn text-warning btn-link">Set A Default Password</button>
             <input type="submit" name="action_button" id="action_button" class="btn btn-link text-primary" value="Save" />
             <button type="button" class="btn text-danger btn-link" data-dismiss="modal">Close</button>
           </div>
@@ -155,7 +174,6 @@
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
 
   $.extend(true, $.fn.dataTable.defaults, {
-    sale: [[ 1, 'desc' ]],
     pageLength: 100,
     'columnDefs': [{ 'orderable': false, 'targets': 0 }],
   });
@@ -167,17 +185,20 @@
     });
   });
 
-  $(document).on('click', '.edit', function(){
+  $(document).on('click', '.change', function(){
       $('#formModal').modal('show');
-      $('.modal-title').text('Update Information');
+      $('.modal-title').text('Change Status');
       $('#myForm')[0].reset();
       $('.form-control').removeClass('is-invalid');
-      
-      var id = $(this).attr('edit');
+      $('#status').select2({
+        placeholder: 'Select Status'
+      })
+
+      var id = $(this).attr('change');
       $('#hidden_id').val(id);
 
       $.ajax({
-          url :"/admin/resident_list/"+id+"/edit",
+          url :"/admin/borrow/"+id,
           dataType:"json",
           beforeSend:function(){
               $("#action_button").attr("disabled", true);
@@ -193,7 +214,13 @@
               }
               $.each(data.result, function(key,value){
                 if(key == $('#'+key).attr('id')){
-                    $('#'+key).val(value) 
+                    $('#'+key).val(value)
+                    if(key == 'status'){
+                        $("#status").select2("trigger", "select", {
+                            data: { id: value }
+                        });
+                    }
+                    
                 }
               })
               
@@ -207,7 +234,7 @@
     event.preventDefault();
     
     var id = $('#hidden_id').val();
-    var action_url = "/admin/resident_list/" + id;
+    var action_url = "borrow/" + id;
     var type = "PUT"; 
 
     $.ajax({
@@ -223,9 +250,13 @@
             var html = '';
             if(data.errors){
                 $.each(data.errors, function(key,value){
-                    $("#action_button").attr("disabled", false);
-                    $("#action_button").attr("value", "Update");
-               
+                    if($('#action').val() == 'Edit'){
+                        $("#action_button").attr("disabled", false);
+                        $("#action_button").attr("value", "Update");
+                    }else{
+                        $("#action_button").attr("disabled", false);
+                        $("#action_button").attr("value", "Submit");
+                    }
                     if(key == $('#'+key).attr('id')){
                         $('#'+key).addClass('is-invalid')
                         $('#error-'+key).text(value)
@@ -233,9 +264,13 @@
                 })
             }
             if(data.success){
-                $("#action_button").attr("disabled", false);
-                $("#action_button").attr("value", "Update");
-               
+                if($('#action').val() == 'Edit'){
+                    $("#action_button").attr("disabled", false);
+                    $("#action_button").attr("value", "Update");
+                }else{
+                    $("#action_button").attr("disabled", false);
+                    $("#action_button").attr("value", "Submit");
+                }
                 $('.form-control').removeClass('is-invalid')
                 $('#myForm')[0].reset();
                 $('#formModal').modal('hide');
@@ -262,13 +297,13 @@
 });
 
 
-$(document).on('click', '#password_default', function(){
-  var id = $('#hidden_id').val();
+$(document).on('click', '.remove', function(){
+  var id = $(this).attr('remove');
   $.confirm({
       title: 'Confirmation',
-      content: 'Are you sure?',
+      content: 'You really want to remove this record?',
       autoClose: 'cancel|10000',
-      type: 'blue',
+      type: 'red',
       buttons: {
           confirm: {
               text: 'confirm',
@@ -276,14 +311,14 @@ $(document).on('click', '#password_default', function(){
               keys: ['enter', 'shift'],
               action: function(){
                   return $.ajax({
-                      url:"/admin/resident_list/"+id+"/dpass",
-                      method:'PUT',
+                      url:"borrow/"+id,
+                      method:'DELETE',
                       data: {
                           _token: '{!! csrf_token() !!}',
                       },
                       dataType:"json",
                       beforeSend:function(){
-                       
+                        $('#titletable').text('Loading...');
                       },
                       success:function(data){
                           if(data.success){

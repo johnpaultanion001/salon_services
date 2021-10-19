@@ -322,27 +322,27 @@
                       <div id="navigation-pills">
                        <div class="row">
                           <div class="col-lg-12">
-                            <div class="row">
+                           
                              
-                              <div class="col text-right">
+                            <div class="d-flex justify-content-center">
                                 <ul class="nav nav-pills nav-pills-icons " role="tablist">
                                     <li class="nav-item">
                                       <a class="nav-link  active " href="#list_of_subdivisions_of_brgy_san_roque" rel="tooltip" data-original-title="LIST OF SUBDIVISIONS OF BARANGAY SAN ROQUE"  data-placement="top" role="tab" data-toggle="tab">
-                                          <i class="material-icons text-white">list</i>
+                                         
                                           <h6 class="text-white" >LIST OF <br> SUBDIVISIONS</h6>
                                           
                                       </a>
                                     </li>
                                   <li class="nav-item">
                                       <a class="nav-link" href="#list_of_streets_of_brgy_san_roque" role="tab" data-toggle="tab" rel="tooltip" data-original-title="LIST OF STREETS OF BARANGAY SAN ROQUE"  data-placement="top">
-                                        <i class="material-icons text-white">list</i>  
+                                       
                                         <h6 class="text-white">LIST OF <br> STREETS</h6>
                                         
                                       </a>
                                     </li>
                                     <li class="nav-item">
                                       <a class="nav-link" href="#brgy_awards_and_achievements" role="tab" data-toggle="tab" rel="tooltip" data-original-title="BARANGAY AWARDS AND ACHIEVEMENTS"  data-placement="top">
-                                      <i class="material-icons text-white">diamond</i>  
+                                     
                                       <h6 class="text-white">AWARDS & <br> ACHIEVEMENTS</h6>
                                         
                                       </a>
@@ -350,8 +350,7 @@
                                 </ul>
                               </div>
                               
-                             
-                            </div>
+                            
                               
                             <div class="tab-content tab-space">
                              
@@ -433,34 +432,34 @@
                                   <hr class="my-1 bg-white">
                               </div>
 
-                              <div class="tab-pane" id="brgy_awards_and_achievements">
-                                <div class="text-left text-justify text-white">
+                              <div class="tab-pane " id="brgy_awards_and_achievements">
+                                <div class="text-left  text-white">
                                   <p>
-                                    Barangay San Roque Barangay Anti-Drug Abuse Council (BADAC) continues its mission to reduce level of drug affectation an ultimately achieve drug-free status.
+                                    <b>Barangay San Roque Barangay Anti-Drug Abuse Council (BADAC)</b>  continues its mission to reduce level of drug affectation an ultimately achieve drug-free status.
                                   </p>
                                   <p>
-                                    During the regular session of the Sangguniang Barangay on October 15, 2018 the SB members approved the resolution on putting up of “Drug-Free Sticker” to every home that is considered free from the influence of illegal drugs. BADAC members started putting up Drug-Free Stickers on November 2, 2018 with the assistance of the Cainta Police Officers.
+                                    During the regular session of the Sangguniang Barangay on October 15, 2018 the SB members approved the resolution on putting up of <b><i>“Drug-Free Sticker”</i></b> to every home that is considered free from the influence of illegal drugs. BADAC members started putting up Drug-Free Stickers on November 2, 2018 with the assistance of the Cainta Police Officers.
                                   </p>
                                   <p>
-                                    On October 19, 2018, Barangay San Roque BADAC started its first Simula ng Pag-Asa (SIPAG) program wherein the drug surrenderers undergo 12 days seminar for their reintegration into the society and rebuilding them to become more productive citizens. SIPAG sessions were held at the Barangay San Roque Senior Citizen Hall at DM 2. SPO2 Rodil Demonteverde spearheaded the program since he is an expert in the field, Rev. Michael V. Nabo, CBMM Cainta Church Pastor, assisted him.
+                                    <b>On October 19, 2018</b>, Barangay San Roque BADAC started its first <b><i> Simula ng Pag-Asa (SIPAG) </i></b>  program wherein the drug surrenderers undergo 12 days seminar for their reintegration into the society and rebuilding them to become more productive citizens. SIPAG sessions were held at the Barangay San Roque Senior Citizen Hall at DM 2. SPO2 Rodil Demonteverde spearheaded the program since he is an expert in the field, Rev. Michael V. Nabo, CBMM Cainta Church Pastor, assisted him.
                                   </p>
                                   <p>
                                     Of the fifty-eight (58) drug surrenderers listed in the file of the barangay, five (5) were issued non-residency certificate since they are either in the province already or nowhere to be found; two (2) were residents of Barangay San Andres and three (3) were already imprisoned. Barangay San Roque send letter of invitation to all of them for them to attend the SIPAG Program but only seventeen (17) attended the first meeting at the barangay on October 15, 2018. However, not all of those who attended the 12 sessions, only ten (10) really complied and were able to graduate last November 19, 2018.
                                   </p>
                                   <p>
-                                    Barangay San Roque Barangay Anti-Drug Abuse Council (BADAC) hold SIPAG Batch 2 starting March 11, 2019 at Barangay San Roque Senior Citizens Social Hall at DM 2. Letters were sent to 31 surrenderers who were not able to attend SIPAG batch 1 of the 31 surrenderers who were sent letters, only 15 surrenderers complied and attended SIPAG Batch 2. Last session was held on March 27, 2019. SPO2 Rodil Demonteverde spearheaded the program since he is an expert in the field, Rev. Michael V. Nabo, CBMM Cainta Church Pastor and Pstr. Teofilo C. Jornales, Jr. assisted him.
+                                    <b>Barangay San Roque Barangay Anti-Drug Abuse Council (BADAC)</b> hold SIPAG Batch 2 starting March 11, 2019 at Barangay San Roque Senior Citizens Social Hall at DM 2. Letters were sent to 31 surrenderers who were not able to attend SIPAG batch 1 of the 31 surrenderers who were sent letters, only 15 surrenderers complied and attended SIPAG Batch 2. Last session was held on March 27, 2019. SPO2 Rodil Demonteverde spearheaded the program since he is an expert in the field, Rev. Michael V. Nabo, CBMM Cainta Church Pastor and Pstr. Teofilo C. Jornales, Jr. assisted him.
                                   </p>
                                   <p>
-                                    On April 6, 2019, the graduates of SIPAG Batch 2 were required to attend the Barangay San Roque weekly Manila Bay Clean-Up Drive held at Summergreen Phase 2 as a form of community service.
+                                   <b>On April 6, 2019</b>, the graduates of SIPAG Batch 2 were required to attend the Barangay San Roque weekly Manila Bay Clean-Up Drive held at Summergreen Phase 2 as a form of community service.
                                   </p>
                                   <p>
                                     Barangay San Roque prepared all the requirements for Drug-Cleared Barangay with the help of SPO2 Rodil Demonteverde and was able to pass all the requirements and after due deliberation and complete submissions of the requirements compliant to the set of parameters on the barangay drug clearing, the Regional Oversight Committee by way of Regional Committee Resolution No. 321 unanimously confirmed the DRUG CLEARED status of Barangay San Roque, Municipality of Cainta, Province of Rizal.
                                   </p>
                                   <p>
-                                    Barangay San Roque also submitted all the requirements and is just waiting for the official certification for establishing “Community Mobilizing Project.”
+                                    Barangay San Roque also submitted all the requirements and is just waiting for the official certification for establishing <b><i>“Community Mobilizing Project.”</i></b>
                                   </p>
                                   <p>
-                                    Barangay San Roque received from CADAC Certificate of Appreciation for valuable support and contribution to the ongoing fight against illegal drugs and Certificate of Compliance for being fully compliant with early submission of reports and requirement set forth by the Cainta Anti-Drug Abuse Council for continuous implementation of anti-drug abuse programs and activities in the municipality.
+                                    Barangay San Roque received from <b><i>CADAC Certificate of Appreciation</i></b>  for valuable support and contribution to the ongoing fight against illegal drugs and Certificate of Compliance for being fully compliant with early submission of reports and requirement set forth by the Cainta Anti-Drug Abuse Council for continuous implementation of anti-drug abuse programs and activities in the municipality.
                                   </p>
                                 </div>
                              
@@ -524,7 +523,7 @@
                                     </div>
                                       <br>
                                       <div class="title">
-                                        <h6 class="font-weight-bold">PROPOSED PROGRAMS/PROJECTS FOR INCLUSION IN THE 2019 ANNUAL INVESTMENTS PROGRAM AND 20% DEVELOPMENT FUND</h6>
+                                        <h6 class="font-weight-bold text-white">PROPOSED PROGRAMS/PROJECTS FOR INCLUSION IN THE 2019 ANNUAL INVESTMENTS PROGRAM AND 20% DEVELOPMENT FUND</h6>
                                       </div>
                                     <div class="row">
                                      
@@ -621,9 +620,9 @@
     </div>
 <div class="container">
 <h3 class="text-center title text-white">BARANGAY ORGANIZATIONAL CHART</h4>
-    <a href="../assets/img/brgy/brgy_chart.png">
+    <a href="../assets/img/brgy/brgy_chart.jpg">
       <div class="card border-0 brgy_chart">
-          <img src="../assets/img/brgy/brgy_chart.png" alt="BARANGAY ORGANIZATIONAL CHART">
+          <img src="../assets/img/brgy/brgy_chart.jpg" alt="BARANGAY ORGANIZATIONAL CHART">
       </div>
     </a>
 </div>
@@ -635,24 +634,27 @@
               <h3 class="text-center title text-white">Contact Us</h4>
                 <div id="navigation-pills">
                   <div class="row">
-                    <div class="col-lg-12">
-                      <ul class="nav nav-pills nav-pills-icons" role="tablist">
-                      <li class="nav-item">
-                          <a class="nav-link text-white  active" href="#brgy_directory" role="tab" data-toggle="tab">
-                            BARANGAY <br> DIRECTORY
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-white" href="#brief_narrative_description_of_location" role="tab" data-toggle="tab">
-                            DESCRIPTION <br> OF LOCATION
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link text-white" href="#landmark_with_brief_description" role="tab" data-toggle="tab">
-                            LANDMARK WITH <br> BRIEF DESCRIPTION
-                          </a>
-                        </li>
-                      </ul>
+                    <div class="col-md-12">
+                      <div class="d-flex justify-content-center">
+                        <ul class="nav nav-pills nav-pills-icons" role="tablist">
+                          <li class="nav-item">
+                            <a class="nav-link text-white active" href="#brgy_directory" role="tab" data-toggle="tab">
+                              BARANGAY <br> DIRECTORY
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link text-white" href="#brief_narrative_description_of_location" role="tab" data-toggle="tab">
+                              DESCRIPTION <br>LOCATION
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link text-white" href="#landmark_with_brief_description" role="tab" data-toggle="tab">
+                              LANDMARK  <br>DESCRIPTION
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                     
                       <div class="tab-content tab-space">
                         
                         <div class="tab-pane active" id="brgy_directory">
@@ -663,37 +665,37 @@
                                       <h6 class="font-weight-bold text-white">Barangay Hall Address:	</h6>
                                   </div>
                                   <div class="col-md-6">
-                                      <h6 class="font-weight-bold text-white">Amang Rodriquez Avenue, Barangay San Roque Cainta. Rizal</h6>
+                                      <p class="text-white font-weight-light">Amang Rodriquez Avenue, Barangay San Roque Cainta. Rizal</p>
                                   </div>
                                   <div class="col-md-6">
                                       <h6 class="font-weight-bold text-white">Barangay E-mail Address: </h6>
                                   </div>
                                   <div class="col-md-6">
-                                      <h6 class="font-weight-bold text-white"><a href="#send_us_email" class="text-white">barangaysanroque@gmail.com</a> </h6>
+                                      <p class=" font-weight-light text-white"><a href="#send_us_email" class="text-white">barangaysanroque@gmail.com</a> </p>
                                   </div>
                                   <div class="col-md-6">
                                       <h6 class="font-weight-bold text-white">Barangay Telephone Numbers:</h6>
                                   </div>
                                   <div class="col-md-6">
-                                      <h6 class="font-weight-bold text-white"></h6>
+                                      <p class=" font-weight-light text-white"></p>
                                   </div>
                                   <div class="col-md-6">
                                       <h6 class="font-weight-bold text-white">Secretary/Treasurer:	</h6>
                                   </div>
                                   <div class="col-md-6">
-                                      <h6 class="font-weight-bold text-white">8 420-76-07</h6>
+                                      <p class=" font-weight-light text-white">8 420-76-07</p>
                                   </div>
                                   <div class="col-md-6">
                                       <h6 class="font-weight-bold text-white">Information: </h6>
                                   </div>
                                   <div class="col-md-6">
-                                      <h6 class="font-weight-bold text-white">8 281-02-06</h6>
+                                      <p class=" font-weight-light text-white">8 281-02-06</p>
                                   </div>
                                   <div class="col-md-6">
                                       <h6 class="font-weight-bold text-white">Tanod:</h6>
                                   </div>
                                   <div class="col-md-6">
-                                      <h6 class="font-weight-bold text-white">8 281-02-50</h6>
+                                      <p class="font-weight-light text-white">8 281-02-50</p>
                                   </div>
                               </div>
                             </div>
@@ -711,31 +713,31 @@
                                         <h6 class="font-weight-bold text-white">Hilaga (North)	:</h6>
                                     </div>
                                     <div class="col-md-6">
-                                        <h6 class="font-weight-bold text-white">Barangay San Juan</h6>
+                                        <p class="font-weight-light text-white">Barangay San Juan</p>
                                     </div>
                                     <div class="col-md-6">
                                         <h6 class="font-weight-bold text-white">Timog (South) :</h6>
                                     </div>
                                     <div class="col-md-6">
-                                        <h6 class="font-weight-bold text-white">Barangay Sto. Domingo</h6>
+                                        <p class="font-weight-light text-white">Barangay Sto. Domingo</p>
                                     </div>
                                     <div class="col-md-6">
                                         <h6 class="font-weight-bold text-white">Silangan (East) :</h6>
                                     </div>
                                     <div class="col-md-6">
-                                        <h6 class="font-weight-bold text-white">Barangay San Andres</h6>
+                                        <p class="font-weight-light text-white">Barangay San Andres</p>
                                     </div>
                                     <div class="col-md-6">
                                         <h6 class="font-weight-bold text-white">Kanluran (West) :</h6>
                                     </div>
                                     <div class="col-md-6">
-                                        <h6 class="font-weight-bold text-white">Barangay Santa Rosa</h6>
+                                        <p class="font-weight-light text-white">Barangay Santa Rosa</p>
                                     </div>
                                     <div class="col-md-6">
                                         <h6 class="font-weight-bold text-white">Classification of Barangay :</h6>
                                     </div>
                                     <div class="col-md-6">
-                                        <h6 class="font-weight-bold text-white">Urban</h6>
+                                        <p class="font-weight-light text-white">Urban</p>
                                     </div>
                                 </div>
                               </div>
@@ -762,39 +764,7 @@
                   </div>
                 </div>
         </div>
-        <h5 class="text-center title text-white">Send Us A Message</h5>
-        <div class="row p-2" id="send_us_email">
-          <div class="col-md-8 ml-auto mr-auto ">
-            <form class="contact-form">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="bmd-label-floating text-white">Your Name</label>
-                    <input type="email" class="form-control text-white">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="bmd-label-floating text-white">Your Email</label>
-                    <input type="email" class="form-control text-white">
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="exampleMessage" class="bmd-label-floating text-white">Your Message</label>
-                <textarea type="email" class="form-control text-white" rows="4" id="exampleMessage"></textarea>
-              </div>
-              <div class="row">
-                <div class="col-md-4 ml-auto mr-auto text-center">
-                  <button class="btn btn-primary btn-raised">
-                    Send Message
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-
+       
   </div>
  
 

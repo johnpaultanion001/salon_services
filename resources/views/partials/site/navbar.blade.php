@@ -1,8 +1,9 @@
 <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
       <div class="container">
         <div class="navbar-translate">
-          <a class="navbar-brand font-weight-bold" href="/">
-          {{ trans('panel.site_title') }} 
+          <a class="navbar-brand font-weight-bold h1" href="/">
+         
+          <p style="font-size: 20px"> {{ trans('panel.site_title') }} </p>
         </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -10,6 +11,9 @@
             <span class="navbar-toggler-icon"></span>
             <span class="navbar-toggler-icon"></span>
           </button>
+
+         
+
         </div>
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
@@ -44,14 +48,16 @@
               </div>
             </li>
             <li class="dropdown nav-item">
-              <a href="#" class="dropdown-toggle nav-link {{ request()->is('resident/appointments') ? 'active' : '' }}" data-toggle="dropdown">
+              <a href="#" class="dropdown-toggle nav-link {{ request()->is('resident/appointments') || request()->is('resident/borrow') ? 'active' : '' }}" data-toggle="dropdown">
                 <i class="material-icons">apps</i> Services
               </a>
               <div class="dropdown-menu dropdown-with-icons">
-              
                 <a href="/resident/appointments" class="dropdown-item">
-                <i class="far fa-calendar-plus fa-lg p-2"></i> Appointment
+                  <i class="far fa-calendar-plus fa-lg p-2"></i> Appointment
                 </a>
+                <a href="/resident/borrow" class="dropdown-item">
+                  <i class="fas fa-truck-loading fa-lg p-2"></i> Borrow Items
+                </a> 
               </div>
             </li>
 
@@ -79,31 +85,6 @@
                 <i class="fab fa-instagram fa-2x"></i>
               </a>
             </li>
-            @if (Auth::user())
-              <li class="dropdown nav-item">
-                <a href="#" class="nav-link" data-toggle="dropdown">
-                  <i class="fas fa-bell fa-2x"></i><span class="counter counter-lg ">
-                    @php(
-                        [
-                          $notis = App\Models\Notification::where('user_id', Auth::user()->id ?? ''  )->where('isRead', 0)->count(),
-                          $allnotis =  App\Models\Notification::where('user_id', Auth::user()->id ?? ''  )->latest()->get()
-                        ]
-                      )
-                      {{$notis}}
-                  
-                  </span>
-                </a>
-                  <div class="dropdown-menu dropdown-with-icons">
-                      @if(count($allnotis) > 0)
-                        @foreach($allnotis as $an)
-                          <a id="click_notif" click_notif="{{$an->id}}" class="dropdown-item" style="cursor: pointer;">
-                            <i class="fas fa-bell pr-2 {{ $an->isRead == 0 ? 'text-success' : '' }}"></i> {{$an->status}}
-                          </a>
-                        @endforeach
-                      @endif
-                  </div>
-              </li>
-            @endif
           </ul>
         
           <ul class="navbar-nav ml-auto">
@@ -144,7 +125,7 @@
         </div>
       </div>
   </nav>
+  <div class="page-header header-filter clear-filter purple-filter"></div>
 
-  <div class="page-header header-filter clear-filter purple-filter" ></div>
 
   

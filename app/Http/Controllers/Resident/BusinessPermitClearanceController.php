@@ -7,6 +7,7 @@ use App\Models\BusinessPermitClearance;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Validator;
+use App\Models\Notification;
 
 class BusinessPermitClearanceController extends Controller
 {
@@ -33,6 +34,7 @@ class BusinessPermitClearanceController extends Controller
             return response()->json(['errors' => $validated->errors()]);
         }
         $userid = auth()->user()->id;
+        $username = auth()->user()->name;
         
         $onepending = BusinessPermitClearance::where('user_id', $userid)
                                         ->where('status', 0)
@@ -47,6 +49,13 @@ class BusinessPermitClearanceController extends Controller
             'user_id' => $userid,
             'purpose' => $request->input('purpose'),
         ]);
+
+        Notification::create([
+            'user_id' => 1,
+            'status' => "Added Business Permit Clearance by " .$username,
+            'link' => "/admin/business_permit_clearance",
+        ]);
+
         return response()->json(['success' => 'Added Successfully.']);
     }
 

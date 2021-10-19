@@ -7,6 +7,7 @@ use App\Models\CertificateOfResidency;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Validator;
+use App\Models\Notification;
 
 class CertificateOfResidencyController extends Controller
 {
@@ -34,6 +35,7 @@ class CertificateOfResidencyController extends Controller
             return response()->json(['errors' => $validated->errors()]);
         }
         $userid = auth()->user()->id;
+        $username = auth()->user()->name;
         
         $onepending = CertificateOfResidency::where('user_id', $userid)
                                         ->where('status', 0)
@@ -48,6 +50,13 @@ class CertificateOfResidencyController extends Controller
             'user_id' => $userid,
             'purpose' => $request->input('purpose'),
         ]);
+
+        Notification::create([
+            'user_id' => 1,
+            'status' => "Added Certificate Of Residency by " .$username,
+            'link' => "/admin/certificate_of_residency",
+        ]);
+
         return response()->json(['success' => 'Added Successfully.']);
     }
 

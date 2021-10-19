@@ -66,6 +66,36 @@
         overflow: auto;
         max-height: 270px;
     }
+    .counter.counter-lg {
+      top: 1px !important;
+      font-weight: bold;
+      position: absolute;
+    }
+    #notification_bell{
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      margin-right: 40px;
+      margin-bottom: 10px; 
+      z-index: 9999;
+      background: #C0C0C0;
+    }
+    .dropdown_list{
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      margin-right: 5px;
+      margin-bottom: 65px; 
+      z-index: 9999;
+    }
+    #click_notif{
+      border-top: solid 1px #c0c0c0;
+      cursor: pointer;
+    }
+    #click_notif:hover{
+      background-color: #8E0E00 !important;
+      color: white;
+    }
  
         
     
@@ -85,6 +115,46 @@
                     <!-- Page content -->
                     @yield('content')
                     @yield('footer')
+
+                    
+                @if (Auth::user())
+                    @php(
+                        [
+                        $notis = App\Models\Notification::where('user_id', Auth::user()->id ?? ''  )->where('isRead', 0)->count(),
+                        $allnotis =  App\Models\Notification::where('user_id', Auth::user()->id ?? ''  )->orderBy('isRead', 'asc')->latest()->get()
+                        ]
+                    )
+
+                    <div id="notification_bell" class="btn btn btn-round" style="border-radius: 25px;">
+                        <i class="fas fa-bell fa-2x" style="color: #8E0E00;"></i>
+                        <span class="counter counter-lg ">
+                            
+
+                            @if($notis > 0)
+                                <i class="fas fa-circle text-warning"></i>
+                            @else
+
+                            @endif
+                        </span> 
+                    </div>
+
+                    <div class="card dropdown_list" style="max-width: 400px; max-height: 200px; overflow-x: scroll; overflow-y: scroll;">
+
+                        <ul class="list-group list-group-flush">
+                                @if(count($allnotis) > 0)
+                                    @foreach($allnotis as $an)
+                                    <li id="click_notif" click_notif="{{$an->id}}" class="list-group-item">
+                                        <i class="fas fa-bell {{ $an->isRead == 0 ? 'text-success' : '' }}"></i> <br>
+                                        {{$an->status}}
+                                    </li>  
+                                    @endforeach
+                                @else
+                                    <li class="list-group-item">No Notification</li>
+                                @endif
+                            </ul>
+                    
+                    </div>
+                @endif
             </div>
 
             <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -121,7 +191,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
-        <script src="{{ asset('js/main.js') }}"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
         <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
@@ -196,6 +265,49 @@
 
     </script>
 
+        <script>
+
+        var itemInStock = false;
+
+        $(document).ready(function () {
+        $('.dropdown_list').hide();
+        });
+
+        $("#notification_bell").click(function(){
+            changeStatus();
+        });
+
+        function changeStatus(){
+            if( itemInStock === false){
+            $('.dropdown_list').show();
+            itemInStock = true;
+            
+            } else{
+            $('.dropdown_list').hide();
+            itemInStock = false;
+            }
+        }
+
+
+        $(document).on('click', '#click_notif', function(){
+            var id = $(this).attr('click_notif');
+            $.ajax({
+                    url:"../resident/notification/"+id,
+                    method:'PUT',
+                    data: {
+                        _token: '{!! csrf_token() !!}',
+                    },
+                    dataType:"json",
+                    beforeSend:function(){
+                    },
+                    
+                    success:function(data){
+                    location.href = data.success;
+                    }
+                })
+
+        });
+        </script>
         @yield('script')
     </body>
 </html>
