@@ -112,60 +112,60 @@
 </div>
 
 <form method="post" id="cpForm" class="contact-form">
-    @csrf
-    <div class="modal fade" id="cpModal" tabindex="-1" role="dialog">
-      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="cp-modal-title">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <i class="material-icons">clear</i>
-            </button>
-          </div>
-          <div class="modal-body">
-        
-            <div class="col-sm-12">
-                  <div class="form-group">
-                      <label class="control-label text-uppercase" >Current Password: </label>
-                      <input type="password" name="current_password" id="current_password" class="form-control" />
-                      <span toggle="#current_password-field" class="fa fa-fw fa-eye field_icon toggle-current_password" style="float: right; margin-left: -25px; margin-top: -25px; position: relative; z-index: 2;"></span>
-                      <span class="invalid-feedback" role="alert">
-                          <strong id="error-current_password"></strong>
-                      </span>
-                  </div>
-              </div>
+  @csrf
+  <div class="modal fade" id="cpModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="cp-modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <i class="material-icons">clear</i>
+          </button>
+        </div>
+        <div class="modal-body">
+      
+          <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="control-label text-uppercase" >Current Password: </label>
+                    <input type="password" name="current_password" id="current_password" class="form-control" />
+                    <span toggle="#current_password-field" class="fa fa-fw fa-eye field_icon toggle-current_password" style="float: right; margin-left: -25px; margin-top: -25px; position: relative; z-index: 2;"></span>
+                    <span class="invalid-feedback" role="alert">
+                        <strong id="error-current_password"></strong>
+                    </span>
+                </div>
+            </div>
 
-              <div class="col-sm-12">
-                  <div class="form-group">
-                      <label class="control-label text-uppercase" >New Password: </label>
-                      <input type="password" name="new_password" id="new_password" class="form-control" />
-                      <span toggle="#new_password-field" class="fa fa-fw fa-eye field_icon toggle-new_password" style="float: right; margin-left: -25px; margin-top: -25px; position: relative; z-index: 2;"></span>
-                      <span class="invalid-feedback" role="alert">
-                          <strong id="error-new_password"></strong>
-                      </span>
-                  </div>
-              </div>
-              
-              <div class="col-sm-12">
-                  <div class="form-group">
-                      <label class="control-label text-uppercase" >Confirm New Password: </label>
-                      <input type="password" name="confirm_password" id="confirm_password" class="form-control" />
-                      <span toggle="#confirm_password-field" class="fa fa-fw fa-eye field_icon toggle-confirm_password" style="float: right; margin-left: -25px; margin-top: -25px; position: relative; z-index: 2;"></span>
-                      <span class="invalid-feedback" role="alert">
-                          <strong id="error-confirm_password"></strong>
-                      </span>
-                  </div>
-              </div>
-              
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Close</button>
-            <input type="submit" name="cp_action_button" id="cp_action_button" class="btn btn-link text-primary" value="Save" />
-          </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="control-label text-uppercase" >New Password: </label>
+                    <input type="password" name="new_password" id="new_password" class="form-control" />
+                    <span toggle="#new_password-field" class="fa fa-fw fa-eye field_icon toggle-new_password" style="float: right; margin-left: -25px; margin-top: -25px; position: relative; z-index: 2;"></span>
+                    <span class="invalid-feedback" role="alert">
+                        <strong id="error-new_password"></strong>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="control-label text-uppercase" >Confirm New Password: </label>
+                    <input type="password" name="confirm_password" id="confirm_password" class="form-control" />
+                    <span toggle="#confirm_password-field" class="fa fa-fw fa-eye field_icon toggle-confirm_password" style="float: right; margin-left: -25px; margin-top: -25px; position: relative; z-index: 2;"></span>
+                    <span class="invalid-feedback" role="alert">
+                        <strong id="error-confirm_password"></strong>
+                    </span>
+                </div>
+            </div>
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Close</button>
+          <input type="submit" name="cp_action_button" id="cp_action_button" class="btn btn-link text-primary" value="Save" />
         </div>
       </div>
     </div>
-  </form>
+  </div>
+</form>
 
 
 @endsection

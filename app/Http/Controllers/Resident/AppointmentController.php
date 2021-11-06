@@ -111,6 +111,7 @@ class AppointmentController extends Controller
             'date' => ['required','after:yesterday'],
             'time' => ['required'],
             'purpose' => ['required'],
+            'type_of_appointment' => ['required'],
         ]);
         if ($validated->fails()) {
             return response()->json(['errors' => $validated->errors()]);
@@ -139,6 +140,7 @@ class AppointmentController extends Controller
             'date' => $request->input('date'),
             'time' => $request->input('time'),
             'purpose' => $request->input('purpose'),
+            'type_of_appointment' => $request->input('type_of_appointment'),
         ]);
 
         Notification::create([
@@ -172,6 +174,7 @@ class AppointmentController extends Controller
             'date' => ['required','after:yesterday'],
             'time' => ['required'],
             'purpose' => ['required'],
+            'type_of_appointment' => ['required'],
         ]);
         if ($validated->fails()) {
             return response()->json(['errors' => $validated->errors()]);
@@ -190,6 +193,7 @@ class AppointmentController extends Controller
             'date' => $request->input('date'),
             'time' => $request->input('time'),
             'purpose' => $request->input('purpose'),
+            'type_of_appointment' => $request->input('type_of_appointment'),
         ]);
         return response()->json(['success' => 'Updated Successfully.']);
     }

@@ -17,6 +17,7 @@ class Appointment extends Model
         'isRemove',
         'date',
         'time',
+        'type_of_appointment'
     ];
 
     public function user()

@@ -28,9 +28,9 @@
                 <i class="material-icons">content_paste</i> Request
               </a>
               <div class="dropdown-menu dropdown-with-icons">
-                <a href="/resident/brgy_certificate" class="dropdown-item">
+                <!-- <a href="/resident/brgy_certificate" class="dropdown-item">
                 <i class="material-icons">content_paste</i> Barangay Certificate
-                </a>
+                </a> -->
                 <a href="/resident/certificate_of_residency" class="dropdown-item">
                   <i class="material-icons">content_paste</i> Certificate of Residency
                 </a>
@@ -55,9 +55,9 @@
                 <a href="/resident/appointments" class="dropdown-item">
                   <i class="far fa-calendar-plus fa-lg p-2"></i> Appointment
                 </a>
-                <a href="/resident/borrow" class="dropdown-item">
+                <!-- <a href="/resident/borrow" class="dropdown-item">
                   <i class="fas fa-truck-loading fa-lg p-2"></i> Borrow Items
-                </a> 
+                </a>  -->
               </div>
             </li>
 
@@ -76,15 +76,15 @@
         
             
             <li class="nav-item">
-              <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="/" target="_blank" data-original-title="Like us on Facebook" rel="nofollow">
+              <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/barangay.sanroque.5851" target="_blank" data-original-title="Like us on Facebook" rel="nofollow">
                 <i class="fab fa-facebook-square fa-2x"></i>
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="/" target="_blank" data-original-title="Follow us on Instagram" rel="nofollow">
                 <i class="fab fa-instagram fa-2x"></i>
               </a>
-            </li>
+            </li> -->
           </ul>
         
           <ul class="navbar-nav ml-auto">

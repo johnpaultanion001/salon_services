@@ -22,6 +22,7 @@ class CreateAppointmentsTable extends Migration
             $table->integer('isRemove')->default('0');
             $table->date('date');
             $table->string('time');
+            $table->string('type_of_appointment');
 
             $table->timestamps();
         });

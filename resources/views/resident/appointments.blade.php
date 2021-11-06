@@ -62,6 +62,7 @@
                                       <h5 class="card-title">Appointment</h5>
                                       <h6 class="card-subtitle mb-2 text-muted">{{ \Carbon\Carbon::parse($appointment->date)->isoFormat('MMM Do YYYY')}}</h6>
                                       <h6 class="card-subtitle mb-2 text-muted">{{ $appointment->time }}</h6>
+                                      <p class="card-text">{{$appointment->type_of_appointment}}</p>
                                       <p class="card-text">{{$appointment->purpose}}</p>
 
                                       @if($appointment->status == 0)
@@ -168,6 +169,20 @@
                       </span>
                     </div>
                   </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="label-control">Type Of Appointment</label>
+                      <select name="type_of_appointment" id="type_of_appointment" class="form-control select2">
+                          <option value="" disabled selected>Select Appointment</option>
+                              <option value="SESSION">SESSION</option>
+                              <option value="BRGY CLEARANCE">BRGY CLEARANCE</option> 
+                      </select>
+                      <span class="invalid-feedback" role="alert">
+                        <strong id="error-type_of_appointment"></strong>
+                      </span>
+                    </div>
+                    <p class="text-danger font-weight-bold note"></p>
+                  </div>
                 </div>
                 <div class="form-group">
                   <label class="label-control">Purpose</label>
@@ -272,6 +287,7 @@
     $('.form-control').removeClass('is-invalid')
     $('#action').val('Add');
     $('#lblpurpose').addClass('bmd-label-floating')
+    $('.note').html(null);
   });
 
   $('#myForm').on('submit', function(event){
@@ -475,6 +491,18 @@ $(document).on('click', '.cancel', function(){
       }
   });
 
+});
+
+$('select[name="type_of_appointment"]').on("change", function(event){
+    var appointment = $('#type_of_appointment').val();
+    if(appointment == "BRGY CLEARANCE"){
+      $('.note').html('* test');
+    }else{
+      $('.note').html(null);
+    }
+      
+    
+ 
 });
 
 </script>

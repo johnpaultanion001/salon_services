@@ -26,12 +26,12 @@
                 </a>
               </li>
               
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link {{ request()->is('admin/brgy_certificate') || request()->is('admin/brgy_certificate/*') ? 'active' : '' }}" href="{{ route("admin.brgy_certificate.index") }}">
                   <i class="far fa-list-alt fa-lg "></i>
                   <span class="nav-link-text text-uppercase">Manage Brgy Certificate</span>
                 </a>
-              </li>
+              </li> -->
 
               <li class="nav-item">
                 <a class="nav-link {{ request()->is('admin/certificate_of_residency') || request()->is('admin/certificate_of_residency/*') ? 'active' : '' }}" href="{{ route("admin.certificate_of_residency.index") }}">
@@ -75,12 +75,12 @@
                   <span class="nav-link-text text-uppercase">Manage Announcements</span>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link {{ request()->is('admin/borrow') || request()->is('admin/borrow/*') ? 'active' : '' }}" href="{{ route("admin.borrow.index") }}">
                   <i class="far fa-list-alt fa-lg "></i>
                   <span class="nav-link-text text-uppercase">Manage Borrow</span>
                 </a>
-              </li>
+              </li> -->
 
            
 

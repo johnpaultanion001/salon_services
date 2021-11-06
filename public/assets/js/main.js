@@ -46,6 +46,8 @@ $(document).ready(function () {
     sideBySide: true
   })
 
+  
+
   function getCurrentTime(date) {
       var hours = date.getHours(),
       minutes = date.getMinutes(),
@@ -104,3 +106,8 @@ $(document).ready(function () {
     }
   })
 })
+
+
+
+
+
