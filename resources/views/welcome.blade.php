@@ -683,19 +683,19 @@
                                       <h6 class="font-weight-bold text-white">Secretary/Treasurer:	</h6>
                                   </div>
                                   <div class="col-md-6">
-                                      <p class=" font-weight-light text-white">8 420-76-07</p>
+                                      <p class=" font-weight-light text-white">0927 139 4357</p>
                                   </div>
                                   <div class="col-md-6">
                                       <h6 class="font-weight-bold text-white">Information: </h6>
                                   </div>
                                   <div class="col-md-6">
-                                      <p class=" font-weight-light text-white">8 281-02-06</p>
+                                      <p class=" font-weight-light text-white">0927 139 4357</p>
                                   </div>
                                   <div class="col-md-6">
                                       <h6 class="font-weight-bold text-white">Tanod:</h6>
                                   </div>
                                   <div class="col-md-6">
-                                      <p class="font-weight-light text-white">8 281-02-50</p>
+                                      <p class="font-weight-light text-white">0927 139 4357</p>
                                   </div>
                               </div>
                             </div>

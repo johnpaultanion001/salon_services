@@ -496,7 +496,7 @@ $(document).on('click', '.cancel', function(){
 $('select[name="type_of_appointment"]').on("change", function(event){
     var appointment = $('#type_of_appointment').val();
     if(appointment == "BRGY CLEARANCE"){
-      $('.note').html('* test');
+      $('.note').html('* Please take note that you need to bring 1 valid ID to claim your baranggay clearance. Other requirements will be discuss upon processing your documents');
     }else{
       $('.note').html(null);
     }
