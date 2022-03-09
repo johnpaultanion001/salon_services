@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable;
 
@@ -22,8 +22,6 @@ class User extends Authenticatable
         'password',
         'address',
         'contact_number',
-        'date_of_birth',
-        'role',
     ];
 
     /**
@@ -45,8 +43,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function brgy_certificate()
+    public function roles()
     {
-        return $this->hasMany(BrgyCertificate::class, 'user_id', 'id');
+        return $this->belongsToMany(Role::class);
     }
 }

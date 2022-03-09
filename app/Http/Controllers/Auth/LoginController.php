@@ -41,25 +41,19 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    protected function sendLoginResponse(Request $request)
+    protected function validateLogin(Request $request)
     {
-        $request->session()->regenerate();
+        $request->validate([
+            $this->username() => 'required|string',
+            'password' => 'required|string',
+        ]);
+    }
 
-         $this->clearLoginAttempts($request);
+    public function redirectPath(){
+        if(auth()->user()->roles()->pluck('id')->implode(', ') == '1'){
+            return route('admin.dashboard');
+        }
+    }
 
-         if ($response = $this->authenticated($request, $this->guard()->user())) {
-             return $response;
-      }
-
-        
-         if(Auth::user()->role == 'resident'){
-             $redirectTo = '/resident/home';
-         }else if(Auth::user()->role == 'admin'){
-             $redirectTo = '/admin/home';
-         }
-
-         return $request->wantsJson()
-                     ? new JsonResponse([], 204)
-                     : redirect($redirectTo);
-     }
+     
 }
