@@ -37,6 +37,9 @@
           @yield('content')
       </section>
     </main>
+    <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
+        {{ csrf_field() }}
+    </form>
     <!--   Core JS Files   -->
     <script src="{{ asset('/assets_v1/js/core/popper.min.js') }}"></script>
     <script src="{{ asset('/assets_v1/js/core/bootstrap.min.js') }}"></script>
