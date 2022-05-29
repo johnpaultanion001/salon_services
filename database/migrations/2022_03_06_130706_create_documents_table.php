@@ -17,7 +17,6 @@ class CreateDocumentsTable extends Migration
             $table->id();
             $table->string('name');
             $table->float('amount')->default(0);
-            $table->longText('requirements')->nullable();
             $table->longText('remarks')->nullable();
             $table->boolean('isAvailable')->default(true);
             $table->timestamps();

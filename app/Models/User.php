@@ -42,9 +42,15 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
 
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    public function resident()
+    {
+        return $this->belongsTo(Resident::class, 'id', 'user_id');
     }
 }

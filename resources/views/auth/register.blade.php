@@ -1,128 +1,84 @@
-@extends('../layouts.site')
+@extends('../layouts.resident')
 @section('sub-title','Register')
 
 @section('navbar')
-    @include('../partials.site.navbar')
+    @include('../partials.resident.navbar')
+@endsection
+@section('style')
+<style>
+
+</style>
 @endsection
 
 @section('content')
-<div class="main main-raised">
-    <div class="profile-content">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 ml-auto mr-auto">
-            <div class="profile">
-              <br><br><br>
-            
-            </div>
-          </div>
+
+<main id="main">
+  <section class="contact mt-5">
+    <div class="container">
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Register</h2>
+          <p>Complete all required fields</p>
         </div>
-     
-      <div class="row">
-        <div class="col-lg-6 col-md-6 ml-auto mr-auto">
-          <div class="card card-login">
-          <form method="POST" action="{{ route('register') }}">
+
+        <div class="row mt-2">
+          <div class="col-lg-6 mt-lg-0 mx-auto" data-aos="fade-left">
+            <form method="POST" action="{{ route('register') }}">  
               @csrf
-              <div class="card-header card-header-primary text-center">
-                <h4 class="card-title">Register</h4>
-                <p class="description text-white text-center">All Field Are Required</p>
-              </div>
-              <br><br>
-              <div class="card-body">
-                  <div class="form-group">
-                    <label for="name" class="bmd-label-floating">Name <span class="text-danger">*</span></label>
-                    <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                    @error('name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                <div class="card">
+                  <div class="text-center px-3 px-md-4 py-0 mt-2">
+                      <img  src="{{ trans('panel.logo') }}" alt="logo" width="80" height="70" class="z-depth-2">
+                      <hr>
                   </div>
-
-                  <div class="form-group">
-                    <label for="email" class="bmd-label-floating">Email<span class="text-danger">*</span></label>
-                    <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror"  value="{{ old('email') }}" required autocomplete="email">
-                    @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                  <div class="card-body">
+                    <div class="row">
+                          <div class="form-group">
+                              <input type="email" id="email" name="email" class="form-control form-control-lg @error('email') is-invalid @enderror" placeholder="Email" value="{{ old('email') }}"  aria-label="Email" autofocus>
+                              @error('email')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                              @enderror
+                          </div>
+                          <div class="form-group">
+                              <input type="password" id="password" name="password" class="form-control form-control-lg @error('password') is-invalid @enderror" placeholder="Password" aria-label="Password">
+                              @error('password')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                              @enderror
+                          </div>
+                          <div class="form-group">
+                            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control form-control-lg" placeholder="Confirm Password" aria-label="Password">
+                          </div>
+                      </div>
+                      <div class="text-center">
+                        <button type="submit" class="mt-2">Submit</button>
+                      </div>
+              
+                      <p class="text-center mt-3 color-black" style="font-size: 15px; font-weight: 500;">Already have an account? <a href="/login"><b class="color-black" style="font-weight: 700">Log In here</b></a></p>
                   </div>
-
-                  <div class="form-group">
-                    <label for="contact_number" class="bmd-label-floating">Contact Number<span class="text-danger">*</span></label>
-                    <input type="number" id="contact_number" name="contact_number" class="form-control @error('contact_number') is-invalid @enderror"  value="{{ old('contact_number') }}" required autocomplete="contact_number">
-                    @error('contact_number')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                  </div>
-
-                  <div class="form-group">
-                    <label for="address" class="bmd-label-floating">Address <span class="text-danger">*</span></label>
-                    <input type="text" id="address" name="address" class="form-control @error('address') is-invalid @enderror" value="{{ old('address') }}" required autocomplete="address">
-                    @error('address')
-                      <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
-                    @enderror
-                  </div>
-
-                  <div class="form-group">
-                    <label for="date_of_birth" >Date Of Birth <span class="text-danger">*</span></label>
-                    <input type="date" id="date_of_birth" name="date_of_birth" class="form-control @error('date_of_birth') is-invalid @enderror" value="{{ old('date_of_birth') }}" required autocomplete="date_of_birth">
-                    @error('date_of_birth')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                  </div>
-
-                  <div class="form-group">
-                    <label for="password"class="bmd-label-floating" >Password <span class="text-danger">*</span></label>
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" >
-                     @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                  </div>
-
-                  <div class="form-group">
-                    <label for="password-confirm" class="bmd-label-floating">Confirm Password <span class="text-danger">*</span></label>
-                    <input type="password" id="password-confirm" name="password_confirmation" class="form-control" required autocomplete="new-password">
-                  </div>
-
-
-                
-
-              </div>
-              <br><br><br>
-              <div class="footer text-center">
-               
-                <button type="submit" class="btn btn-primary btn-lg"> Register </button>
-              </div>
-              <p class="description text-center">Already a member? <a href="/login">Login Now</a> </p>
-              <br><br>
+                </div>
             </form>
+            
+            
           </div>
         </div>
-      </div>
+        
     </div>
-      </div>
-    </div>
- 
-@endsection
+  </section>
+</main>
 
+
+
+@endsection
 
 @section('footer')
-    @include('../partials.site.footer')
+    @include('../partials.resident.footer')
 @endsection
-
 
 @section('script')
 <script> 
-// script
+
 </script>
 @endsection
+

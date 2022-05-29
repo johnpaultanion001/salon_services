@@ -1,9 +1,9 @@
 <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/argon-dashboard/pages/dashboard.html " target="_blank">
-        <img src="../assets_v1/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="ms-1 font-weight-bold">{{ trans('panel.site_short_title')}}</span>
+      <a class="navbar-brand m-0" href="https://demos.creative-tim.com/argon-dashboard/pages/dashboard.html " target="_blank">
+        <!-- <img src="{{ trans('panel.logo') }}" class="navbar-brand-img h-100" alt="main_logo"> -->
+        <span class="ms-1 font-weight-bold">{{ trans('panel.site_title')}}</span>
       </a>
     </div>
   <hr class="horizontal dark mt-0">
@@ -15,6 +15,22 @@
             <i class="fa-solid fa-house text-primary text-sm"></i>
           </div>
           <span class="nav-link-text ms-1">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ request()->is('admin/residents') || request()->is('admin/residents/*') ? 'active' : '' }}" href="/admin/residents">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="fa-solid fa-list text-primary text-sm"></i>
+          </div>
+          <span class="nav-link-text ms-1">Manage Residents</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ request()->is('admin/requested_documents') || request()->is('admin/requested_documents/*') ? 'active' : '' }}" href="/admin/requested_documents">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="fa-solid fa-list text-primary text-sm"></i>
+          </div>
+          <span class="nav-link-text ms-1">Requested Document</span>
         </a>
       </li>
       <li class="nav-item">

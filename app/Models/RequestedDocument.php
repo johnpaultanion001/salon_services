@@ -12,10 +12,15 @@ class RequestedDocument extends Model
         'resident_id',
         'document_id',
         'date_you_need',
-        'amount_paid',
+        'amount_to_pay',
+        'receipt',
+        'claiming_option',
+        'downloadable',
+        
         'note',
         'status',
         'isPaid',
+        'isRemove',
     ];
 
     public function resident()
@@ -25,5 +30,13 @@ class RequestedDocument extends Model
     public function document()
     {
         return $this->belongsTo(Document::class, 'document_id');
+    }
+    public function requirements()
+    {
+        return $this->hasMany(RequestedDocumentRequirement::class, 'requested_document_id' , 'id')->orderBy('name', 'asc');
+    }
+    public function messages()
+    {
+        return $this->hasMany(Message::class, 'requested_document_id' , 'id')->latest();
     }
 }

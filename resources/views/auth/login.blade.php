@@ -1,71 +1,78 @@
 @extends('../layouts.resident')
-@section('sub-title','SIGN IN')
+@section('sub-title','LOG IN')
 
 @section('navbar')
     @include('../partials.resident.navbar')
 @endsection
+@section('style')
+<style>
 
-@section('content')
-<div class="page-header min-vh-100">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
-      <span class="mask bg-gradient-primary opacity-1"></span>
-        <div class="card card-plain bg-white">
-          <div class="card-header pb-0 text-start">
-            <h4 class="font-weight-bolder">Sign In</h4>
-            <p class="mb-0">Enter your email and password to sign in</p>
-          </div>
-          <div class="card-body">
-            <form method="POST" action="{{ route('login') }}">
-              @csrf
-              <div class="mb-3">
-                <input type="email" id="email" name="email" class="form-control form-control-lg @error('email') is-invalid @enderror" placeholder="Email" value="{{ old('email') }}"  aria-label="Email" autofocus>
-                  @error('email')
-                      <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
-                  @enderror
-              </div>
-              <div class="mb-3">
-                <input type="password" id="password" name="password" class="form-control form-control-lg @error('password') is-invalid @enderror" placeholder="Password" aria-label="Password">
-                @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-              </div>
-              <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="rememberMe">
-                <label class="form-check-label" for="rememberMe">Remember me</label>
-              </div>
-              <div class="text-center">
-                <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
-              </div>
-            </form>
-          </div>
-          <div class="card-footer text-center pt-0 px-lg-2 px-1">
-            <p class="mb-4 text-sm mx-auto">
-              Don't have an account?
-              <a href="javascript:;" class="text-primary text-gradient font-weight-bold">Sign up</a>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
-        <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg');
-        background-size: cover;">
-          <span class="mask bg-gradient-primary opacity-6"></span>
-          <h4 class="mt-5 text-white font-weight-bolder position-relative">"Lorem ipsum lorem ipsum"</h4>
-          <p class="text-white position-relative">The more effortless the writing looks, the more effort the writer actually put into the process.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
- 
+</style>
 @endsection
 
+@section('content')
+
+<main id="main">
+  <section class="contact mt-5">
+    <div class="container">
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Login</h2>
+          <p>Login to your account</p>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-lg-6 mt-lg-0 mx-auto" data-aos="fade-left">
+            <form method="POST" action="{{ route('login') }}">  
+              @csrf
+                
+                <div class="card">
+                  <div class="text-center px-3 px-md-4 py-0 mt-2">
+                      <img  src="{{ trans('panel.logo') }}" alt="logo" width="80" height="70" class="z-depth-2">
+                      <hr>
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                          <div class="form-group">
+                              <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" value="{{ old('email') }}"  aria-label="Email" autofocus>
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                          </div>
+                          <div class="form-group">
+                              <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" aria-label="Password">
+                              @error('password')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                              @enderror
+                          </div>
+                      </div>
+                      <div class="text-center">
+                        <button type="submit" class="mt-2">Log In</button>
+                      </div>
+                      <p class="text-center mt-3 color-black" style="font-size: 15px; font-weight: 500;">Do not have an account yet? <a href="/register"><b class="color-black" style="font-weight: 700">Register here</b></a></p>
+                      <p  class="text-center mt-3 color-black" style="font-size: 15px; font-weight: 500;" ><a href="/password/reset">Forgot your password?</a></p>
+                  </div>
+                </div>
+            </form>
+            
+            
+          </div>
+        </div>
+        
+    </div>
+  </section>
+</main>
+
+
+
+@endsection
+
+@section('footer')
+    @include('../partials.resident.footer')
+@endsection
 
 @section('script')
 <script> 

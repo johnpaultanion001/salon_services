@@ -17,7 +17,8 @@ class Resident extends Model
         'contact_number',
         'address',
         'qr_code',
-        'isApprove'
+        'isApprove',
+        'isRegister'
     ];
 
     public function requestedDocuments()

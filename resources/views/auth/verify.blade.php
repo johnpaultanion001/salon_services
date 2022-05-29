@@ -1,59 +1,52 @@
-@extends('../layouts.site')
+
+@extends('../layouts.resident')
 @section('sub-title','Verify Email')
 
 @section('navbar')
-    @include('../partials.site.navbar')
+    @include('../partials.resident.navbar')
 @endsection
+@section('style')
+<style>
+.cta {
+    margin-top: 100px;
+}
 
+</style>
+@endsection
 @section('content')
-<div class="main main-raised">
-    <div class="profile-content">
-       <div class="container">
-            <div class="row">
-            <div class="col-md-6 ml-auto mr-auto">
-                <div class="profile">
-                <br><br><br>
-                
+
+<main id="main">
+   <!-- ======= Cta Section ======= -->
+   <section id="cta" class="cta">
+      <div class="container">
+          <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+              @csrf
+              <div class="row" data-aos="zoom-out">
+                <div class="col-lg-9 text-center text-lg-start mx-auto">
+                  <h3>Verify Your Email Address</h3>
+                    @if (session('resent'))
+                        <p class="text-warning">
+                            {{ __('A fresh verification link has been sent to your email address.') }}
+                        </p>
+                    @endif
+                    <button type="submit" class="cta-btn align-middle">click here to request another</button>
                 </div>
-            </div>
-            </div>
-        
-            <div class="row">
-                <div class="col-lg-6 col-md-6 ml-auto mr-auto">
-                    <div class="card card-login">
-                            
-                        <form method="POST" action="{{ route('verification.resend') }}">
-                            @csrf
-                                <div class="card-header card-header-primary text-center">
-                                    <h4 class="card-title">Verify Your Email Address</h4>
-                                    @if (session('resent'))
-                                    <div class="alert alert-success" role="alert">
-                                    {{ __('A fresh verification link has been sent to your email address.') }}
-                                    </div>
-                                    @endif
-                                </div>
+              </div>
+              
+             
+          </form>
+      </div>
+    </section><!-- End Cta Section -->
 
-                            <div class="card-footer text-center">
-                                <button type="submit" class="btn btn-primary">{{ __('click here to request another') }}</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
- 
-@endsection
+</main>
 
-
-@section('footer')
-    @include('../partials.site.footer')
 @endsection
 
 
 @section('script')
 <script> 
-// script
+
 </script>
 @endsection
+
+

@@ -16,14 +16,16 @@ class CreateResidentsTable extends Migration
         Schema::create('residents', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('middle_name');
-            $table->string('id_image');
-            $table->string('contact_number')->unique();
-            $table->string('address');
-            $table->string('qr_code')->unique();
-            $table->boolean('isApprove')->default(true);
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('middle_name')->nullable();
+            $table->string('id_image')->nullable();
+            $table->string('contact_number')->unique()->nullable();
+            $table->string('address')->nullable();
+            $table->string('qr_code')->nullable();
+            $table->boolean('isApprove')->default(false);
+            $table->boolean('isRegister')->default(false);
+            
 
             $table->timestamps();
         });

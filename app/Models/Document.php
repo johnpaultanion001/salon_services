@@ -11,8 +11,11 @@ class Document extends Model
     protected $fillable = [
         'name',
         'amount',
-        'requirements',
         'remarks',
         'isAvailable',
     ];
+    public function requirements()
+    {
+        return $this->hasMany(DocumentRequirement::class, 'document_id' , 'id')->orderBy('name', 'asc');
+    }
 }

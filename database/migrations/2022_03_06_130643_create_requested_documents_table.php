@@ -17,11 +17,16 @@ class CreateRequestedDocumentsTable extends Migration
             $table->id();
             $table->string('resident_id');
             $table->string('document_id');
-            $table->string('date_you_need');
-            $table->float('amount_paid');
+            $table->date('date_you_need');
+            $table->float('amount_to_pay');
+            $table->string('receipt');
+            
             $table->longText('note')->nullable();
             $table->string('status')->default('PENDING');
+            $table->string('claiming_option');
+            $table->string('downloadable')->nullable();
             $table->boolean('isPaid')->default(false);
+            $table->boolean('isRemove')->default(false);
             $table->timestamps();
         });
     }
