@@ -11,15 +11,13 @@
 @endsection
 
 @section('content')
-
 <main id="main">
-  <section class="contact mt-5">
+  <section class="contact mt-5" style="min-height: 80vh;">
     <div class="container">
         <div class="section-title" data-aos="zoom-out">
           <h2>Login</h2>
           <p>Login to your account</p>
         </div>
-
         <div class="row mt-2">
           <div class="col-lg-6 mt-lg-0 mx-auto" data-aos="fade-left">
             <form method="POST" action="{{ route('login') }}">  
@@ -61,13 +59,9 @@
             
           </div>
         </div>
-        
     </div>
   </section>
 </main>
-
-
-
 @endsection
 
 @section('footer')

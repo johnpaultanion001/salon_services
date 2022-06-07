@@ -16,8 +16,15 @@
   .fixed-plugin .card {
     right: -760px;
     width: 760px;
-  
-}
+  }
+
+  .fixed-plugin1.show .card {
+    right: 0;
+  }
+  .fixed-plugin1 .card {
+    right: -760px;
+    width: 760px;
+  }
 
 </style>
 @endsection
@@ -36,6 +43,7 @@
                 <thead>
                   <tr>
                     <th class="text-secondary opacity-7"></th>
+                    <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Request Number</th>
                     <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Payment</th>
                     <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Status</th>
                     <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Resident</th>
@@ -54,11 +62,18 @@
                         <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
                             <button id="{{$document->id}}" class="btn btn-info btn-sm msg" >
-                              {{$document->messages()->count()}}  Message{{$document->messages()->count() == 0 ? '':'s'}} 
+                              {{$document->messages()->count()}}  MESSAGE{{$document->messages()->count() == 0 ? '':'S'}} 
                             </button>
                             <button id="{{$document->id}}" class="btn btn-primary btn-sm view" >
-                              View/Edit
+                              VIEW/EDIT
                             </button>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm text-primary">{{$document->request_number ?? ''}}</h6>
                           </div>
                         </div>
                       </td>
@@ -148,35 +163,6 @@
       </div>
   </div>
 
-  <form method="post" id="myMsgForm" class="contact-form">
-    @csrf
-    <div class="modal fade" id="myMsgModal" data-keyboard="false" data-backdrop="static">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title text-uppercase font-weight-bold"></h5>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <div class="modal-body">
-              <div class="row">
-                <div class="col-md-12">
-                      <input type="text" class="form-control" id="message" name="message" placeholder="Enter a message" required>
-                      <small class="text-primary" id="warning_text"></small>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-body">
-                  <ul class="list-group" id="msg_section">
-                  
-                  </ul>
-                </div>
-              </div>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-  </form>
       @section('footer')
           @include('../partials.admin.footer')
       @endsection
@@ -309,13 +295,48 @@
               
             
                   <div class="card-footer text-center">
-                      <input type="submit" name="action_button" id="action_button" class="text-uppercase btn-wd btn btn-primary" value="Sumbit" />
+                      <input type="submit" name="action_button" id="action_button" class="text-uppercase btn-wd btn btn-primary" value="Submit" />
                   </div>
               </div>
         </form>
     </div>
   </div>
 </div>
+
+<div class="fixed-plugin1">
+  <div class="card shadow-lg">
+    <div class="card-header pb-0 pt-3 ">
+      
+      <div class="float-end mt-2">
+        <button class="btn btn-link text-danger p-0 fixed-plugin-close-button1">
+          <i class="fa fa-close"></i>
+        </button>
+      </div>
+      <br>
+      <div class="float-start">
+        <h6 class="text-uppercase title_head"></h6>
+      </div>
+      <!-- End Toggle Button -->
+    </div>
+    <hr class="horizontal dark my-1">
+        <div class="overflow-auto">
+            <form method="post" id="myMsgForm" class="contact-form">
+                @csrf
+
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="message" name="message" placeholder="Enter a message" required>
+                    <small class="text-primary" id="warning_text"></small>
+                  </div>
+                  <div class="form-group">
+                    <ul class="list-group" id="msg_section">
+                    
+                    </ul>
+                  </div>
+            </form>
+        </div>
+    </div>
+  </div>
+
 @endsection 
 
 @section('script')
@@ -372,9 +393,11 @@
       });
      
       var fixedPlugin = document.querySelector('.fixed-plugin');
+      var fixedPlugin1 = document.querySelector('.fixed-plugin1');
 
       if (!fixedPlugin.classList.contains('show')) {
           fixedPlugin.classList.add('show');
+          fixedPlugin1.classList.remove('show');
       } else {
           fixedPlugin.classList.remove('show');
       }
@@ -433,8 +456,16 @@
 
   var request_id = null;
   $(document).on('click', '.msg', function(){
-      $('#myMsgModal').modal('show');
-      $('#myMsgForm')[0].reset();
+        var fixedPlugin = document.querySelector('.fixed-plugin1');
+        var fixedPlugin1 = document.querySelector('.fixed-plugin');
+
+        if (!fixedPlugin.classList.contains('show')) {
+            fixedPlugin.classList.add('show');
+            fixedPlugin1.classList.remove('show');
+        } else {
+            fixedPlugin.classList.remove('show');
+        }  
+
       request_id = $(this).attr('id');
       $('#warning_text').text('')
       messages(request_id);
@@ -449,20 +480,36 @@
 
             },
             success:function(data){
-              var messages = '';
-              $.each(data.messages, function(key,value){
-                  messages += '<li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">';
-                    messages += '<div class="d-flex align-items-center">'
-                      messages += '<div class="d-flex flex-column">'
-                        messages += '<h6 class="mb-1 text-dark text-sm">'+value.name+'</h6>'
-                        messages += '<span class="text-xs">'+value.msg+'</span>'
+              if(data.no_msg){
+                var messages = '';
+                    messages += '<li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">';
+                      messages += '<div class="d-flex align-items-center">'
+                        messages += '<div class="d-flex flex-column">'
+                          messages += '<h6 class="mb-1 text-dark text-sm">'+data.no_msg+'</h6>'
+                        messages += '</div>'
                       messages += '</div>'
-                    messages += '</div>'
-                  messages += '</li>'
-                  messages += '<hr>'
-              });
-              $('#msg_section').empty().append(messages);
-              $('.modal-title').text(data.resident +' - '+ data.document)
+                    messages += '</li>'
+                    messages += '<hr>'
+                $('#msg_section').empty().append(messages);
+              }
+              if(data.messages){
+                var messages = '';
+                $.each(data.messages, function(key,value){
+                    messages += '<li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">';
+                      messages += '<div class="d-flex align-items-center">'
+                        messages += '<div class="d-flex flex-column">'
+                          messages += '<h6 class="mb-1 text-dark text-sm">'+value.name+'</h6>'
+                          messages += '<p class="text-xs">'+value.msg+'</p>'
+                          messages += '<small class="text-xs">'+value.date_time+'</small>'
+                        messages += '</div>'
+                      messages += '</div>'
+                    messages += '</li>'
+                    messages += '<hr>'
+                });
+                $('#msg_section').empty().append(messages);
+              }
+
+              $('.title_head').text(data.resident +' - '+ data.document)
             }
     });
   }
@@ -486,8 +533,16 @@
           }
         }
     });
-});
+  });
+
+$(document).on('click', '.btn-close', function(){
+      $('#myMsgModal').modal('hide');
+  });
   
+  $(document).on('click', '.fixed-plugin-close-button1', function(){
+        var fixedPlugin = document.querySelector('.fixed-plugin1');
+            fixedPlugin.classList.remove('show');
+    });
 
 </script>
 

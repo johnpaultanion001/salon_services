@@ -13,7 +13,7 @@
 @section('content')
 
 <main id="main">
-  <section class="contact mt-5">
+  <section class="contact mt-5" style="min-height: 80vh;">
     <div class="container">
         <div class="section-title" data-aos="zoom-out">
           <h2>Register</h2>

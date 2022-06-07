@@ -57,9 +57,9 @@ hr{
 
 @section('content')
 
-<main id="main">
+<main id="main" >
 
-  <section class="contact mt-5">
+  <section class="contact mt-5" >
     <div class="container">
         <div class="section-title" data-aos="zoom-out">
           <h2>Documents</h2>
@@ -101,10 +101,10 @@ hr{
                                 </div>
                                 @foreach($document->requirements()->get() as $requirement)
                                     <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>{{$requirement->name ?? ''}} <span class="text-danger">*</span></label>
-                                                <input id="requirement{{$requirement->id}}" name="requirement[]" type="file" class="form-control" required>
-                                            </div> 
+                                        <div class="form-group">
+                                            <label>{{$requirement->name ?? ''}} <span class="text-danger">*</span></label>
+                                            <input id="{{$requirement->id ?? ''}}"  name="{{$requirement->id ?? ''}}" type="file" class="form-control" required>
+                                        </div> 
                                     </div>
                                 @endforeach
                             </div>
@@ -148,7 +148,7 @@ hr{
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button id="action_button" type="submit" class="mt-5 btn-wd">SUBMIT</button>
+                                <button id="action_button" type="submit" class="mt-5 btn-wd btn text-uppercase">SUBMIT</button>
                             </div>
                           
                         </form>
@@ -192,9 +192,11 @@ $(document).ready(function(){
                 dataType:"json",
                 beforeSend:function(){
                     $("#action_button").attr("disabled", true);
+                    $("#action_button").text("Submitting");
                 },
                 success:function(data){
                     $("#action_button").attr("disabled", false);
+                    $("#action_button").text("Submit");
                     if(data.errors){
                         $.each(data.errors, function(key,value){
                             if(key == $('#'+key).attr('id')){
@@ -214,7 +216,7 @@ $(document).ready(function(){
                                     btnClass: 'btn-green',
                                     keys: ['enter', 'shift'],
                                     action: function(){
-                                        location.reload();
+                                        window.location.href = '/resident/requested_document';
                                     }
                                 },
                             }

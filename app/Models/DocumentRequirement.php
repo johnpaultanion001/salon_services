@@ -11,7 +11,5 @@ class DocumentRequirement extends Model
     protected $fillable = [
         'document_id',
         'name',
-    ];
-
-   
+    ];   
 }

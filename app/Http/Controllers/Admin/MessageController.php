@@ -13,17 +13,27 @@ class MessageController extends Controller
         
         $messages1 = Message::where('requested_document_id', $requested->id)
                                 ->latest()->get();
+        $no = 'n/a';
+        if($messages1->count() < 1){
+            return response()->json([
+                'no_msg'      => 'No messages found',
+                'resident'      => $requested->resident->last_name.','.$requested->resident->first_name, 
+                'document'      => $requested->document->name,
+                
+            ]);
+        }                       
 
         foreach($messages1 as $msg){
             $messages[] = array(
                 'name'          => $msg->user->name ?? $msg->user->resident->first_name .' '. $msg->user->resident->last_name, 
                 'msg'           => $msg->message,
+                'date_time'     => $msg->created_at->diffForHumans(),
             );
         }
         
         return response()->json([
             'messages'      => $messages,
-            'resident'      => $requested->resident->last_name.','.$requested->resident->first_name.'('.$requested->resident->middle_name .')', 
+            'resident'      => $requested->resident->last_name.','.$requested->resident->first_name, 
             'document'      => $requested->document->name,
         ]);
     }

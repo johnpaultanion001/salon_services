@@ -10,7 +10,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto  {{ request()->is('/') ? 'active' : '' }}" href="/">Home</a></li>
+          <li><a class="nav-link scrollto" href="/">Home</a></li>
           @if (Auth::user())
             <a class="nav-link scrollto  {{ request()->is('resident/request_document') || request()->is('resident/request_document/*') ? 'active' : '' }}" href="/resident/request_document">Request Document</a>
             <a class="nav-link scrollto  {{ request()->is('resident/requested_document') || request()->is('resident/requested_document/*') ? 'active' : '' }}" href="/resident/requested_document">Manage Requested Document</a>

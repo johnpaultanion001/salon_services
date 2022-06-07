@@ -9,6 +9,7 @@ class RequestedDocument extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'request_number',
         'resident_id',
         'document_id',
         'date_you_need',

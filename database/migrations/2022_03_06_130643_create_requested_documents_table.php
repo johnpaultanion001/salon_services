@@ -15,6 +15,7 @@ class CreateRequestedDocumentsTable extends Migration
     {
         Schema::create('requested_documents', function (Blueprint $table) {
             $table->id();
+            $table->string('request_number');
             $table->string('resident_id');
             $table->string('document_id');
             $table->date('date_you_need');

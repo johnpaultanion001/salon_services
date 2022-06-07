@@ -19989,6 +19989,7 @@ fieldset:disabled .btn {
 .btn.btn-link {
   box-shadow: none;
   font-weight: 700;
+  font-size: 25px;
 }
 
 .btn.btn-link:hover,
@@ -21090,11 +21091,70 @@ fieldset:disabled .btn {
   cursor: pointer;
 }
 
+.fixed-plugin1 .fixed-plugin-button1 {
+  background: #fff;
+  border-radius: 50%;
+  bottom: 30px;
+  right: 30px;
+  font-size: 1.25rem;
+  z-index: 990;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+}
+
+.fixed-plugin2 .fixed-plugin-button2 {
+  background: #fff;
+  border-radius: 50%;
+  bottom: 30px;
+  right: 30px;
+  font-size: 1.25rem;
+  z-index: 990;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+}
+
 .fixed-plugin .fixed-plugin-button i {
   pointer-events: none;
 }
 
+.fixed-plugin1 .fixed-plugin-button1 i {
+  pointer-events: none;
+}
+
+.fixed-plugin2 .fixed-plugin-button2 i {
+  pointer-events: none;
+}
+
+
 .fixed-plugin .card {
+  position: fixed !important;
+  right: -460px;
+  top: 0;
+  height: 100%;
+  left: auto !important;
+  transform: unset !important;
+  width: 460px;
+  border-radius: 0;
+  padding: 0 10px;
+  transition: .2s ease;
+  z-index: 1020;
+}
+
+.fixed-plugin1 .card {
+  position: fixed !important;
+  right: -460px;
+  top: 0;
+  height: 100%;
+  left: auto !important;
+  transform: unset !important;
+  width: 460px;
+  border-radius: 0;
+  padding: 0 10px;
+  transition: .2s ease;
+  z-index: 1020;
+}
+
+.fixed-plugin2 .card {
   position: fixed !important;
   right: -460px;
   top: 0;
@@ -21115,9 +21175,19 @@ fieldset:disabled .btn {
   border-color: #344767;
 }
 
+.fixed-plugin1 .badge:hover,
+.fixed-plugin1 .badge.active {
+  border-color: #344767;
+}
+
 .fixed-plugin .btn.bg-gradient-primary:not(:disabled):not(.disabled) {
   border: 1px solid transparent;
 }
+
+.fixed-plugin1 .btn.bg-gradient-primary:not(:disabled):not(.disabled) {
+  border: 1px solid transparent;
+}
+
 
 .fixed-plugin .btn.bg-gradient-primary:not(:disabled):not(.disabled):not(.active) {
   background-color: transparent;
@@ -21126,7 +21196,18 @@ fieldset:disabled .btn {
   color: #5e72e4;
 }
 
+.fixed-plugin1 .btn.bg-gradient-primary:not(:disabled):not(.disabled):not(.active) {
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid #5e72e4;
+  color: #5e72e4;
+}
+
 .fixed-plugin.show .card {
+  right: 0;
+}
+
+.fixed-plugin1.show .card {
   right: 0;
 }
 
@@ -22998,7 +23079,8 @@ hr.horizontal.gray-light {
 }
 
 .navbar-vertical.bg-white .navbar-nav>.nav-item .nav-link.active {
-  background-color: #f6f9fc;
+  background-color: #5e72e4;
+  color: #fff;
   box-shadow: none;
 }
 
@@ -23575,6 +23657,21 @@ hr.horizontal.gray-light {
 }
 
 .rtl .fixed-plugin.show .card {
+  right: auto;
+  left: 0 !important;
+}
+
+.rtl .fixed-plugin1 .fixed-plugin-button1 {
+  left: 30px;
+  right: auto;
+}
+
+.rtl .fixed-plugin1 .card {
+  left: -360px !important;
+  right: auto;
+}
+
+.rtl .fixed-plugin1.show .card {
   right: auto;
   left: 0 !important;
 }
@@ -24825,6 +24922,19 @@ p {
   background: #fff !important;
   color: #344767 !important;
 }
+
+.dark-version .fixed-plugin1 .btn.bg-gradient-dark,
+.dark-version .fixed-plugin1 .btn.btn-outline-dark {
+  color: #fff !important;
+  border: 1px solid #fff !important;
+}
+
+.dark-version .fixed-plugin1 .btn.active {
+  background: #fff !important;
+  color: #344767 !important;
+}
+
+
 
 .dark-version .bg-gradient-dark {
   background-image: linear-gradient(195deg, #323a54, #1a2035);
@@ -26621,7 +26731,7 @@ pre[class*="language-"] {
 .modal-content .modal-header button {
   position: absolute;
   right: 27px;
-  top: 30px;
+  top: 20px;
   outline: 0;
 }
 

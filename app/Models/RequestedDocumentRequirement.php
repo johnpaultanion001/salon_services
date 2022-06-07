@@ -11,10 +11,15 @@ class RequestedDocumentRequirement extends Model
     protected $fillable = [
         'requested_document_id',
         'document_id',
+        'document_requirement_id',
         'name',
     ];
     public function document()
     {
         return $this->belongsTo(Document::class, 'document_id');
+    }
+    public function document_requirement()
+    {
+        return $this->belongsTo(DocumentRequirement::class, 'document_requirement_id');
     }
 }

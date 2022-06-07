@@ -28,7 +28,7 @@
 
   </section><!-- End Hero -->
  <!-- ======= Services Section ======= -->
- <section id="pricing" class="pricing">
+ <section id="pricing" class="pricing" style="min-height: 80vh;">
       <div class="container">
 
         <div class="section-title" data-aos="zoom-out">

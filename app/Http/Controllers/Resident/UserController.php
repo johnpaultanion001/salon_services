@@ -9,12 +9,13 @@ use Validator;
 use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Hash;
 
+
 class UserController extends Controller
 {
     public function updateshow()
     {
+        
         return view('resident.update_info');
-
     }
     public function update(Request $request , User $user)
     {

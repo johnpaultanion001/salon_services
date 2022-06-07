@@ -17,6 +17,7 @@ class CreateRequestedDocumentRequirementsTable extends Migration
             $table->id();
             $table->string('requested_document_id');
             $table->string('document_id');
+            $table->string('document_requirement_id');
             $table->string('name');
             $table->timestamps();
         });

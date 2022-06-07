@@ -23,9 +23,15 @@ Route::group(['prefix' => 'resident', 'as' => 'resident.', 'namespace' => 'Resid
     // Request Document
     Route::post('request_document/{document}', 'DocumentController@request_store')->name('request_document.request_store');
 
+   
 
     // Requested Document
     Route::get('requested_document', 'DocumentController@requested_document')->name('requested_document.index');
+    Route::get('requested_document/{request}/edit', 'DocumentController@requested_edit')->name('requested_document.edit');
+     // Request Document
+    Route::post('requested_document/{request_id}', 'DocumentController@request_update')->name('requested_document.request_update');
+    Route::delete('requested_document/{request_id}/cancel', 'DocumentController@request_cancel')->name('requested_document.request_cancel');
+
     // Requested Document
     Route::post('message', 'MessageController@message')->name('message.message');
     
@@ -39,8 +45,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('finder_resident', 'FinderResidentController@index')->name('finder_resident.index');
     // Finder Resident
     Route::get('finder_resident/{resident}', 'FinderResidentController@resident_result')->name('finder_resident.resident_result');
-    // Finder Resident Pending Documents
-    Route::get('finder_resident/{qr_code}/pending_documents', 'FinderResidentController@pending_documents')->name('finder_resident.pending_documents');
+    
 
     
     // //Requested Document Payment Status
@@ -62,6 +67,20 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     //Requested Document Message
     Route::get('message/{requested}', 'MessageController@message')->name('message.message');
     Route::post('message/{requested}', 'MessageController@message_store')->name('message.message_store');
+
+    //Documents
+    Route::resource('documents', 'DocumentController');
+
+    //Accounts
+    Route::get('staffs', 'AccountController@staffs')->name('account.staffs');
+    Route::get('admins', 'AccountController@admins')->name('account.admins');
     
+    Route::post('account/store', 'AccountController@store')->name('account.store');
+    Route::get('account/{account}/edit', 'AccountController@edit')->name('account.edit');
+    Route::put('account/{account}', 'AccountController@update')->name('account.update');
+    Route::delete('account/{account}', 'AccountController@destroy')->name('account.destroy');
+    
+    //Activity Logs
+    Route::get('activity_logs', 'ActivityLogController@index')->name('logs.index');
     
 });

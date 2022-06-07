@@ -15,7 +15,7 @@
 @endsection
 @section('content')
 
-<main id="main">
+<main id="main"  style="min-height: 80vh;">
    <!-- ======= Cta Section ======= -->
    <section id="cta" class="cta">
       <div class="container">

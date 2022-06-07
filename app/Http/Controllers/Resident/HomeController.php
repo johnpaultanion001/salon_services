@@ -5,18 +5,23 @@ namespace App\Http\Controllers\Resident;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Resident;
+use App\Models\Document;
 use Validator;
 use File;
 use Carbon\Carbon;
+use Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('resident.home');
+        $documents = Document::where('isAvailable', true)->orderBy('name', 'asc')->get();   
+        return view('resident.home', compact('documents'));
     }
     public function account()
     {
+        abort_if(Gate::denies('resident_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         return view('auth.account');
     }
     public function update(Request $request){

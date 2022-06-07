@@ -156,7 +156,7 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button type="submit" id="action_button" class="mt-5 btn-wd">SUBMIT</button>
+                                <button type="submit" id="action_button" class="mt-5 btn-wd btn">SUBMIT</button>
                             </div>
                             <p  class="text-center mt-3 color-black" style="font-size: 15px; font-weight: 500;" ><a href="/password/reset">Change your password?</a></p>
                         </form>

@@ -23,6 +23,7 @@ class MessageController extends Controller
             $messages[] = array(
                 'name'          => $msg->user->name ?? $msg->user->resident->first_name .' '. $msg->user->resident->last_name, 
                 'msg'           => $msg->message,
+                'date_time'     => $msg->created_at->diffForHumans(),
             );
         }
         

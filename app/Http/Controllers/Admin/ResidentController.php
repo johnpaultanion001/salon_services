@@ -3,18 +3,22 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\resident;
+use App\Models\Resident;
+use App\Models\ActivityLog;
 use Illuminate\Http\Request;
 use Validator;
 use File;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Notification;
+use Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class ResidentController extends Controller
 {
    
     public function index()
     {
+        abort_if(Gate::denies('staff_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $residents = Resident::orderBy('last_name' , 'asc')->get();
         return view('admin.manage_residents',compact('residents'));
     }
@@ -72,6 +76,12 @@ class ResidentController extends Controller
             'contact_number'     => $request->input('contact_number'),
             'id_image'           => $file_name_to_save ?? $resident->id_image,
             'isApprove'          => $request->input('status'),
+        ]);
+        ActivityLog::create([
+            'activity'  => 'Activity: Updated resident account <br>
+                            Resident Name: '.$resident->last_name.','.$resident->first_name.
+                           '<br> User: '. auth()->user()->name,
+                            
         ]);
       
         return response()->json(['success' => 'Updated Successfully.']);

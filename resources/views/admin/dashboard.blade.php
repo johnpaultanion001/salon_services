@@ -22,12 +22,30 @@
                   <div class="numbers">
                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Active's Residents</p>
                     <h5 class="font-weight-bolder">
-                      2,300
+                     {{$residents->count()}}
                     </h5>
-                    <p class="mb-0">
-                      <span class="text-success text-sm font-weight-bolder">+3%</span>
-                      since last week
-                    </p>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                  <div class="icon icon-shape bg-gradient-danger shadow-danger text-center rounded-circle">
+                    <i class="ni ni-single-02 text-sm opacity-10"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        @can('admin_access')
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Active's Staffs</p>
+                    <h5 class="font-weight-bolder">
+                      {{$staffs->count()}}
+                    </h5>
                   </div>
                 </div>
                 <div class="col-4 text-end">
@@ -39,7 +57,7 @@
             </div>
           </div>
         </div>
-
+        @endcan
       
       </div>
       <div class="row mt-4">
@@ -53,7 +71,7 @@
             <div class="table-responsive">
               <table class="table align-items-center ">
                 <tbody>
-                  @foreach($pendings as $pending)
+                  @forelse($pendings as $pending)
                   <tr>
                     <td class="w-30">
                       <div class="d-flex px-2 py-1 align-items-center">
@@ -85,11 +103,24 @@
                     </td>
                     <td class="align-middle text-sm">
                         <div class="d-flex">
-                          <button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></button>
+                          <a href="/admin/finder_resident/{{$pending->resident->id}}" class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></a>
                         </div>
                     </td>
                   </tr>
-                  @endforeach
+                  @empty
+                  <tr>
+                    <td class="w-30">
+                      <div class="d-flex px-2 py-1 align-items-center">
+                      
+                        <div class="ms-4">
+                          <h6 class="text-sm mb-0 text-uppercase">
+                            <h6 class="mb-1 text-dark text-sm text-uppercase">NO DATA FOUND</h6>
+                          </h6>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                @endforelse
                   
                 </tbody>
               </table>
@@ -103,7 +134,7 @@
             </div>
             <div class="card-body p-3">
               <ul class="list-group">
-                @foreach($documents as $document)
+                @forelse($documents as $document)
                   <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
                     <div class="d-flex align-items-center">
                       <div class="icon icon-shape icon-sm me-3 bg-gradient-primary shadow text-center">
@@ -111,14 +142,23 @@
                       </div>
                       <div class="d-flex flex-column">
                         <h6 class="mb-1 text-dark text-sm text-uppercase">{{$document->name}}</h6>
-                        <span class="text-xs">100 Residents have made a request.</span>
+                        <span class="text-xs">{{$document->requested_requirements->count()}} Residents have made a request.</span>
                       </div>
                     </div>
                     <div class="d-flex">
-                      <button class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></button>
+                      <a href="/admin/documents" class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></a>
                     </div>
                   </li>
-                @endforeach
+                @empty
+                  <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+                    <div class="d-flex align-items-center">
+                      
+                      <div class="d-flex flex-column">
+                        <h6 class="mb-1 text-dark text-sm text-uppercase">NO DATA FOUND</h6>
+                      </div>
+                    </div>
+                  </li>
+                @endforelse
               </ul>
             </div>
           </div>

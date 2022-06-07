@@ -11,6 +11,7 @@ use Validator;
 use File;
 use Carbon\Carbon;
 
+
 class DocumentController extends Controller
 {
     public function index()
@@ -25,6 +26,7 @@ class DocumentController extends Controller
 
     public function request_store(Request $request, Document $document){
         date_default_timezone_set('Asia/Manila');
+        
         $validated =  Validator::make($request->all(), [
             'date_you_need'     => ['required', 'date', 'after:today'],
             'claiming_option'  => ['required'],
@@ -40,6 +42,7 @@ class DocumentController extends Controller
         $receipt->move('resident/receipt/', $file_receipt);
 
         $request1 = RequestedDocument::create([
+            'request_number'    =>  'BRGY'.substr(time(), 4).auth()->user()->id,
             'resident_id'       =>  auth()->user()->resident->id,
             'document_id'       =>  $document->id,
             'date_you_need'     =>  $request->input('date_you_need'),
@@ -48,23 +51,25 @@ class DocumentController extends Controller
             'claiming_option'  =>  $request->input('claiming_option'),
         ]);
 
-        foreach($request->file('requirement') as $requirement1 )
+        foreach($document->requirements()->get() as $requirement1 )
         {
-            $requirement = $requirement1;
+            
+            $requirement = $request->file($requirement1->id);
             $extension = $requirement->getClientOriginalExtension(); 
-            $file_name_to_save = time().".".$extension;
+            $file_name_to_save = $requirement1->id.auth()->user()->resident->id.$request1->id.'_'.auth()->user()->resident->last_name.".".$extension;
             $requirement->move('resident/requirements/', $file_name_to_save);
-
 
             RequestedDocumentRequirement::updateOrCreate(
                 [
                     'requested_document_id'    => $request1->id,
                     'document_id'              => $document->id,
+                    'document_requirement_id'  => $requirement1->id,
                     'name'                     => $file_name_to_save,
                 ],
                 [
                     'requested_document_id'    => $request1->id,
                     'document_id'              => $document->id,
+                    'document_requirement_id'  => $requirement1->id,
                     'name'                     => $file_name_to_save,
                 ]
             );
@@ -73,9 +78,102 @@ class DocumentController extends Controller
 
     }
 
+    public function request_update(Request $request ,RequestedDocument $request_id){
+        date_default_timezone_set('Asia/Manila');
+        $validated =  Validator::make($request->all(), [
+            'date_you_need'     => ['date', 'after:today'],
+        ]);
+        if ($validated->fails()) {
+            return response()->json(['errors' => $validated->errors()]);
+        }
+
+        foreach($request_id->document->requirements()->get() as $requirement1)
+        {
+                if($request->file($requirement1->id)){
+                    $delete_re = RequestedDocumentRequirement::where('requested_document_id', $request_id->id)
+                                                  ->where('document_id', $request_id->document->id)
+                                                  ->where('document_requirement_id', $requirement1->id)
+                                                  ->first();
+                    File::delete(public_path('resident/requirements/'.$delete_re->name));
+                    $requirement = $request->file($requirement1->id);
+                    $extension = $requirement->getClientOriginalExtension(); 
+                    $file_name_to_save = $requirement1->id.auth()->user()->resident->id.$request_id->id.'_'.auth()->user()->resident->last_name.".".$extension;
+                    $requirement->move('resident/requirements/', $file_name_to_save);
+    
+                    RequestedDocumentRequirement::where('requested_document_id', $request_id->id)
+                                                  ->where('document_id', $request_id->document->id)
+                                                  ->where('document_requirement_id', $requirement1->id)
+                                                  ->update([
+                                                    'name'  => $file_name_to_save,
+                                                  ]);
+                }
+        }
+
+        if($request->file('receipt')){
+            File::delete(public_path('resident/receipt/'.$request_id->receipt));
+            $receipt = $request->file('receipt');
+            $extension = $receipt->getClientOriginalExtension(); 
+            $file_receipt = time().".".$extension;
+            $receipt->move('resident/receipt/', $file_receipt); 
+        }
+
+
+        $request_id->update([
+            'date_you_need'     =>  $request->input('date_you_need'),
+            'claiming_option'   =>  $request->input('claiming_option'),
+            'receipt'           =>  $file_receipt ?? $request_id->receipt,
+        ]);
+
+
+        return response()->json(['success' => 'Successfully updated.']);
+
+    }
+    public function request_cancel(RequestedDocument $request_id){
+        date_default_timezone_set('Asia/Manila');
+        
+        $request_id->update([
+            'status'    => 'CANCELED',
+        ]);
+        return response()->json(['success' => 'Successfully canceled.']);
+
+    }
+
+   
+
     public function requested_document(){
         $requests = RequestedDocument::where('resident_id', auth()->user()->resident->id)->where('isRemove', 0)->latest()->get();
         return view('resident.requested' , compact('requests'));
+    }
+
+    public function requested_edit(RequestedDocument $request){
+
+        foreach($request->document->requirements()->get() as $requirement){
+            $uploaded = RequestedDocumentRequirement::where('requested_document_id', $request->id)
+                                          ->where('document_id', $request->document->id)
+                                          ->where('document_requirement_id', $requirement->id)
+                                          ->first();
+            $requirements[] = array(
+                'id'                        => $requirement->id,
+                'name'                      => $requirement->name,
+                'uploaded_requirement'      => $uploaded->name,
+                 
+            );
+        }
+
+        $requested_document[] = array(
+            'document'             => $request->document->name, 
+            'date_you_need'        => $request->date_you_need, 
+            'requirements'         => $requirements,
+            'claiming_option'      => $request->claiming_option,
+            'amount'               => $request->document->amount,
+            'receipt_uploaded'     => $request->receipt,
+        );
+
+
+
+        return response()->json([
+            'result' =>  $requested_document,
+        ]);
     }
     
 }

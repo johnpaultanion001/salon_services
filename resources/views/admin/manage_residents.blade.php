@@ -1,5 +1,5 @@
 @extends('../layouts.admin')
-@section('sub-title','FINDER RESIDENT')
+@section('sub-title','MANAGE RESIDENT')
 
 @section('sidebar')
     @include('../partials.admin.sidebar')
@@ -8,7 +8,6 @@
 @section('navbar')
     @include('../partials.admin.navbar')
 @endsection
-
 
 @section('content')
 <div class="container-fluid py-4">
@@ -20,7 +19,7 @@
           </div>
           <div class="card-body ">
             <div class="table-responsive p-0">
-              <table class="table align-items-center mb-0">
+              <table class="table align-items-center mb-0" style="width: 100%;">
                 <thead>
                   <tr>
                     <th class="text-secondary opacity-7"></th>
@@ -30,7 +29,7 @@
                     <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Contact Number</th>
                     <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Address</th>
                     <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Status</th>
-                    <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Created At</th>
+                    <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Register At</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -39,7 +38,9 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
-                            <i id="{{$resident->id}}" class="fa fa-cog  cursor-pointer text-primary  view"></i>
+                            <button id="{{$resident->id}}" class="btn btn-primary btn-sm view" >
+                              VIEW/EDIT
+                            </button>
                           </div>
                         </div>
                       </td>
@@ -293,7 +294,7 @@
            
         }
     });
-});
+  });
 </script>
 
 

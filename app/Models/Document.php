@@ -18,4 +18,8 @@ class Document extends Model
     {
         return $this->hasMany(DocumentRequirement::class, 'document_id' , 'id')->orderBy('name', 'asc');
     }
+    public function requested_requirements()
+    {
+        return $this->hasMany(RequestedDocument::class, 'document_id' , 'id');
+    }
 }

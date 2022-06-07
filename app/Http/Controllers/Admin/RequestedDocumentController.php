@@ -9,6 +9,10 @@ use Validator;
 use File;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Notification;
+use Gate;
+use Symfony\Component\HttpFoundation\Response;
+use App\Models\ActivityLog;
+
 
 
 class RequestedDocumentController extends Controller
@@ -16,7 +20,8 @@ class RequestedDocumentController extends Controller
 
     public function index()
     {
-        $documents = RequestedDocument::where('isRemove', 0)->get();
+        abort_if(Gate::denies('staff_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $documents = RequestedDocument::where('isRemove', 0)->latest()->get();
         return view('admin.manage_requested_documents',compact('documents'));
     }
 
@@ -46,6 +51,7 @@ class RequestedDocumentController extends Controller
     }
 
     public function update_requested(Request $request, RequestedDocument $requested){
+        date_default_timezone_set('Asia/Manila');
         $validated =  Validator::make($request->all(), [
            
 
@@ -110,6 +116,15 @@ class RequestedDocumentController extends Controller
             'status'         => $request->input('status'),
             'isPaid'         => $request->input('payment'),
             'downloadable'   => $file_name_to_save ?? $requested->downloadable,
+        ]);
+
+        ActivityLog::create([
+            'activity'  => 'Activity: Updated requested document <br>
+                            Request Number: '.$requested->request_number.
+                           '<br> Resident Name: '.$requested->resident->last_name.','.$requested->resident->first_name.
+                           '<br> Status: '.$requested->status.
+                           '<br> User: '. auth()->user()->name,
+                            
         ]);
       
         return response()->json(['success' => 'Updated Successfully.']);

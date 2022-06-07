@@ -16,7 +16,7 @@ class ResidentSeeder extends Seeder
     {
         $residents = [
             [
-                'user_id'                   => 2,
+                'user_id'                   => 5,
                 'first_name'                => 'Johnpaul',
                 'last_name'                => 'Tanion',
                 'middle_name'                => 'Valdez',
