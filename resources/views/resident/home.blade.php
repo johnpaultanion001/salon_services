@@ -14,6 +14,7 @@
 
       <div class="carousel-item active">
         <div class="carousel-container">
+          <img  src="{{ trans('panel.logo_white') }}" alt="logo" width="120" height="120" class="z-depth-2">
           <h2 class="animate__animated animate__fadeInDown">Welcome to <span>{{ trans('panel.site_title') }}</span></h2>
           <p class="animate__animated fanimate__adeInUp">E-Barangay Portal an online service portal which aims to ease the processing and issuance of documents needed by local residents in a municipality subdivided into Barangays. E-Barangay Portal serves as a gateway for a hassle free transaction. </p>
           <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>

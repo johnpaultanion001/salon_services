@@ -3,9 +3,9 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
+        <!-- <a href="/"><img src="{{ trans('panel.logo') }}" alt="" class="img-fluid"></a> -->
         <h1><a href="/">{{ trans('panel.site_title') }}</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="resident/img/logo.png" alt="" class="img-fluid"></a>-->
+        
       </div>
 
       <nav id="navbar" class="navbar">
