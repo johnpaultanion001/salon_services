@@ -1,5 +1,5 @@
 @extends('../layouts.resident')
-@section('sub-title','Register')
+@section('sub-title','REGISTER')
 
 @section('navbar')
     @include('../partials.resident.navbar')
@@ -13,7 +13,7 @@
 @section('content')
 
 <main id="main">
-  <section class="contact mt-5" style="min-height: 80vh;">
+  <section class="contact mt-5 section-bg" style="min-height: 80vh;">
     <div class="container">
         <div class="section-title" data-aos="zoom-out">
           <h2>Register</h2>
@@ -22,7 +22,7 @@
 
         <div class="row mt-2">
           <div class="col-lg-6 mt-lg-0 mx-auto" data-aos="fade-left">
-            <form method="POST" action="{{ route('register') }}">  
+            <form method="POST" action="{{ route('register') }}" class="myform">  
               @csrf
                 <div class="card">
                   <div class="text-center px-3 px-md-4 py-0 mt-2">

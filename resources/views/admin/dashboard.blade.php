@@ -20,7 +20,7 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Active's Residents</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Active Residents</p>
                     <h5 class="font-weight-bolder">
                      {{$residents->count()}}
                     </h5>
@@ -42,7 +42,7 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Active's Staffs</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Active Staffs</p>
                     <h5 class="font-weight-bolder">
                       {{$staffs->count()}}
                     </h5>
@@ -81,9 +81,9 @@
                         <div class="ms-4">
                           <p class="text-xs font-weight-bold mb-0">Resident:</p>
                           <h6 class="text-sm mb-0 text-uppercase">
-                            {{$pending->resident->last_name}} ,
-                            {{$pending->resident->first_name}}
-                            ({{$pending->resident->middle_name}})
+                            {{$pending->resident->last_name ?? ''}} ,
+                            {{$pending->resident->first_name ?? ''}}
+                            ({{$pending->resident->middle_name ?? ''}})
 
                           </h6>
                         </div>
@@ -91,15 +91,13 @@
                     </td>
                     <td>
                         <p class="text-xs font-weight-bold mb-0">Document:</p>
-                        <h6 class="text-sm mb-0 text-uppercase">{{$pending->document->name}}</h6>
+                        <h6 class="text-sm mb-0 text-uppercase">{{$pending->document->name ?? ''}}</h6>
                      
                     </td>
                     <td>
-                      <div class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">Date Needed:</p>
-                        <h6 class="text-sm mb-0">{{\Carbon\Carbon::createFromFormat('Y-m-d',$pending->date_you_need)->format('M j , Y')}}</h6>
-                        
-                      </div>
+                        <p class="text-xs font-weight-bold mb-0">Claiming Option:</p>
+                        <h6 class="text-sm mb-0 text-uppercase">{{$pending->claiming_option ?? ''}}</h6>
+                     
                     </td>
                     <td class="align-middle text-sm">
                         <div class="d-flex">

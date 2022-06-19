@@ -13,6 +13,7 @@ Auth::routes(['verify' => true]);
 Route::group(['prefix' => 'resident', 'as' => 'resident.', 'namespace' => 'Resident', 'middleware' => ['auth', 'verified']], function () {
     Route::get('/account', 'HomeController@account')->name('resident.account');
     Route::post('/account', 'HomeController@update')->name('resident.update');
+    Route::put('/account/change_password/{user}', 'HomeController@passwordupdate')->name('resident.passwordupdate');
 });
 
 Route::group(['prefix' => 'resident', 'as' => 'resident.', 'namespace' => 'Resident', 'middleware' => ['auth', 'verified','checkResidentValidation']], function () {
@@ -34,6 +35,9 @@ Route::group(['prefix' => 'resident', 'as' => 'resident.', 'namespace' => 'Resid
 
     // Requested Document
     Route::post('message', 'MessageController@message')->name('message.message');
+
+    // Requested Filter 
+    Route::get('requested_document/{filter}/filter', 'DocumentController@filter')->name('requested_document.filter');
     
 });
 

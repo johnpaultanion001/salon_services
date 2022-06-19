@@ -28,7 +28,6 @@ class DocumentController extends Controller
         date_default_timezone_set('Asia/Manila');
         
         $validated =  Validator::make($request->all(), [
-            'date_you_need'     => ['required', 'date', 'after:today'],
             'claiming_option'  => ['required'],
             'receipt'           => ['required'],
         ]);
@@ -45,7 +44,6 @@ class DocumentController extends Controller
             'request_number'    =>  'BRGY'.substr(time(), 4).auth()->user()->id,
             'resident_id'       =>  auth()->user()->resident->id,
             'document_id'       =>  $document->id,
-            'date_you_need'     =>  $request->input('date_you_need'),
             'amount_to_pay'     =>  $document->amount,
             'receipt'           =>  $file_receipt,
             'claiming_option'  =>  $request->input('claiming_option'),
@@ -74,18 +72,13 @@ class DocumentController extends Controller
                 ]
             );
         }
-        return response()->json(['success' => 'Successfully Added Record.']);
+        return response()->json(['success' => 'Your document has been successfully requested.']);
 
     }
 
     public function request_update(Request $request ,RequestedDocument $request_id){
         date_default_timezone_set('Asia/Manila');
-        $validated =  Validator::make($request->all(), [
-            'date_you_need'     => ['date', 'after:today'],
-        ]);
-        if ($validated->fails()) {
-            return response()->json(['errors' => $validated->errors()]);
-        }
+       
 
         foreach($request_id->document->requirements()->get() as $requirement1)
         {
@@ -119,13 +112,12 @@ class DocumentController extends Controller
 
 
         $request_id->update([
-            'date_you_need'     =>  $request->input('date_you_need'),
             'claiming_option'   =>  $request->input('claiming_option'),
             'receipt'           =>  $file_receipt ?? $request_id->receipt,
         ]);
 
 
-        return response()->json(['success' => 'Successfully updated.']);
+        return response()->json(['success' => 'Your document has been successfully updated.']);
 
     }
     public function request_cancel(RequestedDocument $request_id){
@@ -134,15 +126,16 @@ class DocumentController extends Controller
         $request_id->update([
             'status'    => 'CANCELED',
         ]);
-        return response()->json(['success' => 'Successfully canceled.']);
+        return response()->json(['success' => 'Your document has been successfully canceled.']);
 
     }
 
    
 
     public function requested_document(){
-        $requests = RequestedDocument::where('resident_id', auth()->user()->resident->id)->where('isRemove', 0)->latest()->get();
-        return view('resident.requested' , compact('requests'));
+        $requests = RequestedDocument::where('resident_id', auth()->user()->resident->id)
+                                        ->where('isRemove', 0)->latest()->get();
+        return view('resident.requested.requested' , compact('requests'));
     }
 
     public function requested_edit(RequestedDocument $request){
@@ -162,7 +155,6 @@ class DocumentController extends Controller
 
         $requested_document[] = array(
             'document'             => $request->document->name, 
-            'date_you_need'        => $request->date_you_need, 
             'requirements'         => $requirements,
             'claiming_option'      => $request->claiming_option,
             'amount'               => $request->document->amount,
@@ -175,5 +167,36 @@ class DocumentController extends Controller
             'result' =>  $requested_document,
         ]);
     }
+
+    public function filter($filter){
+        if($filter == 'all'){
+            $requests = RequestedDocument::where('resident_id', auth()->user()->resident->id)
+                                            ->where('isRemove', 0)->latest()->get();
+        }
+        if($filter == 'pending'){
+            $requests = RequestedDocument::where('resident_id', auth()->user()->resident->id)
+                                            ->where('status', 'pending')
+                                            ->where('isRemove', 0)->latest()->get();
+        }
+        if($filter == 'approved'){
+            $requests = RequestedDocument::where('resident_id', auth()->user()->resident->id)
+                                            ->where('status', 'approved')
+                                            ->where('isRemove', 0)->latest()->get();
+        }
+        if($filter == 'completed'){
+            $requests = RequestedDocument::where('resident_id', auth()->user()->resident->id)
+                                            ->where('status', 'completed')
+                                            ->where('isRemove', 0)->latest()->get();
+        }
+        if($filter == 'canceled'){
+            $requests = RequestedDocument::where('resident_id', auth()->user()->resident->id)
+                                            ->where('status', 'canceled')
+                                            ->where('isRemove', 0)->latest()->get();
+        }
+                    
+        return view('resident.requested.requested-data' , compact('requests'));
+    }
+
+
     
 }

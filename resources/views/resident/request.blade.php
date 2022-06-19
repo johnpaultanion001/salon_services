@@ -67,94 +67,80 @@ hr{
         </div>
        
         <div class="row mt-2">
-          <div class="col-lg-10 mt-lg-0 mx-auto" data-aos="fade-left">
-                <div class="card">
-                   
-                    <div class="card-body">
-                        <form method="post" id="myForm">
-                            @csrf
-                           
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Document: <span class="text-danger">*</span></label>
-                                        <input id="document" name="document" type="text" class="form-control" readonly value="{{$document->name ?? ''}}">
-                                        <input id="document_id" type="hidden" value="{{$document->id}}">
-                                    </div> 
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Date you need: <span class="text-danger">*</span></label>
-                                        <input id="date_you_need" name="date_you_need" type="text" class="form-control date_picker" >
-                                       
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong id="error-date_you_need"></strong>
-                                        </span>
-                                    </div> 
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <hr>
-                                    <h5>List of Requirements </h5> 
-                                   
-                                </div>
-                                @foreach($document->requirements()->get() as $requirement)
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label>{{$requirement->name ?? ''}} <span class="text-danger">*</span></label>
-                                            <input id="{{$requirement->id ?? ''}}"  name="{{$requirement->id ?? ''}}" type="file" class="form-control" required>
-                                        </div> 
-                                    </div>
-                                @endforeach
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <hr>
-                                    <h5>Claiming options</h5> 
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <select name="claiming_option" id="claiming_option">
-                                            <option value="deliver">Deliver (depending on the address, additional fees required)</option>
-                                            <option value="pickUp">Pick Up (Local Barangay)</option>
-                                            <option value="downloadable">Downloadable file (Ready to print)</option>
-                                        </select>
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong id="error-claiming_option"></strong>
-                                        </span>
-                                    </div> 
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <hr>
-                                    <h5>For payment</h5> 
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Amount to pay: <h4>₱ {{$document->amount ?? ''}}</h4></label>
-                                       
-                                    </div> 
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Upload receipt: <span class="text-danger">* </span><a href="#">How to pay?</a></label>
-                                        <input id="receipt" name="receipt" type="file" class="form-control" >
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong id="error-receipt"></strong>
-                                        </span>
-                                    </div> 
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <button id="action_button" type="submit" class="mt-5 btn-wd btn text-uppercase">SUBMIT</button>
-                            </div>
-                          
-                        </form>
+          <div class="col-lg-8 mt-lg-0 mx-auto" data-aos="fade-left">
+                <form method="post" id="myForm" class="myform" role="form">
+                    @csrf
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Document: <span class="text-danger">*</span></label>
+                                <input id="document" name="document" type="text" class="form-control" readonly value="{{$document->name ?? ''}}">
+                                <input id="document_id" type="hidden" value="{{$document->id}}">
+                            </div> 
+                        </div>
                         
-                    </div>    
-                </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr> 
+                            <h5>List of Requirements </h5>
+                      
+                            
+                        </div>
+                        @foreach($document->requirements()->get() as $requirement)
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>{{$requirement->name ?? ''}} <span class="text-danger">*</span> @if($loop->first)<a href="#" id="validation_requirements">Validation for requirements</a> @endif</label>
+                                    <input id="{{$requirement->id ?? ''}}"  name="{{$requirement->id ?? ''}}" type="file" class="form-control" required>
+                                </div> 
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                            <h5>Claiming options</h5> 
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select name="claiming_option" id="claiming_option" class="form-control">
+                                    <option value="deliver">Deliver (depending on the address, additional fees required)</option>
+                                    <option value="pickUp">Pick Up (Local Barangay)</option>
+                                    <option value="downloadable">Downloadable file (Ready to print)</option>
+                                </select>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong id="error-claiming_option"></strong>
+                                </span>
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                            <h5>For payment</h5> 
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Amount to pay: <h4>₱ {{$document->amount ?? ''}}</h4></label>
+                                
+                            </div> 
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Upload receipt: <span class="text-danger">* </span><a href="#"  id="how_to_pay">How to pay?</a></label>
+                                <input id="receipt" name="receipt" type="file" class="form-control" >
+                                <span class="invalid-feedback" role="alert">
+                                    <strong id="error-receipt"></strong>
+                                </span>
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button id="action_button" type="submit" class="mt-5 btn-wd btn text-uppercase">SUBMIT</button>
+                    </div>
+                    
+                </form>  
           </div>
         </div>
         
@@ -162,6 +148,22 @@ hr{
   </section>
 </main>
 
+<div class="modal fade" id="myModal" data-keyboard="false" data-backdrop="static">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-uppercase font-weight-bold"></h5>
+            <button type="button" class="btn text-danger p-0 close_modal">
+              <i class="ri-close-line"></i>
+            </button>
+          </div>
+            <div class="modal-body" id="modal_content">
+                   
+            </div>
+      
+        </div>
+      </div>
+</div>
 
 
 @endsection
@@ -172,7 +174,6 @@ hr{
 
 @section('script')
 <script> 
-// Prepare the preview for profile picture
 $(document).ready(function(){
 
         $('#myForm').on('submit', function(event){
@@ -227,26 +228,37 @@ $(document).ready(function(){
             });
         });
 
-        var today = new Date();
-        var tomorrow = new Date();
-        tomorrow.setDate(today.getDate() + 1);
-        $('.date_picker').datetimepicker({
-            icons: {
-                time: "fa fa-clock-o",
-                date: "fa fa-calendar",
-                up: "fa fa-chevron-up",
-                down: "fa fa-chevron-down",
-                previous: 'fa fa-chevron-left',
-                next: 'fa fa-chevron-right',
-                today: 'fa fa-screenshot',
-                clear: 'fa fa-trash',
-                close: 'fa fa-remove'
-            },
-            format: 'YYYY-MM-DD',
-            locale: 'en',
-            minDate: tomorrow,
+       $(document).on('click', '#validation_requirements', function(){
+            $('.modal-title').text('Validation for requirements');
+            var content = "";
+                content += '<p>NOTE ON SUBMITTING REQUIREMENTS</p>';
+                content += '<ul>';
+                    content += '<li>MAKE SURE IMAGE OR SCREENSHOT IS READABLE. AVOID BLURRY IMAGES.</li>';
+                    content += '<li>WHEN SUBMITTING A DOCUMENT, CONVERT IT INTO PDF FILE.</li>';
+                    content += '<li>ENSURE THAT ALL INFORMATION IN THE IMAGE OR SCREENSHOT IS CLEAR AND ALL VISIBLE.</li>';
+                content += '</ul>';
 
+            $('#modal_content').empty().append(content);
+            $('#myModal').modal('show');
+       });
+
+        $(document).on('click', '.close_modal', function(){
+            $('#myModal').modal('hide')
         });
+        $(document).on('click', '#how_to_pay', function(){
+            $('.modal-title').text('How to pay');
+            var content = "";
+                content += '<p>Lorem ipsum ipsum</p>';
+                content += '<ul>';
+                    content += '<li>MAKE SURE IMAGE OR SCREENSHOT IS READABLE. AVOID BLURRY IMAGES.</li>';
+                    content += '<li>WHEN SUBMITTING A DOCUMENT, CONVERT IT INTO PDF FILE.</li>';
+                    content += '<li>ENSURE THAT ALL INFORMATION IN THE IMAGE OR SCREENSHOT IS CLEAR AND ALL VISIBLE.</li>';
+                content += '</ul>';
+
+            $('#modal_content').empty().append(content);
+            $('#myModal').modal('show');
+        });
+        
 });
 </script>
 @endsection

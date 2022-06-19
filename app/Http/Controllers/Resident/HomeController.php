@@ -5,12 +5,15 @@ namespace App\Http\Controllers\Resident;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Resident;
+use App\Models\User;
 use App\Models\Document;
 use Validator;
 use File;
 use Carbon\Carbon;
 use Gate;
 use Symfony\Component\HttpFoundation\Response;
+use App\Rules\MatchOldPassword;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -75,5 +78,23 @@ class HomeController extends Controller
         ]);
 
         return response()->json(['success' => 'Successfully updated']);
+    }
+
+    public function passwordupdate(Request $request , User $user){
+        date_default_timezone_set('Asia/Manila');
+        $validated =  Validator::make($request->all(), [
+            'current_password' => ['required',new MatchOldPassword],
+            'new_password' => ['required','min:8'],
+            'confirm_password' => ['required','same:new_password'],
+        ]);
+        if ($validated->fails()) {
+            return response()->json(['errors' => $validated->errors()]);
+        }
+
+        User::find($user->id)->update([
+            'password' => Hash::make($request->input('new_password')),
+          
+        ]);
+        return response()->json(['success' => 'Password changed successfully.']);
     }
 }

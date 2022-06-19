@@ -33,7 +33,7 @@ class RequestedDocumentController extends Controller
                 'payment'                   => $requested->isPaid,
                 'resident'                  => $requested->resident->last_name.','.$requested->resident->first_name.'('.$requested->resident->middle_name .')', 
                 'document'                  => $requested->document->name,
-                'date_needed'               => $requested->date_you_need,
+                'claiming_date'             => $requested->claiming_date,
 
                 
                 'requirement'               => $requested->document->requirements()->get(),
@@ -53,7 +53,7 @@ class RequestedDocumentController extends Controller
     public function update_requested(Request $request, RequestedDocument $requested){
         date_default_timezone_set('Asia/Manila');
         $validated =  Validator::make($request->all(), [
-           
+           'claiming_date'  =>  ['required', 'date' , 'after:today'],
 
         ]);
 
@@ -115,6 +115,7 @@ class RequestedDocumentController extends Controller
         $requested->update([
             'status'         => $request->input('status'),
             'isPaid'         => $request->input('payment'),
+            'claiming_date'  => $request->input('claiming_date'),
             'downloadable'   => $file_name_to_save ?? $requested->downloadable,
         ]);
 
@@ -130,31 +131,6 @@ class RequestedDocumentController extends Controller
         return response()->json(['success' => 'Updated Successfully.']);
 
     }
-    // public function payment_status(Request $request){
-    //     $requested_document = RequestedDocument::where('id',$request->get('id'))->first();
-    //     $requested_document->update([
-    //         'isPaid'    => $request->get('payment_value')
-    //     ]);
-    //     return response()->json([
-    //         'payment_paid'      => $requested_document->isPaid == 1 ? 'btn-success text-white' : '',
-    //         'payment_unpaid'    => $requested_document->isPaid == 0 ? 'btn-danger text-white' : '',
-    //         'requested_id'      => $requested_document->id,
-    //     ]);
-    // } 
-
-    // public function status(Request $request){
-    //     $requested_document = RequestedDocument::where('id',$request->get('id'))->first();
-    //     $requested_document->update([
-    //         'status'    => $request->get('status_value')
-    //     ]);
-    //     return response()->json([
-    //         'status_pending'    => $requested_document->status == 'PENDING' ? 'btn-warning text-white' : '',
-    //         'status_approved'   => $requested_document->status == 'APPROVED' ? 'btn-success text-white' : '',
-    //         'status_completed'  => $requested_document->status == 'COMPLETED' ? 'btn-primary text-white' : '',
-    //         'status_canceled'   => $requested_document->status == 'CANCELED' ? 'btn-danger text-white' : '',
-    //         'requested_id'      => $requested_document->id,
-
-    //     ]);
-    // }
+    
     
 }

@@ -1,3 +1,4 @@
+
   
 @extends('../layouts.resident')
 @section('sub-title','HOME')
@@ -7,291 +8,396 @@
 @endsection
 
 @section('content')
+  <section id="hero" class="d-flex align-items-center">
 
-  <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
-    <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+          <h1>{{ trans('panel.site_title') }}</h1>
+          <h2>Making document requests easily accessible anywhere, anytime</h2>
+          
 
-
-      <div class="carousel-item active">
-        <div class="carousel-container">
-          <img  src="{{ trans('panel.logo_white') }}" alt="logo" width="120" height="120" class="z-depth-2">
-          <h2 class="animate__animated animate__fadeInDown">Welcome to <span>{{ trans('panel.site_title') }}</span></h2>
-          <p class="animate__animated fanimate__adeInUp">E-Barangay Portal an online service portal which aims to ease the processing and issuance of documents needed by local residents in a municipality subdivided into Barangays. E-Barangay Portal serves as a gateway for a hassle free transaction. </p>
-          <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+          <div class="d-flex justify-content-center justify-content-lg-start">
+            <a href="/register" class="btn-get-started scrollto">Register Now</a>
+            
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+          <img src="resident/img/hero-img.png" class="img-fluid animated" alt="">
         </div>
       </div>
     </div>
 
-    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
-      <defs>
-        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
-      </defs>
-      <g class="wave1">
-        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
-      </g>
-      <g class="wave2">
-        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
-      </g>
-      <g class="wave3">
-        <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
-      </g>
-    </svg>
-
   </section>
+
   <main id="main">
-
+    <!-- ======= About Us Section ======= -->
     <section id="about" class="about">
-      <div class="container">
+      <div class="container" data-aos="fade-up">
 
-        <div class="section-title" data-aos="zoom-out">
-          <h2>About</h2>
-          <p>{{ trans('panel.site_short_title') }}</p>
+        <div class="section-title">
+          <h2>About Us</h2>
         </div>
 
-        <div class="row content" data-aos="fade-up">
+        <div class="row content">
           <div class="col-lg-6">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+              E- Barangay Portal serves as an online gateway in serving residents seamlessly by providing a more accessible and hassle-free way of processing and requesting documents online.
             </p>
             <ul>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+              <p>Why Use E- Barangay?</p>
+              <li><i class="ri-check-double-line"></i>Skip the long lines and waiting time of personally going to Barangay.</li>
+              <li><i class="ri-check-double-line"></i>Access your account and keep track of your records online.</li>
+              <li><i class="ri-check-double-line"></i>Transact and contact our Barangay Staff online with just one chat away for any questions and concerns you have.</li>
             </ul>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum.
+              E-Barangay Portalis an online service portal which aims to ease the processing and issuance of documents needed by local residents in a municipality subdivided into Barangays. E-Barangay Portal serves as a gateway for a hassle free transaction. 
             </p>
            
           </div>
         </div>
 
       </div>
-    </section>
-    <section id="services" class="services">
-      <div class="container">
+    </section><!-- End About Us Section -->
 
-        <div class="section-title" data-aos="zoom-out">
-          <h2>Services</h2>
-          <p>What we do offer</p>
-        </div>
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us section-bg">
+      <div class="container-fluid" data-aos="fade-up">
 
         <div class="row">
-          <div class="col-lg-4 col-md-6 mt-5 mt-lg-0 ">
-            <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
-              <div class="icon"><i class="bi bi-card-checklist" style="color: #3fcdc7;"></i></div>
-              <h4 class="title"><a href="">Requesting Document</a></h4>
-              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+
+          <div class="col-lg-12 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
+
+            <div class="content">
+              <h3><strong>Frequently Asked Questions</strong></h3>
+              
+            </div>
+
+            <div class="accordion-list">
+              <ul>
+                <div class="row">
+                      <li>
+                        <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span> I’m a new user. How do I make a document request?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
+                          <p>
+                          Request document in just 3 easy steps! First, register an account by clicking the ‘Register now’ button found on the top of the homepage. Input the required information and insert a profile picture. (Please make sure your profile picture is really you with no filters and edits with your face fully visible.) Finally, click submit and wait for the staff to verify the information you submitted and you will receive an email notification once your account is already approved. Once approved, you’re all good to go in requesting a document.
+                          </p>
+                        </div>
+                      </li>
+                      <li>
+                        <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span>  I already have an account. How do I make a document request? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
+                          <p>
+                          Log in to your account by clicking the Login button found on the upper right corner under Accounts. Click the request document on your profile dashboard and there, you will see the documents available for request as well as the price and requirements needed for requesting.
+                          </p>
+                        </div>
+                      </li>
+                      <li>
+                          <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> What are the payment options and how can I submit a proof of payment? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                          <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
+                            <p>
+                            You can pay your requested documents through GCash or Paymaya. Just click on Pay Bills>Government>E-Barangay and input the amount you need to pay. Download a receipt or take a screenshot of your payment and attach it to the proof of payment section that will appear once you click on the ‘Request Now’ button. Please wait for 24-48 hours for the confirmation of your payment and you will be notified on your account dashboard once your document is ready for claiming.
+                            </p>
+                          </div>
+                      </li>
+                      <li>
+                        <a data-bs-toggle="collapse" data-bs-target="#accordion-list-4" class="collapsed"><span>04</span> How long will I wait for my requested document to be claimed?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="accordion-list-4" class="collapse" data-bs-parent=".accordion-list">
+                          <p>
+                          Once payment has been made and verified, please wait for 2-7 business days for claiming your documents as it may vary depending on your preferred claiming option as well as your address and the requirements you have submitted. (See reminders to remember when submitting requirements here.)
+                          </p>
+                        </div>
+                      </li>
+                      <li>
+                        <a data-bs-toggle="collapse" data-bs-target="#accordion-list-5" class="collapsed"><span>05</span> What are the payment options and how can I submit a proof of payment? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="accordion-list-5" class="collapse" data-bs-parent=".accordion-list">
+                          <p>
+                          If your document request has been declined, it may be because the requirements you have submitted are wrong, incomplete or unclear. Your proof of payment as well may be unverified. Please make sure to note the things you should remember when submitting your requirements as well as your proof of payment. (See reminders to remember when submitting requirements here.)
+                          </p>
+                        </div>
+                      </li>
+                      <li>
+                        <a data-bs-toggle="collapse" data-bs-target="#accordion-list-6" class="collapsed"><span>06</span> I forgot my password. Can I make another account?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="accordion-list-6" class="collapse" data-bs-parent=".accordion-list">
+                          <p>
+                              If you have forgotten your password, you can click on the Login button and there, you will see a “Forgot your password?” button. Just click on it and enter the email address you used in registering and you will receive a reset password link on your email. If problem still persists, feel free to reach out on our email: ebrangayassistance@gmail.com
+                          </p>
+                        </div>
+                      </li>
+                      <li>
+                        <a data-bs-toggle="collapse" data-bs-target="#accordion-list-7" class="collapsed"><span>07</span> What is the age requirement for registering an account and requesting a document? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="accordion-list-7" class="collapse" data-bs-parent=".accordion-list">
+                          <p>
+                          The age requirement should be 18 years old above. For residents 17 years old below, please provide a letter of consent from your parents/guardian and attach the document on the requirements.
+                          </p>
+                        </div>
+                      </li>
+                      <li>
+                        <a data-bs-toggle="collapse" data-bs-target="#accordion-list-8" class="collapsed"><span>08</span>Can I make two or more requests at a time?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="accordion-list-8" class="collapse" data-bs-parent=".accordion-list">
+                          <p>
+                            Yes, there is no limit for document requests. However, please take note that the claiming date may take longer than usual if you have multiple requests to give enough time to process your documents.
+                          </p>
+                        </div>
+                      </li>
+                      <li>
+                        <a data-bs-toggle="collapse" data-bs-target="#accordion-list-9" class="collapsed"><span>09</span>I’m an elder woman/man, I don’t know how to navigate through your website and I don’t have anyone with me to assist with my document request. Is there any other way to make a request?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="accordion-list-9" class="collapse" data-bs-parent=".accordion-list">
+                          <p>
+                            No worries! If you are not able to request documents by our portal, feel free to call us on this number: 123-456-789/09123456789/0987654321 and we’ll set up your account and help you throughout your document requests.
+                          </p>
+                        </div>
+                      </li>
+                      <li>
+                        <a data-bs-toggle="collapse" data-bs-target="#accordion-list-10" class="collapsed"><span>10</span>  I mistakenly requested a wrong document and have paid for it already. Will I be able to get a refund?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                        <div id="accordion-list-10" class="collapse" data-bs-parent=".accordion-list">
+                          <p>
+                              If you have mistakenly requested a wrong document, you can cancel your request and your payment will be refunded to you via GCash or Paymaya once our team messaged you on your portal, but please take note that once claiming date has already appeared on your portal, we can no longer issue a refund as the document has already been made.
+                          </p>
+                        </div>
+                      </li>
+                </div>
+              </ul>
             </div>
           </div>
         </div>
 
       </div>
-    </section>
-    <section id="pricing" class="pricing">
-      <div class="container">
+    </section><!-- End Why Us Section -->
 
-        <div class="section-title" data-aos="zoom-out">
-          <h2>Pricing</h2>
-          <p>For requesting document</p>
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Services</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4><a href="">Register and Login Account</a></h4>
+              <p>With E-Barangay, you are able to create and manage your account online and keep track of your records and transactions.</p>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4><a href="">Hassle-free Online Documents Requesting and Processing</a></h4>
+              <p>No more waiting in lines – We’ve got you! With the E-Barangay portal, you can finally request and process documents without the need of going personally to your Barangays!</p>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4><a href="">Easily Accessible Payments</a></h4>
+              <p>We provide an easy way of paying your documents through GCash or Paymaya.</p>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4><a href="">Various Claiming Options</a></h4>
+              <p>We provide you three claiming options to choose from depending on your preference! You can claim it directly on your Barangay, have it delivered on your own doorstep or just print it readily.</p>
+            </div>
+          </div>
+        
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+   
+
+    <!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="pricing section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Available Documents</h2>
+          <p>To request a document, click the Request Now button.</p>
         </div>
 
         <div class="row">
           @foreach($documents as $document)
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="100">
-              <h3>{{$document->name ?? ''}}</h3>
-              <h4><sup>₱</sup>{{$document->amount ?? ''}}<span> / request</span></h4>
-              <ul>
-                <li class="font-weight-bold">Requirements</li>
-                  @foreach($document->requirements()->get() as $requirement)
-                    <li>{{$requirement->name ?? ''}}</li>
-                  @endforeach
-              </ul>
-              <div class="btn-wrap">
-                <a href="/resident/request_document/{{$document->id}}" class="btn-buy">Request Now</a>
+            <div class="col-lg-3 " data-aos="fade-up" data-aos-delay="200">
+              <div class="box featured">
+                <h3 class="text-uppercase">{{$document->name ?? ''}}</h3>
+                <h4><sup>₱</sup>{{$document->amount ?? ''}}<span>per request</span></h4>
+                
+                <ul>
+                    <span class="text-dark">Requirements</span>
+                    @foreach($document->requirements()->get() as $requirement)
+                        <li><i class="bx bx-file"></i>{{$requirement->name ?? ''}}</li>
+                    @endforeach
+                    
+                </ul>
+                <a href="/resident/request_document/{{$document->id}}" class="buy-btn mx-auto">Request Now</a>
               </div>
+
+                
             </div>
-          </div>
           @endforeach
-         
-          
         </div>
 
       </div>
-    </section>
-    <section id="faq" class="faq">
-      <div class="container">
+    </section><!-- End Pricing Section -->
 
-        <div class="section-title" data-aos="zoom-out">
-          <h2>F.A.Q</h2>
-          <p>Frequently Asked Questions</p>
+    
+     <section id="team" class="team">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Team</h2>
         </div>
 
-        <ul class="faq-list">
+        <div class="row">
 
-          <li>
-            <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">Non consectetur a erat nam at lectus urna duis? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-            <div id="faq1" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-              </p>
-            </div>
-          </li>
-
-          <li>
-            <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-            <div id="faq2" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-              </p>
-            </div>
-          </li>
-
-          <li>
-            <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-            <div id="faq3" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-              </p>
-            </div>
-          </li>
-
-          <li>
-            <div data-bs-toggle="collapse" href="#faq4" class="collapsed question">Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-            <div id="faq4" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-              </p>
-            </div>
-          </li>
-
-          <li>
-            <div data-bs-toggle="collapse" href="#faq5" class="collapsed question">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-            <div id="faq5" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-              </p>
-            </div>
-          </li>
-
-          <li>
-            <div data-bs-toggle="collapse" href="#faq6" class="collapsed question">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-            <div id="faq6" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
-              </p>
-            </div>
-          </li>
-
-        </ul>
-
-      </div>
-    </section>
-    <section id="testimonials" class="testimonials">
-      <div class="container">
-
-        <div class="section-title" data-aos="zoom-out">
-          <h2>Developers</h2>
-          <p>What they are saying about us</p>
-        </div>
-
-        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                
-                <img src="resident/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodmsan</h3>
-                <h4>Ceo &amp; Founder</h4>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                
-                <img src="resident/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                
-                <img src="resident/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                
-                <img src="resident/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
+          <div class="col-lg-6 mt-2">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100" style="height: 250px;">
+              <div class="pic"><img src="resident/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>John Paul Tanion</h4>
+                <span>Web Developer</span>
+                <p>I am in charge of checking the requested documents and management of residents thoroughly done by the staff as well as maintaining and ensuring the portal’s features are working accordingly.</p>
+                <div class="social">
+                  <a href=""><i class="ri-twitter-fill"></i></a>
+                  <a href=""><i class="ri-facebook-fill"></i></a>
+                  <a href=""><i class="ri-instagram-fill"></i></a>
+                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
               </div>
             </div>
           </div>
-          <div class="swiper-pagination"></div>
+          <div class="col-lg-6 mt-2">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100" style="height: 250px;">
+              <div class="pic"><img src="resident/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Jaslen Magalong</h4>
+                <span>Graphic Designer/Editor/Documentation Writer/Proofreader</span>
+                <p>I am responsible for the graphics and design used in the portal as well as doing the documentation of the research, proofreading the submitted documents by my team and assigning the tasks that need to be done.</p>
+                <div class="social">
+                  <a href=""><i class="ri-twitter-fill"></i></a>
+                  <a href=""><i class="ri-facebook-fill"></i></a>
+                  <a href=""><i class="ri-instagram-fill"></i></a>
+                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mt-2">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100" style="height: 250px;">
+              <div class="pic"><img src="resident/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Neil Faustino</h4>
+                <span>Documentation Writer</span>
+                <p>I am assigned as one of the writers for the research and make sure that I am dependable on the tasks assigned to me.</p>
+                <div class="social">
+                  <a href=""><i class="ri-twitter-fill"></i></a>
+                  <a href=""><i class="ri-facebook-fill"></i></a>
+                  <a href=""><i class="ri-instagram-fill"></i></a>
+                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mt-2">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100" style="height: 250px;">
+              <div class="pic"><img src="resident/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Judito Rosco</h4>
+                <span>Documentation Writer</span>
+                <p>I take part as one of the writers for our research and plot out the flow of our system assuring that it is well-understood so that our website can work smoothly to the best of my efforts.</p>
+                <div class="social">
+                  <a href=""><i class="ri-twitter-fill"></i></a>
+                  <a href=""><i class="ri-facebook-fill"></i></a>
+                  <a href=""><i class="ri-instagram-fill"></i></a>
+                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mt-2 mx-auto">
+            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100" style="height: 250px;">
+              <div class="pic"><img src="resident/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Emmanuel Balisalisa</h4>
+                <span>Documentation Writer</span>
+                <p>I assist the team in writing the research by helping with the flow of the system and also do other tasks I am assigned with.</p>
+                <div class="social">
+                  <a href=""><i class="ri-twitter-fill"></i></a>
+                  <a href=""><i class="ri-facebook-fill"></i></a>
+                  <a href=""><i class="ri-instagram-fill"></i></a>
+                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+       
         </div>
 
       </div>
     </section>
-    <section id="contact" class="contact">
-      <div class="container">
+   
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact section-bg">
+      <div class="container" data-aos="fade-up">
 
-        <div class="section-title" data-aos="zoom-out">
+        <div class="section-title">
           <h2>Contact</h2>
-          <p>Contact Us</p>
         </div>
 
-        <div class="row mt-5">
+        <div class="row">
 
-          <div class="col-lg-4" data-aos="fade-right">
+          <div class="col-lg-5 d-flex align-items-stretch">
             <div class="info">
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <p>San Isidro Barangay Hall, Taytay, Rizal</p>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>ebarangayassistance@gmail.com</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
+                <p>+63 977 666 8820</p>
               </div>
 
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.3795336355483!2d121.13165972545121!3d14.577436528287816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c77a9e148b63%3A0xb2e05fb8154ee03!2sSan%20Isidro%20Barangay%20Hall!5e0!3m2!1sen!2sph!4v1655470065200!5m2!1sen!2sph" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+                
             </div>
 
           </div>
 
-          <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
-
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form action="forms/contact.php" method="post" role="form" class="myform">
               <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="name" required>
                 </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                <div class="form-group col-md-6">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" required>
                 </div>
               </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              <div class="form-group">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" required>
               </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              <div class="form-group">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" required></textarea>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
@@ -300,13 +406,13 @@
               </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
-
           </div>
 
         </div>
 
       </div>
-    </section>
+    </section><!-- End Contact Section -->
+
   </main>
 @endsection
 
@@ -319,3 +425,4 @@
 
 </script>
 @endsection
+ 

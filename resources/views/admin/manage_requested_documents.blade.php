@@ -48,9 +48,9 @@
                     <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Status</th>
                     <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Resident</th>
                     <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Document</th>
-                    <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Date Needed</th>
+                    <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Tentative Claiming Date</th>
                     <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Requirements</th>
-                    <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Claimed Option</th>
+                    <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Claiming Option</th>
                     <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Amount To Pay</th>
                     <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Requested At</th>
                   </tr>
@@ -110,7 +110,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">{{$document->date_you_need ?? ''}}</h6>
+                            <h6 class="mb-0 text-sm">{{$document->claiming_date ?? 'N/A'}}</h6>
                           </div>
                         </div>
                       </td>
@@ -138,7 +138,7 @@
                             <h6 class="mb-0 text-sm"></h6>
                             <p class="text-xs font-weight-bold mb-0">
                               ₱ {{$document->amount_to_pay ?? ''}}
-                              <a href="" class="link-primary"> <br>
+                              <a href="/resident/receipt/{{$document->receipt ?? ''}}" target="_blank" class="link-primary"> <br>
                                View Receipt</a>
                             </p>
                           </div>
@@ -225,8 +225,11 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                        <label class="control-label text-uppercase" >Date Needed</label>
-                        <input type="text" name="date_needed" id="date_needed" class="form-control" readonly/>
+                        <label class="control-label text-uppercase" >Tentative Claiming Date <span class="text-danger">*</span></label>
+                        <input type="date" name="claiming_date" id="claiming_date" class="form-control"/>
+                        <span class="invalid-feedback" role="alert">
+                            <strong id="error-claiming_date"></strong>
+                        </span>
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -364,7 +367,7 @@
 
                 $('#resident').val(data.resident)
                 $('#document').val(data.document)
-                $('#date_needed').val(data.date_needed);
+                $('#claiming_date').val(data.claiming_date);
                 $('#claimed_option').val(data.claimed_option);
                 $('#payment').val(data.payment);
                 $('#status').val(data.status);
@@ -422,7 +425,7 @@
         },
         success:function(data){
             $("#action_button").attr("disabled", false);
-
+            $("#action_button").val("Submit");
             if(data.errors){
                 $.each(data.errors, function(key,value){
                     if(key == $('#'+key).attr('id')){

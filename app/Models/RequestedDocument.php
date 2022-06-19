@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class RequestedDocument extends Model
 {
     use HasFactory;
+    
     protected $fillable = [
         'request_number',
         'resident_id',
         'document_id',
-        'date_you_need',
+        'claiming_date',
         'amount_to_pay',
         'receipt',
         'claiming_option',

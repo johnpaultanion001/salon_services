@@ -8,14 +8,14 @@
 @section('style')
 <style>
 .cta {
-    margin-top: 100px;
+    margin-top: 120px;
 }
 
 </style>
 @endsection
 @section('content')
 
-<main id="main"  style="min-height: 80vh;">
+<main id="main"  style="min-height: 70vh;">
    <!-- ======= Cta Section ======= -->
    <section id="cta" class="cta">
       <div class="container">
@@ -29,7 +29,7 @@
                             {{ __('A fresh verification link has been sent to your email address.') }}
                         </p>
                     @endif
-                    <button type="submit" class="cta-btn align-middle">click here to request another</button>
+                    <button type="submit" class="btn-primary btn align-middle">Click here to request another</button>
                 </div>
               </div>
               
@@ -42,6 +42,10 @@
 
 @endsection
 
+
+@section('footer')
+    @include('../partials.resident.footer')
+@endsection
 
 @section('script')
 <script> 

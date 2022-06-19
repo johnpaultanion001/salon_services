@@ -15,11 +15,11 @@ class RequestedDocumentSeeder extends Seeder
      */
     public function run()
     {
+        date_default_timezone_set('Asia/Manila');
         $requested_documents = [
             [
                 'resident_id'             => 1,
                 'document_id'             => 1,
-                'date_you_need'           => date("Y-m-d"),
                 'amount_to_pay'             => 100,
                 'receipt'                  => 'receipt1.png',
                 'claiming_option'           => 'downloadable',
@@ -30,7 +30,6 @@ class RequestedDocumentSeeder extends Seeder
             [
                 'resident_id'             => 1,
                 'document_id'             => 2,
-                'date_you_need'           => date("Y-m-d"),
                 'amount_to_pay'             => 100,
                 'receipt'                  => 'receipt2.png',
                 'claiming_option'           => 'downloadable',

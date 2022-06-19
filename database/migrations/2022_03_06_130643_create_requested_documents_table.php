@@ -18,7 +18,7 @@ class CreateRequestedDocumentsTable extends Migration
             $table->string('request_number');
             $table->string('resident_id');
             $table->string('document_id');
-            $table->date('date_you_need');
+            $table->date('claiming_date')->nullable();
             $table->float('amount_to_pay');
             $table->string('receipt');
             

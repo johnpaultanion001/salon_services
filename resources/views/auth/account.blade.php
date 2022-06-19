@@ -1,5 +1,5 @@
 @extends('../layouts.resident')
-@section('sub-title','Account')
+@section('sub-title','ACCOUNT')
 
 @section('navbar')
     @include('../partials.resident.navbar')
@@ -53,7 +53,7 @@
 
 <main id="main">
 
-  <section class="contact mt-5">
+  <section class="contact mt-5 section-bg">
     <div class="container">
         <div class="section-title" data-aos="zoom-out">
           <h2>Account</h2>
@@ -62,7 +62,6 @@
        
         <div class="row mt-2">
           <div class="col-lg-10 mt-lg-0 mx-auto" data-aos="fade-left">
-                <div class="card">
                     @if(auth()->user()->resident->isRegister == 0)
                     
                     @else
@@ -79,93 +78,84 @@
                             </div>
                         @endif
                     @endif
-                  
-                    
-                    <div class="card-body">
-                        <form method="post" id="myForm">
-                            @csrf
-                           
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Email: <span class="text-danger">*</span></label>
-                                        <input id="email" name="email" type="text" class="form-control" readonly value="{{Auth()->user()->email ?? ''}}">
-                                    </div> 
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="picture-container">
-                                        <div class="form-group">
-                                            <label>Upload ID Here: <span class="text-danger">*</span></label>
-                                            <div class="picture">
-                                                <img src="@if(Auth()->user()->resident->id_image != '') /resident/img/id/{{Auth()->user()->resident->id_image}} @else {{ asset('/resident/img/id.jpg') }}  @endif " class="picture-src" id="wizardPicturePreview" title="" />
-                                                <input type="file" id="wizard-picture" name="id_image" accept="image/*" >
-                                                
-                                            </div>
-                                            <span >
-                                                <strong style="font-size: .875em; color: #dc3545;" id="error-wizard-picture"></strong>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <label>First Name: <span class="text-danger">*</span></label>
-                                        <input id="first_name" name="first_name" type="text" class="form-control" value="{{Auth()->user()->resident->first_name ?? ''}}" autofocus>
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong id="error-first_name"></strong>
-                                        </span>
-                                    </div> 
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label>Middle Name:</label>
-                                        <input id="middle_name" name="middle_name" type="text" class="form-control" value="{{Auth()->user()->resident->middle_name ?? ''}}">
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong id="error-middle_name"></strong>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <label>Last Name: <span class="text-danger">*</span></label>
-                                        <input id="last_name" name="last_name" type="text" class="form-control" value="{{Auth()->user()->resident->last_name ?? ''}}">
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong id="error-last_name"></strong>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Address: <span class="text-danger">*</span></label>
-                                        <input id="address" name="address" type="text" class="form-control" value="{{Auth()->user()->resident->address ?? ''}}">
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong id="error-address"></strong>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Contact Number: <span class="text-danger">*</span></label>
-                                        <input id="contact_number" name="contact_number" type="text" class="form-control" value="{{Auth()->user()->resident->contact_number ?? ''}}">
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong id="error-contact_number"></strong>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" id="action_button" class="mt-5 btn-wd btn">SUBMIT</button>
-                            </div>
-                            <p  class="text-center mt-3 color-black" style="font-size: 15px; font-weight: 500;" ><a href="/password/reset">Change your password?</a></p>
-                        </form>
+                    <form method="post" id="myForm" class="myform">
+                        @csrf
                         
-                    </div>
-                  
-                                        
-                </div>
-            
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Email: <span class="text-danger">*</span></label>
+                                    <input id="email" name="email" type="text" class="form-control" readonly value="{{Auth()->user()->email ?? ''}}">
+                                </div> 
+                            </div>
+                            <div class="col-md-6">
+                                <div class="picture-container">
+                                    <div class="form-group">
+                                        <label>Upload ID Here: <span class="text-danger">*</span></label>
+                                        <div class="picture">
+                                            <img src="@if(Auth()->user()->resident->id_image != '') /resident/img/id/{{Auth()->user()->resident->id_image}} @else {{ asset('/resident/img/id.jpg') }}  @endif " class="picture-src" id="wizardPicturePreview" title="" />
+                                            <input type="file" id="wizard-picture" name="id_image" accept="image/*" >
+                                            
+                                        </div>
+                                        <span >
+                                            <strong style="font-size: .875em; color: #dc3545;" id="error-wizard-picture"></strong>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label>First Name: <span class="text-danger">*</span></label>
+                                    <input id="first_name" name="first_name" type="text" class="form-control" value="{{Auth()->user()->resident->first_name ?? ''}}" autofocus>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong id="error-first_name"></strong>
+                                    </span>
+                                </div> 
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Middle Name:</label>
+                                    <input id="middle_name" name="middle_name" type="text" class="form-control" value="{{Auth()->user()->resident->middle_name ?? ''}}">
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong id="error-middle_name"></strong>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label>Last Name: <span class="text-danger">*</span></label>
+                                    <input id="last_name" name="last_name" type="text" class="form-control" value="{{Auth()->user()->resident->last_name ?? ''}}">
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong id="error-last_name"></strong>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Address: <span class="text-danger">*</span></label>
+                                    <input id="address" name="address" type="text" class="form-control" value="{{Auth()->user()->resident->address ?? ''}}">
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong id="error-address"></strong>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Contact Number: <span class="text-danger">*</span></label>
+                                    <input id="contact_number" name="contact_number" type="text" class="form-control" value="{{Auth()->user()->resident->contact_number ?? ''}}">
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong id="error-contact_number"></strong>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" id="action_button" class="mt-5 btn-wd btn text-uppercase">SUBMIT</button>
+                        </div>
+                        <p  class="text-center mt-3 color-black" style="font-size: 15px; font-weight: 500;" ><a href="#" id="change_password">Change your password?</a></p>
+                    </form>
             
           </div>
         </div>
@@ -175,7 +165,52 @@
 </main>
 
 
+<form method="post" id="cpForm" class="">
+    @csrf
+    <div class="modal fade" id="cpModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-uppercase font-weight-bold">CHANGE PASSWORD</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fas fa-times text-primary"></i>
+                 </button>
+    
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                    <label class="control-label" >Current Password<span class="text-danger">*</span></label>
+                    <input type="password" name="current_password" id="current_password" class="form-control"/>
+                    <span class="invalid-feedback" role="alert">
+                        <strong id="error-current_password"></strong>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >New Password<span class="text-danger">*</span></label>
+                    <input type="password" name="new_password" id="new_password" class="form-control" />
+                    <span class="invalid-feedback" role="alert">
+                        <strong id="error-new_password"></strong>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" >Confirm Password<span class="text-danger">*</span></label>
+                    <input type="password" name="confirm_password" id="confirm_password" class="form-control" />
+                    <span class="invalid-feedback" role="alert">
+                        <strong id="error-confirm_password"></strong>
+                    </span>
+                </div>       
 
+                <input type="hidden" name="hidden_id" id="hidden_id" value="{{Auth::user()->id}}" />
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">CLOSE</button>
+                    <input type="submit" name="cp_action_button" id="cp_action_button" class="btn  btn-primary" value="UPDATE"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 @endsection
 
 @section('footer')
@@ -218,9 +253,11 @@ $(document).ready(function(){
                 dataType:"json",
                 beforeSend:function(){
                     $("#action_button").attr("disabled", true);
+                    $("#action_button").text('Submitting');
                 },
                 success:function(data){
                     $("#action_button").attr("disabled", false);
+                    $("#action_button").text('Submit');
 
                     if(data.errors){
                         $.each(data.errors, function(key,value){
@@ -250,6 +287,67 @@ $(document).ready(function(){
                                 },
                             }
                         });
+                    }
+                
+                }
+            });
+        });
+
+        $(document).on('click', '#change_password', function(){
+            $('#cpModal').modal('show');
+            $('#cpForm')[0].reset();
+            $('.form-control').removeClass('is-invalid');
+        });
+
+        $('#cpForm').on('submit', function(event){
+            event.preventDefault();
+            $('.form-control').removeClass('is-invalid')
+            var id = $('#hidden_id').val();
+            var action_url = "/resident/account/change_password/" + id;
+            var type = "PUT";
+
+            $.ajax({
+                url: action_url,
+                method:type,
+                data:$(this).serialize(),
+                dataType:"json",
+                beforeSend:function(){
+                    $("#cp_action_button").attr("disabled", true);
+                },
+                success:function(data){
+                    $("#cp_action_button").attr("disabled", false);
+                    if(data.errors){
+                        $.each(data.errors, function(key,value){
+                        if(key == $('#'+key).attr('id')){
+                            $('#'+key).addClass('is-invalid')
+                            $('#error-'+key).text(value)
+                        }
+                        })
+                    }
+                    if(data.success){
+                        $('.form-control').removeClass('is-invalid');
+                        $.confirm({
+                            title: 'Confirmation',
+                            content: data.success,
+                            type: 'green',
+                            buttons: {
+                                    confirm: {
+                                        text: 'STAY LOGGED IN',
+                                        btnClass: 'btn-blue',
+                                        keys: ['enter', 'shift'],
+                                        action: function(){
+                                            location.reload();
+                                        }
+                                    },
+                                    cancel:  {
+                                        text: 'LOGOUT',
+                                        btnClass: 'btn-red',
+                                        action: function(){
+                                            document.getElementById('logout-form').submit();
+                                        }
+                                    }
+                                }
+                            });
                     }
                 
                 }
