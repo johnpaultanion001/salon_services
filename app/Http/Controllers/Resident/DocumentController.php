@@ -124,9 +124,9 @@ class DocumentController extends Controller
         date_default_timezone_set('Asia/Manila');
         
         $request_id->update([
-            'status'    => 'CANCELED',
+            'status'    => 'CANCELLED',
         ]);
-        return response()->json(['success' => 'Your document has been successfully canceled.']);
+        return response()->json(['success' => 'Your document has been successfully cancelled.']);
 
     }
 
@@ -175,22 +175,22 @@ class DocumentController extends Controller
         }
         if($filter == 'pending'){
             $requests = RequestedDocument::where('resident_id', auth()->user()->resident->id)
-                                            ->where('status', 'pending')
+                                            ->where('status', 'PENDING')
                                             ->where('isRemove', 0)->latest()->get();
         }
         if($filter == 'approved'){
             $requests = RequestedDocument::where('resident_id', auth()->user()->resident->id)
-                                            ->where('status', 'approved')
+                                            ->where('status', 'APPROVED')
                                             ->where('isRemove', 0)->latest()->get();
         }
         if($filter == 'completed'){
             $requests = RequestedDocument::where('resident_id', auth()->user()->resident->id)
-                                            ->where('status', 'completed')
+                                            ->where('status', 'COMPLETED')
                                             ->where('isRemove', 0)->latest()->get();
         }
-        if($filter == 'canceled'){
+        if($filter == 'cancelled'){
             $requests = RequestedDocument::where('resident_id', auth()->user()->resident->id)
-                                            ->where('status', 'canceled')
+                                            ->where('status', 'CANCELLED')
                                             ->where('isRemove', 0)->latest()->get();
         }
                     

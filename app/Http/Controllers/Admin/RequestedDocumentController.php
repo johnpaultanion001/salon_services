@@ -10,6 +10,7 @@ use File;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Notification;
 use Gate;
+use Carbon\Carbon;
 use Symfony\Component\HttpFoundation\Response;
 use App\Models\ActivityLog;
 
@@ -63,7 +64,8 @@ class RequestedDocumentController extends Controller
         if($requested->isPaid == 0){
             if($request->input('payment') == 1){
                 $emailContent = [
-                    'notif'       => 'Your requested document has been paid',
+                    'notif'       => 'Your payment has been received',
+                    'msg'         => 'request_paid',
                 ];
         
                 Mail::to($requested->resident->user->email)
@@ -74,7 +76,12 @@ class RequestedDocumentController extends Controller
         if($requested->status != 'APPROVED'){
             if($request->input('status') == 'APPROVED'){
                 $emailContent = [
-                    'notif'       => 'Your requested document has been approved',
+                    'notif'          => 'Your requested document has been approved',
+                    'msg'            => 'request_approved',
+                    'request_number' => $requested->request_number,
+                    'document'       => $requested->document->name,
+                    'claiming_date'  => Carbon::createFromFormat('Y-m-d',$requested->claiming_date)->format('M j , Y'),
+                    
                 ];
         
                 Mail::to($requested->resident->user->email)
@@ -86,6 +93,8 @@ class RequestedDocumentController extends Controller
             if($request->input('status') == 'COMPLETED'){
                 $emailContent = [
                     'notif'       => 'Your requested document has been completed',
+                    'msg'         => 'request_completed',
+                    
                 ];
         
                 Mail::to($requested->resident->user->email)
@@ -97,6 +106,7 @@ class RequestedDocumentController extends Controller
             if($request->input('status') == 'DECLINED'){
                 $emailContent = [
                     'notif'       => 'Your requested document has been declined',
+                    'msg'         => 'request_declined',
                 ];
         
                 Mail::to($requested->resident->user->email)

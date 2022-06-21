@@ -18,7 +18,7 @@ class CheckResidentValidation
     public function handle(Request $request, Closure $next)
     {
         if(auth()->user()->roles()->pluck('id')->implode(', ') == '3'){
-            if (auth()->user()->resident->isApprove == 0) {
+            if (auth()->user()->resident->status != 'APPROVED') {
                 return redirect()->to('/resident/account');
             }
         }else{

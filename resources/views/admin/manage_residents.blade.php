@@ -82,8 +82,18 @@
                         </div>
                       </td>
                       <td  class="align-middle text-center text-sm">
-                          <span class="badge badge-sm {{$resident->isApprove == 1 ? 'bg-gradient-success' : 'bg-gradient-warning'}}">
-                            {{$resident->isApprove == 1 ? 'Approved' : 'Pending'}}
+                          <span class="badge badge-sm 
+                            @if($resident->status == 'PENDING')
+                              bg-warning
+                            @elseif($resident->status == 'APPROVED')
+                              bg-success
+                            @elseif($resident->status == 'DECLINED')
+                              bg-warning
+                            @elseif($resident->status == 'DEACTIVATED')
+                              bg-danger
+                            @endif">
+                           
+                            {{$resident->status}}
                           </span>
                       </td>
                       <td>
@@ -182,8 +192,10 @@
                 <div class="form-group">
                     <label class="control-label text-uppercase" >Status <span class="text-danger">*</span></label>
                     <select name="status" id="status" class="form-control" style="appearance: searchfield;">
-                        <option value="0">PENDING</option>
-                        <option value="1">APPROVED</option>
+                        <option value="PENDING">PENDING</option>
+                        <option value="APPROVED">APPROVED</option>
+                        <option value="DECLINED">DECLINED</option>
+                        <option value="DEACTIVATED">DEACTIVATED</option>
                     </select>
                 </div>
                 <div class="card-footer text-center">

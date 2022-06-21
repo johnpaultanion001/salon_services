@@ -23,8 +23,8 @@
               @csrf
                 
                 <div class="card">
-                  <div class="text-center px-3 px-md-4 py-0 mt-2">
-                      <img  src="{{ trans('panel.logo') }}" alt="logo" width="100" height="100" class="z-depth-2">
+                  <div class="text-center mt-2">
+                      <img  src="{{ trans('panel.logo') }}" alt="logo"  class="z-depth-2">
                       <hr>
                   </div>
                   <div class="card-body">

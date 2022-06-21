@@ -15,7 +15,7 @@
 @endsection
 @section('content')
 
-<main id="main"  style="min-height: 70vh;">
+<main id="main" class="section-bg"  style="min-height: 70vh;">
    <!-- ======= Cta Section ======= -->
    <section id="cta" class="cta">
       <div class="container">
@@ -29,6 +29,7 @@
                             {{ __('A fresh verification link has been sent to your email address.') }}
                         </p>
                     @endif
+                    {{Auth()->user()->email}}
                     <button type="submit" class="btn-primary btn align-middle">Click here to request another</button>
                 </div>
               </div>

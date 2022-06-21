@@ -18,7 +18,7 @@ class DocumentSeeder extends Seeder
         $documents = [
             [
                 'id'             => 1,
-                'name'           => 'BARANGAY INDIGENCY',
+                'name'           => 'BRGY. INDIGENCY',
                 'amount'         => '100',
                 'remarks'        => null,
             
@@ -45,7 +45,7 @@ class DocumentSeeder extends Seeder
             ],
             [
                 'id'             => 4,
-                'name'           => 'BARANGAY CERTIFICATE',
+                'name'           => 'BRGY. CERTIFICATE',
                 'amount'         => '100',
                 'remarks'        => null,
             

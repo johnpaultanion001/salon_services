@@ -1,6 +1,6 @@
 <header id="header" class="fixed-top {{ request()->is('/') || request()->is('/*') ? '' :'header-inner-pages' }}">
     <div class="container d-flex align-items-center">
-     <a href="/" class="me-auto"><img  src="{{ trans('panel.logo_text') }}" alt="logo" height="50" ></a>
+     <a href="/" class="me-auto"><img  src="{{ trans('panel.logo_white') }}" alt="logo" height="40" ></a>
 
       <nav id="navbar" class="navbar">
         <ul>

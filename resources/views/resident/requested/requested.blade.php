@@ -31,19 +31,19 @@
             <ul id="requeted-filters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
               <div class="row">
                 <div class="col">
-                  <li filter="all" class="filter filter-active">All</li>
+                  <li filter="all" class="filter filter-active text-uppercase">All</li>
                 </div>
                 <div class="col">
-                  <li filter="pending" class="filter">Pending</li>
+                  <li filter="pending" class="filter text-uppercase">Pending</li>
                 </div>
                 <div class="col">
-                  <li filter="approved" class="filter">Approved</li>
+                  <li filter="approved" class="filter text-uppercase">Approved</li>
                 </div>
                 <div class="col">
-                  <li filter="completed" class="filter">Completed</li>
+                  <li filter="completed" class="filter text-uppercase">Completed</li>
                 </div>
                 <div class="col">
-                  <li filter="canceled" class="filter">Canceled</li>
+                  <li filter="cancelled" class="filter text-uppercase">Cancelled</li>
                 </div>
               </div>
               

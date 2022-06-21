@@ -14,7 +14,7 @@
                 </tr>
                 <tr>
                   <th>Status:</th>
-                  <td class="{{$request->status == 'PENDING' ? 'text-warning' : ''}}  {{$request->status == 'APPROVED' ? 'text-success' : ''}} {{$request->status == 'COMPLETED' ? 'text-primary' : ''}} {{$request->status == 'CANCELED' || $request->status == 'DECLINED' ? 'text-danger' : ''}}">{{$request->status}}</td>
+                  <td class="{{$request->status == 'PENDING' ? 'text-warning' : ''}}  {{$request->status == 'APPROVED' ? 'text-success' : ''}} {{$request->status == 'COMPLETED' ? 'text-primary' : ''}} {{$request->status == 'CANCELLED' || $request->status == 'DECLINED' ? 'text-danger' : ''}}">{{$request->status}}</td>
                 </tr>
                 <tr>
                   <th>Claiming Option:</th>

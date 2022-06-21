@@ -23,7 +23,7 @@ class CreateResidentsTable extends Migration
             $table->string('contact_number')->unique()->nullable();
             $table->string('address')->nullable();
             $table->string('qr_code')->nullable();
-            $table->boolean('isApprove')->default(false);
+            $table->string('status')->default('PENDING');
             $table->boolean('isRegister')->default(false);
             
 

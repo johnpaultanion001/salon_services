@@ -25,7 +25,7 @@ class ResidentSeeder extends Seeder
                 'address'                => 'Antipolo City',
                 'qr_code'                => '450eafdf-bd0a-4a64-bd1c-6c6c95c206de',
                 'isRegister'            => true,
-                'isApprove'            => true,
+                'status'               => 'APPROVED',
 
                 'created_at'     => date("Y-m-d H:i:s"),
                 'updated_at'     => date("Y-m-d H:i:s"),

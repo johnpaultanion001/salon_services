@@ -19,7 +19,7 @@ class DashboardController extends Controller
         abort_if(Gate::denies('staff_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $documents = Document::where('isAvailable', true)->orderBy('name', 'asc')->get();
         $pendings =  RequestedDocument::where('status', 'PENDING')->latest()->get();
-        $residents = Resident::where('isApprove', 1)->where('isRegister', 1)->get();
+        $residents = Resident::where('status', "APPROVED")->where('isRegister', 1)->get();
         $staffs = RoleUser::where('role_id', 2)->orderBy('user_id', 'desc')->get();
         return view('admin.dashboard' , compact('documents','pendings','residents','staffs'));
     }

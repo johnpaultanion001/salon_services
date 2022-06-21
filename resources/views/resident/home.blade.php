@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="resident/img/hero-img.png" class="img-fluid animated" alt="">
+          <img src="resident/img/bg.gif" class="img-fluid animated" alt="">
         </div>
       </div>
     </div>
@@ -40,23 +40,25 @@
         </div>
 
         <div class="row content">
-          <div class="col-lg-6">
-            <p>
-              E- Barangay Portal serves as an online gateway in serving residents seamlessly by providing a more accessible and hassle-free way of processing and requesting documents online.
-            </p>
-            <ul>
-              <p>Why Use E- Barangay?</p>
-              <li><i class="ri-check-double-line"></i>Skip the long lines and waiting time of personally going to Barangay.</li>
-              <li><i class="ri-check-double-line"></i>Access your account and keep track of your records online.</li>
-              <li><i class="ri-check-double-line"></i>Transact and contact our Barangay Staff online with just one chat away for any questions and concerns you have.</li>
-            </ul>
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="col-md-12">
+                <p class="text-justify">
+                    E- Barangay Portal serves as an online gateway in serving residents seamlessly by providing a more accessible and hassle-free way of processing and requesting documents online. With E-Barangay Portal, you can easily create an account, make a document request, track and manage your requested document and contact our staff all made online through our portal.
+                 </p>
+              </div>
+              <div class="col-md-6 mx-auto mt-5">
+              
+                <ul>
+                  <p>Why Use E- Barangay?</p>
+                  <li><i class="ri-check-double-line"></i>Skip the long lines and waiting time of personally going to Barangay.</li>
+                  <li><i class="ri-check-double-line"></i>Access your account and keep track of your records online.</li>
+                  <li><i class="ri-check-double-line"></i>Transact and contact our Barangay Staff online with just one chat away for any questions and concerns you have.</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>
-              E-Barangay Portalis an online service portal which aims to ease the processing and issuance of documents needed by local residents in a municipality subdivided into Barangays. E-Barangay Portal serves as a gateway for a hassle free transaction. 
-            </p>
-           
-          </div>
+          
         </div>
 
       </div>
@@ -179,28 +181,28 @@
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Register and Login Account</a></h4>
+              <h4><a href="">Register/Log In</a></h4>
               <p>With E-Barangay, you are able to create and manage your account online and keep track of your records and transactions.</p>
             </div>
           </div>
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Hassle-free Online Documents Requesting and Processing</a></h4>
+              <h4><a href="">Hassle-free</a></h4>
               <p>No more waiting in lines – We’ve got you! With the E-Barangay portal, you can finally request and process documents without the need of going personally to your Barangays!</p>
             </div>
           </div>
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Easily Accessible Payments</a></h4>
+              <h4><a href="">Easy Payments</a></h4>
               <p>We provide an easy way of paying your documents through GCash or Paymaya.</p>
             </div>
           </div>
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Various Claiming Options</a></h4>
+              <h4><a href="">Claiming Options</a></h4>
               <p>We provide you three claiming options to choose from depending on your preference! You can claim it directly on your Barangay, have it delivered on your own doorstep or just print it readily.</p>
             </div>
           </div>
@@ -218,25 +220,29 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Available Documents</h2>
+          <h2>DOCUMENT REQUESTS</h2>
           <p>To request a document, click the Request Now button.</p>
         </div>
 
         <div class="row">
           @foreach($documents as $document)
-            <div class="col-lg-3 " data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-3 mt-2" data-aos="fade-up" data-aos-delay="200">
               <div class="box featured">
                 <h3 class="text-uppercase">{{$document->name ?? ''}}</h3>
                 <h4><sup>₱</sup>{{$document->amount ?? ''}}<span>per request</span></h4>
                 
-                <ul>
+                <ul style="min-height: 170px;">
                     <span class="text-dark">Requirements</span>
                     @foreach($document->requirements()->get() as $requirement)
                         <li><i class="bx bx-file"></i>{{$requirement->name ?? ''}}</li>
                     @endforeach
                     
                 </ul>
-                <a href="/resident/request_document/{{$document->id}}" class="buy-btn mx-auto">Request Now</a>
+                <div class="text-center mb-0">
+                  <a href="/resident/request_document/{{$document->id}}" class="buy-btn mx-auto">Request Now</a>
+                </div>
+                
+
               </div>
 
                 
@@ -252,14 +258,14 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Team</h2>
+          <h2>Our Team</h2>
         </div>
 
         <div class="row">
 
           <div class="col-lg-6 mt-2">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100" style="height: 250px;">
-              <div class="pic"><img src="resident/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="resident/img/team/paul.png" class="img-fluid"  alt=""></div>
               <div class="member-info">
                 <h4>John Paul Tanion</h4>
                 <span>Web Developer</span>
@@ -275,7 +281,7 @@
           </div>
           <div class="col-lg-6 mt-2">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100" style="height: 250px;">
-              <div class="pic"><img src="resident/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="resident/img/team/jas.png" class="img-fluid" alt="jas.png"></div>
               <div class="member-info">
                 <h4>Jaslen Magalong</h4>
                 <span>Graphic Designer/Editor/Documentation Writer/Proofreader</span>
@@ -291,7 +297,7 @@
           </div>
           <div class="col-lg-6 mt-2">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100" style="height: 250px;">
-              <div class="pic"><img src="resident/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="resident/img/team/neil.png" class="img-fluid" alt="neil.png"></div>
               <div class="member-info">
                 <h4>Neil Faustino</h4>
                 <span>Documentation Writer</span>
@@ -307,7 +313,7 @@
           </div>
           <div class="col-lg-6 mt-2">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100" style="height: 250px;">
-              <div class="pic"><img src="resident/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="resident/img/team/judito.png" class="img-fluid" alt="judito.png"></div>
               <div class="member-info">
                 <h4>Judito Rosco</h4>
                 <span>Documentation Writer</span>
@@ -323,7 +329,7 @@
           </div>
           <div class="col-lg-6 mt-2 mx-auto">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100" style="height: 250px;">
-              <div class="pic"><img src="resident/img/team/team-1.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="resident/img/team/eman.png" class="img-fluid" alt="eman.png"></div>
               <div class="member-info">
                 <h4>Emmanuel Balisalisa</h4>
                 <span>Documentation Writer</span>

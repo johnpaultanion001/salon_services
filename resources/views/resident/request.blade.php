@@ -246,14 +246,22 @@ $(document).ready(function(){
             $('#myModal').modal('hide')
         });
         $(document).on('click', '#how_to_pay', function(){
-            $('.modal-title').text('How to pay');
+            $('.modal-title').text('How to pay ?');
             var content = "";
-                content += '<p>Lorem ipsum ipsum</p>';
+                content += '<p>GCash</p>';
                 content += '<ul>';
-                    content += '<li>MAKE SURE IMAGE OR SCREENSHOT IS READABLE. AVOID BLURRY IMAGES.</li>';
-                    content += '<li>WHEN SUBMITTING A DOCUMENT, CONVERT IT INTO PDF FILE.</li>';
-                    content += '<li>ENSURE THAT ALL INFORMATION IN THE IMAGE OR SCREENSHOT IS CLEAR AND ALL VISIBLE.</li>';
+                    content += '<li>On your GCash app dashboard, click on Pay Bills>Government>E-Barangay and input the amount you need to pay as well as the other information required. (Double check the amount and information you have input to avoid any errors or issues from happening.)</li>';
+                    content += '<li>Once you have already paid, download a receipt or take a screenshot for proof of payment.</li>';
+                    content += '<li>Attach it to the proof of payment section on the E-Barangay portal that will appear once you click on the ‘Request Now’ button.</li>';
                 content += '</ul>';
+                content += '<p>Paymaya</p>';
+                content += '<ul>';
+                    content += '<li>On your Paymaya app dashboard, click on Bills>Government>E-Barangay and input the amount you need to pay as well as the other information required. (Double check the amount and information you have input to avoid any errors or issues from happening.)</li>';
+                    content += '<li>Once you have already paid, download a receipt or take a screenshot for proof of payment.</li>';
+                    content += '<li>Attach it to the proof of payment section on the E-Barangay portal that will appear once you click on the ‘Request Now’ button.</li>';
+                content += '</ul>';
+                content += '<br>';
+                content += '<p class="text-center text-danger">Please wait for 24-48 hours for the confirmation of your payment and you will be notified on your account dashboard once your document is ready for claiming.</p>';
 
             $('#modal_content').empty().append(content);
             $('#myModal').modal('show');

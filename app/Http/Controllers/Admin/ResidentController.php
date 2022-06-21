@@ -19,7 +19,7 @@ class ResidentController extends Controller
     public function index()
     {
         abort_if(Gate::denies('staff_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        $residents = Resident::orderBy('last_name' , 'asc')->get();
+        $residents = Resident::where('isRegister', true)->orderBy('last_name' , 'asc')->get();
         return view('admin.manage_residents',compact('residents'));
     }
     public function edit(Resident $resident)
@@ -28,7 +28,7 @@ class ResidentController extends Controller
             return response()->json([
                 'result' =>  $resident,
                 'email'  =>  $resident->user->email,
-                'status' =>  $resident->isApprove,
+                'status' =>  $resident->status,
             ]);
         }
     }
@@ -49,10 +49,33 @@ class ResidentController extends Controller
             return response()->json(['errors' => $validated->errors()]);
         }
         
-        if($resident->isApprove == 0){
-            if($request->input('status') == 1){
+        if($resident->status != 'APPROVED'){
+            if($request->input('status') == 'APPROVED'){
                 $emailContent = [
-                    'notif'       => 'Your account has been approved',
+                    'notif'       => 'Your account has been approved.',
+                    'msg'         => 'approved_resident',
+                ];
+        
+                Mail::to($resident->user->email)
+                        ->send(new Notification($emailContent));
+            }
+        }
+        if($resident->status != 'DECLINED'){
+            if($request->input('status') == 'DECLINED'){
+                $emailContent = [
+                    'notif'       => 'Account creation request declined',
+                    'msg'         => 'declined_resident',
+                ];
+        
+                Mail::to($resident->user->email)
+                        ->send(new Notification($emailContent));
+            }
+        }
+        if($resident->status != 'DEACTIVATED'){
+            if($request->input('status') == 'DEACTIVATED'){
+                $emailContent = [
+                    'notif'       => 'Account deactivated',
+                    'msg'         => 'deactivated_resident',
                 ];
         
                 Mail::to($resident->user->email)
@@ -75,12 +98,12 @@ class ResidentController extends Controller
             'address'            => $request->input('address'),
             'contact_number'     => $request->input('contact_number'),
             'id_image'           => $file_name_to_save ?? $resident->id_image,
-            'isApprove'          => $request->input('status'),
+            'status'             => $request->input('status'),
         ]);
         ActivityLog::create([
-            'activity'  => 'Activity: Updated resident account <br>
+            'activity'  => 'Activity: Updated resident account \n
                             Resident Name: '.$resident->last_name.','.$resident->first_name.
-                           '<br> User: '. auth()->user()->name,
+                           '\n User: '. auth()->user()->name,
                             
         ]);
       

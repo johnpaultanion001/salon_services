@@ -65,16 +65,31 @@
                     @if(auth()->user()->resident->isRegister == 0)
                     
                     @else
-                        @if(auth()->user()->resident->isApprove == 0)
-                            <div class="cta">
-                                <div class="container">
-                                    <div class="row" data-aos="zoom-out">
-                                        <div class="col-lg-9 text-center text-lg-start ">
-                                            <h6 class="text-white">Wait for the administrator's response to verify your account</h6>
-                                        </div>
+                        @if(auth()->user()->resident->status == 'PENDING')
+                            <div class="container bg-success p-2">
+                                <div class="row" data-aos="zoom-out">
+                                    <div class="col-lg-9 text-center text-lg-start ">
+                                        <h6 class="text-white">Wait for the administrator's response to verify your account</h6>
                                     </div>
-
                                 </div>
+                            </div>
+                        @elseif(auth()->user()->resident->status == 'DECLINED')
+                            <div class="container bg-warning p-2">
+                                <div class="row" data-aos="zoom-out">
+                                    <div class="col-lg-9 text-center text-lg-start ">
+                                        <h6 class="text-white">After carefully verifying the information you have submitted, your account application has been declined. Please check the information you have submitted.</h6>
+                                    </div>
+                                </div>
+
+                            </div>
+                        @elseif(auth()->user()->resident->status == 'DEACTIVATED')
+                            <div class="container bg-danger p-2">
+                                <div class="row" data-aos="zoom-out">
+                                    <div class="col-lg-9 text-center text-lg-start ">
+                                        <h6 class="text-white">We’ve checked your account and it seems that there are suspicious activities on it. With this, we have deactivated your account to prevent any illegal activities from happening.</h6>
+                                    </div>
+                                </div>
+
                             </div>
                         @endif
                     @endif
@@ -89,9 +104,10 @@
                                 </div> 
                             </div>
                             <div class="col-md-6">
+                            <label>Upload ID Here: <span class="text-danger">*</span> <a href="#"  id="list_ids">Acceptable Valid IDs</a></label>
                                 <div class="picture-container">
                                     <div class="form-group">
-                                        <label>Upload ID Here: <span class="text-danger">*</span></label>
+                                        
                                         <div class="picture">
                                             <img src="@if(Auth()->user()->resident->id_image != '') /resident/img/id/{{Auth()->user()->resident->id_image}} @else {{ asset('/resident/img/id.jpg') }}  @endif " class="picture-src" id="wizardPicturePreview" title="" />
                                             <input type="file" id="wizard-picture" name="id_image" accept="image/*" >
@@ -102,6 +118,7 @@
                                         </span>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
                         <div class="row">
@@ -211,6 +228,25 @@
         </div>
     </div>
 </form>
+
+<div class="modal fade" id="myModal" data-keyboard="false" data-backdrop="static">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-uppercase font-weight-bold"></h5>
+            <button type="button" class="btn text-danger p-0 close_modal">
+              <i class="ri-close-line"></i>
+            </button>
+          </div>
+            <div class="modal-body" id="modal_content">
+                   
+            </div>
+      
+        </div>
+      </div>
+</div>
+
+
 @endsection
 
 @section('footer')
@@ -353,6 +389,35 @@ $(document).ready(function(){
                 }
             });
         });
+        
+        $(document).on('click', '#list_ids', function(){
+            $('.modal-title').text('Acceptable Valid IDs');
+            var content = "";
+                content += '<ul>';
+                    content += '<li>Passport</li>';
+                    content += '<li>Driver’s License</li>';
+                    content += '<li>PhilSys ID</li>';
+                    content += '<li>UMID</li>';
+                    content += '<li>Voter’s ID</li>';
+                    content += '<li>PRC ID</li>';
+                    content += '<li>Postal ID (Digital)</li>';
+                    content += '<li>SSS Card</li>';
+                    content += '<li>OWWA E-Card</li>';
+                    content += '<li>Pag-Ibig ID</li>';
+                    content += '<li>Philhealth ID</li>';
+                    content += '<li>TIN ID</li>';
+                    content += '<li>School ID (for students)</li>';
+                content += '</ul>';
+               
+                content += '<p class="text-center text-danger">Please make sure to submit an image file of your Valid ID (.jpg or .png)</p>';
+
+            $('#modal_content').empty().append(content);
+            $('#myModal').modal('show');
+        });
+        $(document).on('click', '.close_modal', function(){
+            $('#myModal').modal('hide')
+        });
+
 });
 </script>
 @endsection

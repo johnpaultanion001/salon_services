@@ -22,14 +22,16 @@
               <h3 class="text-uppercase">{{$document->name ?? ''}}</h3>
               <h4><sup>₱</sup>{{$document->amount ?? ''}}<span>per request</span></h4>
               
-              <ul>
+              <ul style="min-height: 170px;">
                   <span class="text-dark">Requirements</span>
                   @foreach($document->requirements()->get() as $requirement)
                       <li><i class="bx bx-file"></i>{{$requirement->name ?? ''}}</li>
                   @endforeach
                   
               </ul>
-              <a href="/resident/request_document/{{$document->id}}" class="buy-btn">Request Now</a>
+              <div class="text-center">
+                <a href="/resident/request_document/{{$document->id}}" class="buy-btn">Request Now</a>
+              </div>
             </div>
           </div>
           @endforeach

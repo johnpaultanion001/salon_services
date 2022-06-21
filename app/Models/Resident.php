@@ -17,7 +17,7 @@ class Resident extends Model
         'contact_number',
         'address',
         'qr_code',
-        'isApprove',
+        'status',
         'isRegister'
     ];
 
