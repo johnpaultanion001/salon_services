@@ -20,7 +20,7 @@
 </style>
 
 <div class="center">
-    <img src="http://e-barangay.supsofttech.com/resident/img/LOGO.png" alt="logo" width="100"/>
+    <img src="http://e-barangay.supsofttech.com/resident/img/logo.png" alt="logo" width="100"/>
     <br>
     <br>
         <strong style="font-size: 22px; text-transform: uppercase;">{{ $content['notif'] }}</strong>
@@ -80,12 +80,25 @@
 
     @if($content['msg'] == 'request_paid')
         This is to notify and confirm that your payment has been received. Please check your dashboard as well for any updates on the claiming date of your document.
-    @endif
     
-    @if($content['msg'] == 'request_approved')
-        Request Tracking Number: {{ $content['request_number'] }}
+    @elseif($content['msg'] == 'request_approved')
+    Request Tracking Number: {{ $content['request_number'] }}
         Document: {{ $content['document'] }}
         Tentative Claiming Date: {{ $content['claiming_date'] }}
+    @elseif($content['msg'] == 'request_completed')
+        Congratulations! Your document request has been completed. For any feedback or concerns, feel free to message us on the E-Barangay portal or you can also email us if you need any assistance: ebarangayassistance@gmail.com
+    @elseif($content['msg'] == 'request_declined')
+    Possible reasons on why payment has been declined
+
+        1. The screenshot or proof of payment you have submitted
+        does not match your information.
+
+        2. The screenshot or proof of payment you submitted is 
+        blurry or not readable. Please make sure that screenshot or
+        image is clear and all information are visible. 
+
+        3. You have paid an incorrect/insufficient amount. Please 
+        make sure to pay the correct price of document indicated.
     @endif
     
 

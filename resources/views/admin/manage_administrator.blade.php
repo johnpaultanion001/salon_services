@@ -160,7 +160,7 @@
                 <input type="hidden" name="role" id="role" value="1"  />
 
                 <div class="card-footer text-center">
-                    <input type="submit" name="action_button" id="action_button" class="text-uppercase btn-wd btn btn-primary" value="Sumbit" />
+                    <input type="submit" name="action_button" id="action_button" class="text-uppercase btn-wd btn btn-primary" value="Submit" />
                 </div>
             </div>
             

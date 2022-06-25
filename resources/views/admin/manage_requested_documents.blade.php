@@ -35,7 +35,21 @@
       <div class="col-12">
         <div class="card mb-4">
           <div class="card-header pb-0">
-            <h6>MANAGE REQUESTED DOCUMENTS</h6>
+            <div class="row">
+                <div class="col-md-10">
+                <h6>MANAGE REQUESTED DOCUMENTS</h6>
+                </div>
+                <div class="col-md-2">
+                    <select id="filter_status" class="form-control" style="appearance: button;">
+                         <option value="">FILTER STATUS</option>
+                         <option value="PENDING">PENDING</option>
+                         <option value="APPROVED">APPROVED</option>
+                         <option value="COMPLETED">COMPLETED</option>
+                         <option value="DECLINED">DECLINED</option>
+                    </select>
+                </div>
+                </div>
+           
           </div>
           <div class="card-body ">
             <div class="table-responsive p-0">
@@ -346,8 +360,12 @@
 
 <script>
   $(document).ready(function () {
-        $('.table').DataTable({
+        var table = $('.table').DataTable({
             'columnDefs': [{ 'orderable': false, 'targets': [0] }],
+        });
+
+        $('#filter_status').on('change', function () {
+            table.columns(3).search( this.value ).draw();
         });
   });
 
@@ -426,6 +444,7 @@
         success:function(data){
             $("#action_button").attr("disabled", false);
             $("#action_button").val("Submit");
+            
             if(data.errors){
                 $.each(data.errors, function(key,value){
                     if(key == $('#'+key).attr('id')){

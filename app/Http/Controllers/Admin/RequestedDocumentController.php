@@ -101,6 +101,7 @@ class RequestedDocumentController extends Controller
                         ->send(new Notification($emailContent));
             }
         }
+
         
         if($requested->status != 'DECLINED'){
             if($request->input('status') == 'DECLINED'){

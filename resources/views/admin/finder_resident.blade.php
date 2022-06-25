@@ -372,7 +372,7 @@
                     </select>
                 </div>
                 <div class="card-footer text-center">
-                    <input type="submit" name="action_button" id="action_button" class="text-uppercase btn-wd btn btn-primary" value="Sumbit" />
+                    <input type="submit" name="action_button" id="action_button" class="text-uppercase btn-wd btn btn-primary" value="Submit" />
                 </div>
             </div>
             
@@ -414,7 +414,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label text-uppercase" >Status <span class="text-danger">*</span></label>
-                        <select name="status_requested" id="status_requested" class="form-control" style="appearance: searchfield;">
+                        <select name="status" id="status_requested" class="form-control" style="appearance: searchfield;">
                             <option value="PENDING">PENDING</option>
                             <option value="APPROVED">APPROVED</option>
                             <option value="COMPLETED">COMPLETED</option>
@@ -509,7 +509,7 @@
               
             
                   <div class="card-footer text-center">
-                      <input type="submit" name="action_button" id="action_button" class="text-uppercase btn-wd btn btn-primary" value="Sumbit" />
+                      <input type="submit" name="action_button_request" id="action_button_request" class="text-uppercase btn-wd btn btn-primary" value="Submit" />
                   </div>
               </div>
         </form>
@@ -615,6 +615,7 @@
             },
             success:function(data){
                 $("#action_button").attr("disabled", false);
+                $("#action_button").val("Submit");
 
                 if(data.errors){
                     $.each(data.errors, function(key,value){
@@ -723,11 +724,12 @@
 
             dataType:"json",
             beforeSend:function(){
-                $("#action_button").attr("disabled", true);
-                $("#action_button").val("Submitting");
+                $("#action_button_request").attr("disabled", true);
+                $("#action_button_request").val("Submitting");
             },
             success:function(data){
-                $("#action_button").attr("disabled", false);
+                $("#action_button_request").attr("disabled", false);
+                $("#action_button_request").val("Submit");
 
                 if(data.errors){
                     $.each(data.errors, function(key,value){

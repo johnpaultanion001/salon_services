@@ -171,7 +171,7 @@
                 <input type="hidden" name="action" id="action" value="ADD"  />
 
                 <div class="card-footer text-center">
-                    <input type="submit" name="action_button" id="action_button" class="text-uppercase btn-wd btn btn-primary" value="Sumbit" />
+                    <input type="submit" name="action_button" id="action_button" class="text-uppercase btn-wd btn btn-primary" value="Submit" />
                 </div>
             </div>
             
@@ -328,7 +328,7 @@
             },
             success:function(data){
                 $("#action_button").attr("disabled", false);
-                $("#action_button").val("Sumbit");
+                $("#action_button").val("Submit");
 
                 if(data.errors){
                     $.each(data.errors, function(key,value){

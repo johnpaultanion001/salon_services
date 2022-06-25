@@ -160,7 +160,7 @@
                 <input type="hidden" name="role" id="role" value="2"  />
 
                 <div class="card-footer text-center">
-                    <input type="submit" name="action_button" id="action_button" class="text-uppercase btn-wd btn btn-primary" value="Sumbit" />
+                    <input type="submit" name="action_button" id="action_button" class="text-uppercase btn-wd btn btn-primary" value="Submit" />
                 </div>
             </div>
             
@@ -242,11 +242,9 @@
         dataType:"json",
         beforeSend:function(){
             $("#action_button").attr("disabled", true);
-            $("#action_button").val("Submitting");
         },
         success:function(data){
             $("#action_button").attr("disabled", false);
-            $("#action_button").val("Sumbit");
 
             if(data.errors){
                 $.each(data.errors, function(key,value){

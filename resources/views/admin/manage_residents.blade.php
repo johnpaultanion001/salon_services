@@ -15,7 +15,21 @@
       <div class="col-12">
         <div class="card mb-4">
           <div class="card-header pb-0">
-            <h6>MANAGE RESIDENTS</h6>
+            <div class="row">
+                <div class="col-md-10">
+                  <h6>MANAGE RESIDENTS</h6>
+                </div>
+                <div class="col-md-2">
+                    <select id="filter_status" class="form-control" style="appearance: button;">
+                         <option value="">FILTER STATUS</option>
+                         <option value="PENDING">PENDING</option>
+                         <option value="APPROVED">APPROVED</option>
+                         <option value="DECLINED">DECLINED</option>
+                         <option value="DEACTIVATED">DEACTIVATED</option>
+                    </select>
+                </div>
+                </div>
+           
           </div>
           <div class="card-body ">
             <div class="table-responsive p-0">
@@ -213,8 +227,11 @@
 
 <script>
   $(document).ready(function () {
-        $('.table').DataTable({
+        var table = $('.table').DataTable({
             'columnDefs': [{ 'orderable': false, 'targets': [0,1] }],
+        });
+        $('#filter_status').on('change', function () {
+            table.columns(6).search( this.value ).draw();
         });
   });
 
