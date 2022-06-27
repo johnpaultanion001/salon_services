@@ -5,41 +5,44 @@
 @section('navbar')
     @include('../partials.resident.navbar')
 @endsection
-@section('style')
-<style>
-.cta {
-    margin-top: 120px;
-}
 
-</style>
-@endsection
 @section('content')
 
-<main id="main" class="section-bg"  style="min-height: 70vh;">
-   <!-- ======= Cta Section ======= -->
-   <section id="cta" class="cta">
-      <div class="container">
-          <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+<main id="main">
+  <section class="contact mt-5 section-bg" style="min-height: 80vh;">
+    <div class="container">
+        <div class="row mt-2">
+          <div class="col-lg-6 mt-lg-0 mx-auto" data-aos="fade-left">
+            
+            <form class="myform" method="POST" action="{{ route('verification.resend') }}">
               @csrf
-              <div class="row" data-aos="zoom-out">
-                <div class="col-lg-9 text-center text-lg-start mx-auto">
-                  <h3>Verify Your Email Address</h3>
-                    @if (session('resent'))
-                        <p class="text-warning">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
+              <div class="card">
+                    <div class="text-center mt-2">
+                        <img  src="{{ trans('panel.logo') }}" alt="logo"  class="z-depth-2">
+                        <hr>
+                    </div>
+                    
+                    <div class="section-title" data-aos="zoom-out">
+                        <h2>Verify your email address</h2>
+                        @if (session('resent'))
+                            <p class="text-success">
+                                {{ __('A fresh verification link has been sent to your email address.') }}
+                            </p>
+                        @endif
+                        <p class="p-3">
+                            we've sent an email to <b>{{auth()->user()->email}}</b> to verify your email address and activate your account. The link in the email will expire in 60 minutes.
+                           <button type="submit" class="text-primary" style="padding: 0; background-color:transparent; text-transformation: none;">Click here</button> if you did not receive an email
                         </p>
-                    @endif
-                    {{Auth()->user()->email}}
-                    <button type="submit" class="btn-primary btn align-middle">Click here to request another</button>
-                </div>
+                    </div>
               </div>
-              
-             
-          </form>
-      </div>
-    </section><!-- End Cta Section -->
-
+            
+            </form>
+          </div>
+        </div>
+    </div>
+  </section>
 </main>
+
 
 @endsection
 

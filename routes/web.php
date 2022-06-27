@@ -7,6 +7,7 @@ Route::get('/clear-cache', function() {
     // return what you want
 });
 Route::get('/', 'Resident\HomeController@index')->name('resident.home');
+Route::post('send_msg', 'Resident\HomeController@send_msg')->name('resident.send_msg');
 Auth::routes(['verify' => true]);
 
 

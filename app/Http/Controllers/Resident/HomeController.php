@@ -14,6 +14,8 @@ use Gate;
 use Symfony\Component\HttpFoundation\Response;
 use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Notification;
 
 class HomeController extends Controller
 {
@@ -21,6 +23,21 @@ class HomeController extends Controller
     {
         $documents = Document::where('isAvailable', true)->orderBy('name', 'asc')->get();   
         return view('resident.home', compact('documents'));
+    }
+    public function send_msg(Request $request)
+    {
+        $emailContent = [
+            'notif'          => 'Message from ' . $request->input('name'),
+            'msg'            => 'send_msg',
+            'email'           => $request->input('email'),
+            'name'           => $request->input('name'),
+            'body'           => $request->input('message'),
+        ];
+
+        Mail::to('ebarangayassistance@gmail.com')
+                ->send(new Notification($emailContent));
+
+        return response()->json(['success' => 'Successfully updated']);
     }
     public function account()
     {

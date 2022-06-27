@@ -20,9 +20,6 @@
 </style>
 
 <div class="center">
-    <img src="http://e-barangay.supsofttech.com/resident/img/logo.png" alt="logo" width="100"/>
-    <br>
-    <br>
         <strong style="font-size: 22px; text-transform: uppercase;">{{ $content['notif'] }}</strong>
     <br>
     <br>
@@ -99,7 +96,14 @@
 
         3. You have paid an incorrect/insufficient amount. Please 
         make sure to pay the correct price of document indicated.
+
+    @elseif($content['msg'] == 'send_msg')
+    Name: {{ $content['name'] }}
+        Email: {{ $content['email'] }}
+
+        {{ $content['body'] }}
     @endif
+    
     
 
 </div>

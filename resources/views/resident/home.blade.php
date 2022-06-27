@@ -386,31 +386,31 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="myform">
+            <form method="post" id="myForm" class="myform">
+              @csrf
               <div class="row">
                 <div class="form-group col-md-6">
-                  <label for="name">Your Name</label>
+                  <label for="name">Your Name<span class="text-danger"> * </span></label>
                   <input type="text" name="name" class="form-control" id="name" required>
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="name">Your Email</label>
+                  <label for="name">Your Email<span class="text-danger"> * </span></label>
                   <input type="email" class="form-control" name="email" id="email" required>
                 </div>
               </div>
               <div class="form-group">
                 <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" required>
+                <input type="text" class="form-control" name="subject" id="subject">
               </div>
               <div class="form-group">
-                <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
+                <label for="name">Message<span class="text-danger"> * </span></label>
+                <textarea class="form-control" name="message" style="height: 180px;" required></textarea>
               </div>
               <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                <div class="sent-message sent">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center">
+              <button type="submit" id="btn-action">Send Message</button></div>
             </form>
           </div>
 
@@ -428,7 +428,26 @@
 
 @section('script')
 <script> 
-
+$('#myForm').on('submit', function(event){
+    event.preventDefault();
+    $.ajax({
+          url: "/send_msg",
+          method:"POST",
+          data:$(this).serialize(),
+          dataType:"json",
+          beforeSend:function(){
+            $('#btn-action').text('Sending..')
+            $('#btn-action').attr('disabled', true)
+          },
+          success:function(data){
+              $('#btn-action').text('Send Message')
+              $('#btn-action').attr('disabled', false)
+              $('.sent-message').removeClass('sent');
+              $('#myForm')[0].reset();
+          }
+      });
+  
+});
 </script>
 @endsection
  
