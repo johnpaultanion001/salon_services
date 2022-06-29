@@ -99,12 +99,12 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Email: <span class="text-danger">*</span></label>
+                                    <label>Email <span class="text-danger">*</span></label>
                                     <input id="email" name="email" type="text" class="form-control" readonly value="{{Auth()->user()->email ?? ''}}">
                                 </div> 
                             </div>
                             <div class="col-md-6">
-                            <label>Upload ID Here: <span class="text-danger">*</span> <a href="#"  id="list_ids">Acceptable Valid IDs</a></label>
+                            <label>Upload ID Here <span class="text-danger">*</span> <a href="#"  id="list_ids">Acceptable Valid IDs</a></label>
                                 <div class="picture-container">
                                     <div class="form-group">
                                         
@@ -124,7 +124,7 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="form-group">
-                                    <label>First Name: <span class="text-danger">*</span></label>
+                                    <label>First Name (same to your valid ID) <span class="text-danger">*</span></label>
                                     <input id="first_name" name="first_name" type="text" class="form-control" value="{{Auth()->user()->resident->first_name ?? ''}}" autofocus>
                                     <span class="invalid-feedback" role="alert">
                                         <strong id="error-first_name"></strong>
@@ -133,7 +133,7 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label>Middle Name:</label>
+                                    <label>Middle Name</label>
                                     <input id="middle_name" name="middle_name" type="text" class="form-control" value="{{Auth()->user()->resident->middle_name ?? ''}}">
                                     <span class="invalid-feedback" role="alert">
                                         <strong id="error-middle_name"></strong>
@@ -142,7 +142,7 @@
                             </div>
                             <div class="col-md-5">
                                 <div class="form-group">
-                                    <label>Last Name: <span class="text-danger">*</span></label>
+                                    <label>Last Name (same to your valid ID) <span class="text-danger">*</span></label>
                                     <input id="last_name" name="last_name" type="text" class="form-control" value="{{Auth()->user()->resident->last_name ?? ''}}">
                                     <span class="invalid-feedback" role="alert">
                                         <strong id="error-last_name"></strong>
@@ -151,7 +151,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Address: <span class="text-danger">*</span></label>
+                                    <label>Address (same to your valid ID) <span class="text-danger">*</span></label>
                                     <input id="address" name="address" type="text" class="form-control" value="{{Auth()->user()->resident->address ?? ''}}">
                                     <span class="invalid-feedback" role="alert">
                                         <strong id="error-address"></strong>
@@ -160,7 +160,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Contact Number: <span class="text-danger">*</span></label>
+                                    <label>Contact Number <span class="text-danger">*</span></label>
                                     <input id="contact_number" name="contact_number" type="text" class="form-control" value="{{Auth()->user()->resident->contact_number ?? ''}}">
                                     <span class="invalid-feedback" role="alert">
                                         <strong id="error-contact_number"></strong>

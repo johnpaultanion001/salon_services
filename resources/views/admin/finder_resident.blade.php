@@ -215,7 +215,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
-                            <span class="badge badge-sm {{$document->status == 'PENDING' ? 'bg-gradient-warning' : ''}}  {{$document->status == 'APPROVED' ? 'bg-gradient-success' : ''}} {{$document->status == 'COMPLETED' ? 'bg-gradient-primary' : ''}} {{$document->status == 'CANCELED' || $document->status == 'DECLINED' ? 'bg-gradient-danger' : ''}}">{{$document->status}}</span>
+                            <span class="badge badge-sm {{$document->status == 'PENDING' ? 'bg-gradient-warning' : ''}}  {{$document->status == 'APPROVED' ? 'bg-gradient-success' : ''}} {{$document->status == 'COMPLETED' ? 'bg-gradient-primary' : ''}} {{$document->status == 'CANCELLED' || $document->status == 'DECLINED' ? 'bg-gradient-danger' : ''}}">{{$document->status}}</span>
                           </div>
                         </div>
                       </td>
