@@ -1,8 +1,8 @@
-@extends('../layouts.resident')
+@extends('../layouts.customer')
 @section('sub-title','REGISTER')
 
 @section('navbar')
-    @include('../partials.resident.navbar')
+    @include('../partials.customer.navbar')
 @endsection
 @section('style')
 <style>
@@ -16,17 +16,17 @@
   <section class="contact mt-5 section-bg" style="min-height: 80vh;">
     <div class="container">
         <div class="section-title" data-aos="zoom-out">
-          <h2>Register</h2>
-          <p>Complete all required fields</p>
+          <h2 class="text-white">Register</h2>
+          <p class="text-white">Complete all required fields</p>
         </div>
 
         <div class="row mt-2">
           <div class="col-lg-6 mt-lg-0 mx-auto" data-aos="fade-left">
-            <form method="POST" action="{{ route('register') }}" class="myform">  
+            <form method="POST" action="{{ route('register') }}" class="myform">
               @csrf
                 <div class="card">
                   <div class="text-center px-3 px-md-4 py-0 mt-2">
-                      <img  src="{{ trans('panel.logo') }}" alt="logo" class="z-depth-2">
+                        <h2>LOGO</h2>
                       <hr>
                   </div>
                   <div class="card-body">
@@ -63,16 +63,16 @@
                       <div class="text-center">
                         <button type="submit" class="mt-2">Submit</button>
                       </div>
-              
+
                       <p class="text-center mt-3 color-black" style="font-size: 15px; font-weight: 500;">Already have an account? <a href="/login"><b class="color-black" style="font-weight: 700">Log In here</b></a></p>
                   </div>
                 </div>
             </form>
-            
-            
+
+
           </div>
         </div>
-        
+
     </div>
   </section>
 </main>
@@ -86,7 +86,7 @@
                 <i class="fas fa-times text-primary"></i>
             </button>
         </div>
-        <div class="modal-body section-bg p-3">
+        <div class="modal-body p-3">
             <p>Please read these terms and conditions carefully before using the E-Barangay Portal operated by Barangay San Isidro.</p>
             <b>Conditions of use</b>
             <p>By using this website, you certify that you have read and reviewed this agreement and that you agree to comply with its terms. If you do not want to be bound by these terms, you are advised to leave the website accordingly. E-Barangay only grants use and access of this website, its features and functionalities to those who have accepted its terms.</p>
@@ -116,7 +116,7 @@
               <input type="button" id="tacConfirm" class="btn btn-primary text-uppercase" value="All Agreed to the Terms and Conditions"/>
           </div>
         </div>
-        
+
         </div>
     </div>
 </div>
@@ -125,11 +125,11 @@
 @endsection
 
 @section('footer')
-    @include('../partials.resident.footer')
+    @include('../partials.customer.footer')
 @endsection
 
 @section('script')
-<script> 
+<script>
 
 $(document).on('click', '.show_terms_and_condition', function(){
             $('#tacModal').modal('show');

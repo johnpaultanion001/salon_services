@@ -34,9 +34,11 @@
                   <tr>
                     <th class="text-secondary opacity-7"></th>
                     <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Name</th>
+                    <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Service</th>
                     <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Email</th>
                     
                     <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Contact Number</th>
+                    <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Is AVAILABLE</th>
                     <th class="text-uppercase text-xxs text-dark font-weight-bolder opacity-7">Created At</th>
                   </tr>
                 </thead>
@@ -67,6 +69,14 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">{{$staff->user->service->name ?? ''}}</h6>
+                         
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm">{{$staff->user->email ?? ''}}</h6>
                          
                           </div>
@@ -80,6 +90,20 @@
                          
                           </div>
                         </div>
+                      </td>
+                      <td  class="">
+                          <span class="badge badge-sm
+                            @if($staff->user->isAvailable == true)
+                              bg-success
+                            @else
+                              bg-warning
+                            @endif">
+                            @if($staff->user->isAvailable == true)
+                                ✓
+                            @else
+                               x
+                            @endif
+                          </span>
                       </td>
                       <td>
                         <div class="d-flex px-2 py-1">
@@ -132,6 +156,24 @@
                     <span class="invalid-feedback" role="alert">
                         <strong id="error-name"></strong>
                     </span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label text-uppercase" >Service <span class="text-danger">*</span></label>
+                    <select name="service_id" id="service_id" class="form-control">
+                        @foreach($services as $service)
+                            <option value="{{$service->id}}">{{$service->name}}</option>
+                        @endforeach
+                    </select>
+                    <span class="invalid-feedback" role="alert">
+                        <strong id="error-service_id"></strong>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label text-uppercase" >Is Available <span class="text-danger">*</span></label>
+                    <select name="isAvailable" id="isAvailable" class="form-control" style="appearance: searchfield;">
+                        <option value="1">YES</option>
+                        <option value="0">NO</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label class="control-label text-uppercase" >Email <span class="text-danger">*</span></label>
@@ -277,60 +319,60 @@
   });
 
   $(document).on('click', '.remove', function(){
-  var id = $(this).attr('id');
-  $.confirm({
-      title: 'Confirmation',
-      content: 'You really want to remove this record?',
-      type: 'red',
-      buttons: {
-          confirm: {
-              text: 'confirm',
-              btnClass: 'btn-blue',
-              keys: ['enter', 'shift'],
-              action: function(){
-                  return $.ajax({
-                      url:"/admin/account/"+id,
-                      method:'DELETE',
-                      data: {
-                          _token: '{!! csrf_token() !!}',
-                      },
-                      dataType:"json",
-                      beforeSend:function(){
-                        $(".remove").attr("disabled", true);
-                      },
-                      success:function(data){
-                        $(".remove").attr("disabled", false);
-                        
-                          if(data.success){
-                            $.confirm({
-                              title: 'Confirmation',
-                              content: data.success,
-                              type: 'green',
-                              buttons: {
-                                      confirm: {
-                                          text: 'confirm',
-                                          btnClass: 'btn-blue',
-                                          keys: ['enter', 'shift'],
-                                          action: function(){
-                                              location.reload();
-                                          }
-                                      },
-                                      
-                                  }
-                              });
-                          }
-                      }
-                  })
-              }
-          },
-          cancel:  {
-              text: 'cancel',
-              btnClass: 'btn-red',
-              keys: ['enter', 'shift'],
-          }
-      }
-  });
-});
+    var id = $(this).attr('id');
+        $.confirm({
+            title: 'Confirmation',
+            content: 'You really want to remove this record?',
+            type: 'red',
+            buttons: {
+                confirm: {
+                    text: 'confirm',
+                    btnClass: 'btn-blue',
+                    keys: ['enter', 'shift'],
+                    action: function(){
+                        return $.ajax({
+                            url:"/admin/account/"+id,
+                            method:'DELETE',
+                            data: {
+                                _token: '{!! csrf_token() !!}',
+                            },
+                            dataType:"json",
+                            beforeSend:function(){
+                                $(".remove").attr("disabled", true);
+                            },
+                            success:function(data){
+                                $(".remove").attr("disabled", false);
+                                
+                                if(data.success){
+                                    $.confirm({
+                                    title: 'Confirmation',
+                                    content: data.success,
+                                    type: 'green',
+                                    buttons: {
+                                            confirm: {
+                                                text: 'confirm',
+                                                btnClass: 'btn-blue',
+                                                keys: ['enter', 'shift'],
+                                                action: function(){
+                                                    location.reload();
+                                                }
+                                            },
+                                            
+                                        }
+                                    });
+                                }
+                            }
+                        })
+                    }
+                },
+                cancel:  {
+                    text: 'cancel',
+                    btnClass: 'btn-red',
+                    keys: ['enter', 'shift'],
+                }
+            }
+        });
+    });
 </script>
 
 

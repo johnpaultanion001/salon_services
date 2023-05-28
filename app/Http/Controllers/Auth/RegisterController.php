@@ -9,7 +9,7 @@ use App\Models\RoleUser;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Resident;
+use App\Models\Customer;
 
 class RegisterController extends Controller
 {
@@ -60,7 +60,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        Resident::create([
+        Customer::create([
             'user_id' => $user->id,
         ]);
 
@@ -68,7 +68,7 @@ class RegisterController extends Controller
             'user_id' => $user->id,
             'role_id' => 3,
         ]);
-        
+
         return $user;
     }
 }

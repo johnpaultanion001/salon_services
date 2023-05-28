@@ -22,6 +22,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'address',
         'contact_number',
+        'service_id',
+        'isAvailable',
     ];
 
     /**
@@ -42,15 +44,20 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
+
 
     public function roles()
     {
         return $this->belongsToMany(Role::class);
     }
 
-    public function resident()
+    public function customer()
     {
-        return $this->belongsTo(Resident::class, 'id', 'user_id');
+        return $this->belongsTo(Customer::class, 'id', 'user_id');
+    }
+
+    public function service()
+    {
+        return $this->belongsTo(Service::class, 'service_id');
     }
 }

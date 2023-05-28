@@ -19,10 +19,10 @@ class DatabaseSeeder extends Seeder
             PermissionRoleSeeder::class,
             UserSeeder::class,
             RoleUserSeeder::class,
-            ResidentSeeder::class,
-            DocumentSeeder::class,
-            RequestedDocumentSeeder::class,
-            
+            CustomerSeeder::class,
+           
+            ServicesSeeder::class,
+
         ]);
     }
 }

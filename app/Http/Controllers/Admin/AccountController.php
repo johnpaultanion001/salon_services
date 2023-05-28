@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\RoleUser;
 use App\Models\User;
-use App\Models\ActivityLog;
+use App\Models\Service;
 use Validator;
 use Illuminate\Support\Facades\Hash;
 use Gate;
@@ -18,7 +18,8 @@ class AccountController extends Controller
     {
         abort_if(Gate::denies('admin_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $staffs = RoleUser::where('role_id', 2)->orderBy('user_id', 'desc')->get();
-        return view('admin.manage_staffs' , compact('staffs'));
+        $services = Service::latest()->get();
+        return view('admin.manage_staffs' , compact('staffs','services'));
     }
     public function admins()
     {
@@ -52,18 +53,14 @@ class AccountController extends Controller
             'name'                  => $request->input('name'),
             'email'                 => $request->input('email'),
             'contact_number'        => $request->input('contact_number'),
+            'service_id'        => $request->input('service_id') ?? "",
+            'isAvailable'        => $request->input('isAvailable') ?? "",
             'password'              => Hash::make($request->input('password')),
             'email_verified_at'     => date("Y-m-d H:i:s"),
         ]);
         RoleUser::insert([
             'user_id' => $account->id,
             'role_id' => $request->input('role'),
-        ]);
-        ActivityLog::create([
-            'activity'  => 'Activity: Create newly staff <br>
-                            Staff Name: '.$account->name.
-                            '<br> User: '. auth()->user()->name,
-                            
         ]);
 
         return response()->json(['success' => 'Successfully created.']);
@@ -86,14 +83,9 @@ class AccountController extends Controller
             'name'                  => $request->input('name'),
             'email'                 => $request->input('email'),
             'contact_number'        => $request->input('contact_number'),
+            'service_id'        => $request->input('service_id') ?? "",
+            'isAvailable'        => $request->input('isAvailable') ?? "",
             'password'              => Hash::make($request->input('password')),
-        ]);
-
-        ActivityLog::create([
-            'activity'  => 'Activity: Updated staff account <br>
-                            Staff Name: '.$account->name.
-                            '<br> User: '. auth()->user()->name,
-                            
         ]);
 
         return response()->json(['success' => 'Successfully updated.']);
@@ -101,13 +93,6 @@ class AccountController extends Controller
 
     public function destroy(User $account){
         date_default_timezone_set('Asia/Manila');
-        ActivityLog::create([
-            'activity'  => 'Activity: Removed staff account <br>
-                            Staff Name: '.$account->name.
-                            '<br> User: '. auth()->user()->name,
-                            
-        ]);
-
         RoleUser::where('user_id', $account->id)->delete();
         $account->delete();
         return response()->json(['success' => 'Successfully removed.']);

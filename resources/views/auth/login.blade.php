@@ -1,8 +1,8 @@
-@extends('../layouts.resident')
+@extends('../layouts.customer')
 @section('sub-title','LOG IN')
 
 @section('navbar')
-    @include('../partials.resident.navbar')
+    @include('../partials.customer.navbar')
 @endsection
 @section('style')
 <style>
@@ -14,17 +14,17 @@
   <section class="contact mt-5 section-bg" style="min-height: 80vh;">
     <div class="container">
         <div class="section-title" data-aos="zoom-out">
-          <h2>Log in</h2>
-          <p>Login to your account</p>
+          <h2 class="text-white">Log in</h2>
+          <p class="text-white">Login to your account</p>
         </div>
         <div class="row mt-2">
           <div class="col-lg-6 mt-lg-0 mx-auto" data-aos="fade-left">
-            <form method="POST" action="{{ route('login') }}" class="myform">  
+            <form method="POST" action="{{ route('login') }}" class="myform">
               @csrf
-                
+
                 <div class="card">
                   <div class="text-center mt-2">
-                      <img  src="{{ trans('panel.logo') }}" alt="logo"  class="z-depth-2">
+                      <h2>LOGO</h2>
                       <hr>
                   </div>
                   <div class="card-body">
@@ -54,8 +54,8 @@
                   </div>
                 </div>
             </form>
-            
-            
+
+
           </div>
         </div>
     </div>
@@ -64,11 +64,11 @@
 @endsection
 
 @section('footer')
-    @include('../partials.resident.footer')
+    @include('../partials.customer.footer')
 @endsection
 
 @section('script')
-<script> 
+<script>
 
 </script>
 @endsection

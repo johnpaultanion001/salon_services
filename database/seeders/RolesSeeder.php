@@ -20,7 +20,7 @@ class RolesSeeder extends Seeder
             ],
             [
                 'id'    => 3,
-                'title' => 'Resident',
+                'title' => 'Customer',
             ],
         ];
 

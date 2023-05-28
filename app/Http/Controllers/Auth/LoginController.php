@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-  
+
 
     use AuthenticatesUsers;
 
@@ -45,12 +45,12 @@ class LoginController extends Controller
             return route('admin.dashboard');
         }
         if(auth()->user()->roles()->pluck('id')->implode(', ') == '2'){
-            return route('admin.dashboard');
+            return route('admin.payroll.my_payroll');
         }
         if(auth()->user()->roles()->pluck('id')->implode(', ') == '3'){
-            return route('resident.request_document.index');
+            return route('customer.appointment_service.index');
         }
     }
 
-     
+
 }

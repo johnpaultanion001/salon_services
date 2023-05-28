@@ -1,9 +1,9 @@
 
-@extends('../layouts.resident')
+@extends('../layouts.customer')
 @section('sub-title','Verify Email')
 
 @section('navbar')
-    @include('../partials.resident.navbar')
+    @include('../partials.customer.navbar')
 @endsection
 
 @section('content')
@@ -13,15 +13,15 @@
     <div class="container">
         <div class="row mt-2">
           <div class="col-lg-6 mt-lg-0 mx-auto" data-aos="fade-left">
-            
+
             <form class="myform" method="POST" action="{{ route('verification.resend') }}">
               @csrf
               <div class="card">
                     <div class="text-center mt-2">
-                        <img  src="{{ trans('panel.logo') }}" alt="logo"  class="z-depth-2">
+                    <h2>LOGO</h2>
                         <hr>
                     </div>
-                    
+
                     <div class="section-title" data-aos="zoom-out">
                         <h2>Verify your email address</h2>
                         @if (session('resent'))
@@ -35,7 +35,7 @@
                         </p>
                     </div>
               </div>
-            
+
             </form>
           </div>
         </div>
@@ -48,11 +48,11 @@
 
 
 @section('footer')
-    @include('../partials.resident.footer')
+    @include('../partials.customer.footer')
 @endsection
 
 @section('script')
-<script> 
+<script>
 
 </script>
 @endsection

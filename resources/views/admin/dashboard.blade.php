@@ -13,16 +13,16 @@
 @section('content')
 <div class="container-fluid py-4">
       <div class="row">
-       
+
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
           <div class="card">
             <div class="card-body p-3">
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Active Residents</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Active Customers</p>
                     <h5 class="font-weight-bolder">
-                     {{$residents->count()}}
+                     {{$customers->count()}}
                     </h5>
                   </div>
                 </div>
@@ -58,14 +58,14 @@
           </div>
         </div>
         @endcan
-      
+
       </div>
-      <!-- <div class="row mt-4">
+      <div class="row mt-4">
         <div class="col-lg-7 mb-lg-0 mb-4">
           <div class="card ">
             <div class="card-header pb-0 p-3">
               <div class="d-flex justify-content-between">
-                <h6 class="mb-2">PENDING REQUESTED DOCUMENTS</h6>
+                <h6 class="mb-2">PENDING APPOINTMENT</h6>
               </div>
             </div>
             <div class="table-responsive">
@@ -79,29 +79,31 @@
                           <i class="fa-solid fa-file-export text-white" style="font-size: 15px;"></i>
                         </div>
                         <div class="ms-4">
-                          <p class="text-xs font-weight-bold mb-0">Resident:</p>
+                          <p class="text-xs font-weight-bold mb-0">Customer:</p>
                           <h6 class="text-sm mb-0 text-uppercase">
-                            {{$pending->resident->last_name ?? ''}} ,
-                            {{$pending->resident->first_name ?? ''}}
-                            ({{$pending->resident->middle_name ?? ''}})
+                            {{$pending->customer->last_name ?? ''}} ,
+                            {{$pending->customer->first_name ?? ''}}
+                            ({{$pending->customer->middle_name ?? ''}})
 
                           </h6>
                         </div>
                       </div>
                     </td>
                     <td>
-                        <p class="text-xs font-weight-bold mb-0">Document:</p>
-                        <h6 class="text-sm mb-0 text-uppercase">{{$pending->document->name ?? ''}}</h6>
-                     
+                        <p class="text-xs font-weight-bold mb-0">Service:</p>
+                        <h6 class="text-sm mb-0 text-uppercase">{{$pending->service->name ?? ''}}</h6>
+
                     </td>
                     <td>
-                        <p class="text-xs font-weight-bold mb-0">Claiming Option:</p>
-                        <h6 class="text-sm mb-0 text-uppercase">{{$pending->claiming_option ?? ''}}</h6>
-                     
+                        <p class="text-xs font-weight-bold mb-0">Appointment Date And Time:</p>
+                        <h6 class="text-sm mb-0 text-uppercase">
+                            {{\Carbon\Carbon::createFromFormat('Y-m-d',$pending->appointment_date)->format('M j , Y')}} at {{$pending->appointment_time}}
+                        </h6>
+
                     </td>
                     <td class="align-middle text-sm">
                         <div class="d-flex">
-                          <a href="/admin/finder_resident/{{$pending->resident->id}}" class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></a>
+                          <a href="/admin/finder_customer/{{$pending->customer->id}}" class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></a>
                         </div>
                     </td>
                   </tr>
@@ -109,7 +111,7 @@
                   <tr>
                     <td class="w-30">
                       <div class="d-flex px-2 py-1 align-items-center">
-                      
+
                         <div class="ms-4">
                           <h6 class="text-sm mb-0 text-uppercase">
                             <h6 class="mb-1 text-dark text-sm text-uppercase">NO DATA FOUND</h6>
@@ -119,7 +121,7 @@
                     </td>
                   </tr>
                 @endforelse
-                  
+
                 </tbody>
               </table>
             </div>
@@ -128,29 +130,29 @@
         <div class="col-lg-5">
           <div class="card">
             <div class="card-header pb-0 p-3">
-              <h6 class="mb-0">AVAILABLE DOCUMENTS</h6>
+              <h6 class="mb-0">AVAILABLE SERVICES</h6>
             </div>
             <div class="card-body p-3">
               <ul class="list-group">
-                @forelse($documents as $document)
+                @forelse($services as $service)
                   <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
                     <div class="d-flex align-items-center">
                       <div class="icon icon-shape icon-sm me-3 bg-gradient-primary shadow text-center">
                         <i class="fa-solid fa-file-lines text-white" style="font-size: 15px;"></i>
                       </div>
                       <div class="d-flex flex-column">
-                        <h6 class="mb-1 text-dark text-sm text-uppercase">{{$document->name}}</h6>
-                        <span class="text-xs">{{$document->requested_requirements->count()}} Residents have made a request.</span>
+                        <h6 class="mb-1 text-dark text-sm text-uppercase">{{$service->name}}</h6>
+                        <span class="text-xs">{{$service->appointments->count()}} Customer have made a appointment.</span>
                       </div>
                     </div>
                     <div class="d-flex">
-                      <a href="/admin/documents" class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></a>
+                      <a href="/admin/services" class="btn btn-link btn-icon-only btn-rounded btn-sm text-dark icon-move-right my-auto"><i class="ni ni-bold-right" aria-hidden="true"></i></a>
                     </div>
                   </li>
                 @empty
                   <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
                     <div class="d-flex align-items-center">
-                      
+
                       <div class="d-flex flex-column">
                         <h6 class="mb-1 text-dark text-sm text-uppercase">NO DATA FOUND</h6>
                       </div>
@@ -161,7 +163,7 @@
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
         @section('footer')
             @include('../partials.admin.footer')
         @endsection
@@ -175,7 +177,7 @@
 
 @section('rightbar')
 <div class="fixed-plugin">
- 
+
   <div class="card shadow-lg">
     <div class="card-header pb-0 pt-3 ">
       <div class="float-start">
@@ -244,7 +246,7 @@
     </div>
   </div>
 </div>
-@endsection 
+@endsection
 
 @section('script')
 <script>

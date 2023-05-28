@@ -1,8 +1,8 @@
-@extends('../layouts.resident')
+@extends('../layouts.customer')
 @section('sub-title','ACCOUNT')
 
 @section('navbar')
-    @include('../partials.resident.navbar')
+    @include('../partials.customer.navbar')
 @endsection
 @section('style')
 <style>
@@ -21,7 +21,7 @@
   transition: all 0.2s;
   -webkit-transition: all 0.2s;
   object-fit: cover;
-  
+
 }
 .picture:hover {
   border-color: #2ca8ff;
@@ -56,85 +56,38 @@
   <section class="contact mt-5 section-bg">
     <div class="container">
         <div class="section-title" data-aos="zoom-out">
-          <h2>Account</h2>
-          <p>Complete all required fields</p>
+          <h2 class="text-white">Account</h2>
+          <p class="text-white">Complete all required fields</p>
         </div>
-       
+
         <div class="row mt-2">
           <div class="col-lg-10 mt-lg-0 mx-auto" data-aos="fade-left">
-                    @if(auth()->user()->resident->isRegister == 0)
-                    
-                    @else
-                        @if(auth()->user()->resident->status == 'PENDING')
-                            <div class="container bg-success p-2">
-                                <div class="row" data-aos="zoom-out">
-                                    <div class="col-lg-9 text-center text-lg-start ">
-                                        <h6 class="text-white">Wait for the administrator's response to verify your account</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        @elseif(auth()->user()->resident->status == 'DECLINED')
-                            <div class="container bg-warning p-2">
-                                <div class="row" data-aos="zoom-out">
-                                    <div class="col-lg-9 text-center text-lg-start ">
-                                        <h6 class="text-white">After carefully verifying the information you have submitted, your account application has been declined. Please check the information you have submitted.</h6>
-                                    </div>
-                                </div>
 
-                            </div>
-                        @elseif(auth()->user()->resident->status == 'DEACTIVATED')
-                            <div class="container bg-danger p-2">
-                                <div class="row" data-aos="zoom-out">
-                                    <div class="col-lg-9 text-center text-lg-start ">
-                                        <h6 class="text-white">We’ve checked your account and it seems that there are suspicious activities on it. With this, we have deactivated your account to prevent any illegal activities from happening.</h6>
-                                    </div>
-                                </div>
-
-                            </div>
-                        @endif
-                    @endif
                     <form method="post" id="myForm" class="myform">
                         @csrf
-                        
+
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Email <span class="text-danger">*</span></label>
                                     <input id="email" name="email" type="text" class="form-control" readonly value="{{Auth()->user()->email ?? ''}}">
-                                </div> 
-                            </div>
-                            <div class="col-md-6">
-                            <label>Upload ID Here <span class="text-danger">*</span> <a href="#"  id="list_ids">Acceptable Valid IDs</a></label>
-                                <div class="picture-container">
-                                    <div class="form-group">
-                                        
-                                        <div class="picture">
-                                            <img src="@if(Auth()->user()->resident->id_image != '') /resident/img/id/{{Auth()->user()->resident->id_image}} @else {{ asset('/resident/img/id.jpg') }}  @endif " class="picture-src" id="wizardPicturePreview" title="" />
-                                            <input type="file" id="wizard-picture" name="id_image" accept="image/*" >
-                                            
-                                        </div>
-                                        <span >
-                                            <strong style="font-size: .875em; color: #dc3545;" id="error-wizard-picture"></strong>
-                                        </span>
-                                    </div>
                                 </div>
-                                
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="form-group">
-                                    <label>First Name (same to your valid ID) <span class="text-danger">*</span></label>
-                                    <input id="first_name" name="first_name" type="text" class="form-control" value="{{Auth()->user()->resident->first_name ?? ''}}" autofocus>
+                                    <label>First Name <span class="text-danger">*</span></label>
+                                    <input id="first_name" name="first_name" type="text" class="form-control" value="{{Auth()->user()->customer->first_name ?? ''}}" autofocus>
                                     <span class="invalid-feedback" role="alert">
                                         <strong id="error-first_name"></strong>
                                     </span>
-                                </div> 
+                                </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label>Middle Name</label>
-                                    <input id="middle_name" name="middle_name" type="text" class="form-control" value="{{Auth()->user()->resident->middle_name ?? ''}}">
+                                    <input id="middle_name" name="middle_name" type="text" class="form-control" value="{{Auth()->user()->customer->middle_name ?? ''}}">
                                     <span class="invalid-feedback" role="alert">
                                         <strong id="error-middle_name"></strong>
                                     </span>
@@ -142,8 +95,8 @@
                             </div>
                             <div class="col-md-5">
                                 <div class="form-group">
-                                    <label>Last Name (same to your valid ID) <span class="text-danger">*</span></label>
-                                    <input id="last_name" name="last_name" type="text" class="form-control" value="{{Auth()->user()->resident->last_name ?? ''}}">
+                                    <label>Last Name <span class="text-danger">*</span></label>
+                                    <input id="last_name" name="last_name" type="text" class="form-control" value="{{Auth()->user()->customer->last_name ?? ''}}">
                                     <span class="invalid-feedback" role="alert">
                                         <strong id="error-last_name"></strong>
                                     </span>
@@ -151,8 +104,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Address (same to your valid ID) <span class="text-danger">*</span></label>
-                                    <input id="address" name="address" type="text" class="form-control" value="{{Auth()->user()->resident->address ?? ''}}">
+                                    <label>Address <span class="text-danger">*</span></label>
+                                    <input id="address" name="address" type="text" class="form-control" value="{{Auth()->user()->customer->address ?? ''}}">
                                     <span class="invalid-feedback" role="alert">
                                         <strong id="error-address"></strong>
                                     </span>
@@ -161,7 +114,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Contact Number <span class="text-danger">*</span></label>
-                                    <input id="contact_number" name="contact_number" type="text" class="form-control" value="{{Auth()->user()->resident->contact_number ?? ''}}">
+                                    <input id="contact_number" name="contact_number" type="text" class="form-control" value="{{Auth()->user()->customer->contact_number ?? ''}}">
                                     <span class="invalid-feedback" role="alert">
                                         <strong id="error-contact_number"></strong>
                                     </span>
@@ -173,10 +126,10 @@
                         </div>
                         <p  class="text-center mt-3 color-black" style="font-size: 15px; font-weight: 500;" ><a href="#" id="change_password">Change your password?</a></p>
                     </form>
-            
+
           </div>
         </div>
-        
+
     </div>
   </section>
 </main>
@@ -192,7 +145,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <i class="fas fa-times text-primary"></i>
                  </button>
-    
+
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
@@ -215,10 +168,10 @@
                     <span class="invalid-feedback" role="alert">
                         <strong id="error-confirm_password"></strong>
                     </span>
-                </div>       
+                </div>
 
                 <input type="hidden" name="hidden_id" id="hidden_id" value="{{Auth::user()->id}}" />
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">CLOSE</button>
@@ -239,9 +192,9 @@
             </button>
           </div>
             <div class="modal-body" id="modal_content">
-                   
+
             </div>
-      
+
         </div>
       </div>
 </div>
@@ -250,11 +203,11 @@
 @endsection
 
 @section('footer')
-    @include('../partials.resident.footer')
+    @include('../partials.customer.footer')
 @endsection
 
 @section('script')
-<script> 
+<script>
 // Prepare the preview for profile picture
 $(document).ready(function(){
     $("#wizard-picture").change(function(){
@@ -275,7 +228,7 @@ $(document).ready(function(){
         $('#myForm').on('submit', function(event){
             event.preventDefault();
             $('.form-control').removeClass('is-invalid')
-            var action_url = "/resident/account";
+            var action_url = "/customer/account";
             var type = "POST";
 
             $.ajax({
@@ -324,7 +277,7 @@ $(document).ready(function(){
                             }
                         });
                     }
-                
+
                 }
             });
         });
@@ -339,7 +292,7 @@ $(document).ready(function(){
             event.preventDefault();
             $('.form-control').removeClass('is-invalid')
             var id = $('#hidden_id').val();
-            var action_url = "/resident/account/change_password/" + id;
+            var action_url = "/customer/account/change_password/" + id;
             var type = "PUT";
 
             $.ajax({
@@ -385,11 +338,11 @@ $(document).ready(function(){
                                 }
                             });
                     }
-                
+
                 }
             });
         });
-        
+
         $(document).on('click', '#list_ids', function(){
             $('.modal-title').text('Acceptable Valid IDs');
             var content = "";
@@ -408,7 +361,7 @@ $(document).ready(function(){
                     content += '<li>TIN ID</li>';
                     content += '<li>School ID (for students)</li>';
                 content += '</ul>';
-               
+
                 content += '<p class="text-center text-danger">Please make sure to submit an image file of your Valid ID (.jpg or .png)</p>';
 
             $('#modal_content').empty().append(content);

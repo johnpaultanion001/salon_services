@@ -1,8 +1,8 @@
-@extends('../layouts.resident')
+@extends('../layouts.customer')
 @section('sub-title','FORGOT PASSWORD')
 
 @section('navbar')
-    @include('../partials.resident.navbar')
+    @include('../partials.customer.navbar')
 @endsection
 @section('style')
 <style>
@@ -14,16 +14,16 @@
   <section class="contact mt-5 section-bg" style="min-height: 80vh;">
     <div class="container">
         <div class="section-title" data-aos="zoom-out">
-          <h2>{{ __('Reset Password') }}</h2>
+          <h2 class="text-white">{{ __('Reset Password') }}</h2>
         </div>
         <div class="row mt-2">
           <div class="col-lg-6 mt-lg-0 mx-auto" data-aos="fade-left">
-            <form method="POST" action="{{ route('password.update') }}" class="myform">  
+            <form method="POST" action="{{ route('password.update') }}" class="myform">
               @csrf
                 <input type="hidden" name="token" value="{{ $token }}">
                 <div class="card">
                   <div class="text-center px-3 px-md-4 py-0 mt-2">
-                      <img  src="{{ trans('panel.logo') }}" alt="logo" class="z-depth-2">
+                        <h2>LOGO</h2>
                       <hr>
                   </div>
                   <div class="card-body">
@@ -54,8 +54,8 @@
                   </div>
                 </div>
             </form>
-            
-            
+
+
           </div>
         </div>
     </div>
@@ -64,11 +64,11 @@
 @endsection
 
 @section('footer')
-    @include('../partials.resident.footer')
+    @include('../partials.customer.footer')
 @endsection
 
 @section('script')
-<script> 
+<script>
 
 </script>
 @endsection

@@ -16,7 +16,7 @@ class PermissionsSeeder extends Seeder
                 'title' => 'staff_access',
             ],
             [
-                'title' => 'resident_access',
+                'title' => 'customer_access',
             ],
         ];
 
