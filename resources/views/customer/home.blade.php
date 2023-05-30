@@ -69,31 +69,13 @@
         </div>
 
         <div class="row">
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <p>With E-Barangay, you are able to create and manage your account online and keep track of your records and transactions.</p>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-             
-              <p>No more waiting in lines – We’ve got you! With the E-Barangay portal, you can finally request and process documents without the need of going personally to your Barangays!</p>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              
-              <p>We provide an easy way of paying your documents through GCash or Paymaya.</p>
-            </div>
-          </div>
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              
-              <p>We provide you three claiming options to choose from depending on your preference! You can claim it directly on your Barangay, have it delivered on your own doorstep or just print it readily.</p>
-            </div>
-          </div>
-
-
+            @foreach($feedbacks as $feedback)
+                <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon-box">
+                    <p>{{$feedback->feedback ?? ''}}</p>
+                    </div>
+                </div>
+            @endforeach
         </div>
 
       </div>
@@ -166,12 +148,12 @@
 
           <div class="col-lg-6 mt-2">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100" style="height: 250px;">
-           
+
               <div class="member-info">
               <h4>Test test</h4>
                 <span>Lorem Ipsum</span>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-               
+
               </div>
             </div>
           </div>
@@ -181,7 +163,7 @@
               <h4>Test test</h4>
                 <span>Lorem Ipsum</span>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                
+
               </div>
             </div>
           </div>
@@ -191,7 +173,7 @@
               <h4>Test test</h4>
                 <span>Lorem Ipsum</span>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                
+
               </div>
             </div>
           </div>
@@ -201,7 +183,7 @@
                 <h4>Test test</h4>
                 <span>Lorem Ipsum</span>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                
+
               </div>
             </div>
           </div>

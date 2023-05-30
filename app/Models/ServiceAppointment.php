@@ -36,4 +36,8 @@ class ServiceAppointment extends Model
     {
         return $this->belongsTo(User::class, 'staff_id', 'id');
     }
+    public function feedback()
+    {
+        return $this->belongsTo(Feedback::class,'id', 'appointment_id');
+    }
 }

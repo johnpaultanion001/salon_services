@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Customer;
+use App\Models\Feedback;
 
 class CustomerSeeder extends Seeder
 {
@@ -31,6 +32,43 @@ class CustomerSeeder extends Seeder
 
         ];
 
+        $feedbacks = [
+            [
+                'appointment_id' => 0,
+                'user_id'                   => 3,
+                'feedback'                => " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+
+                'created_at'     => date("Y-m-d H:i:s"),
+                'updated_at'     => date("Y-m-d H:i:s"),
+            ],
+            [
+                'appointment_id' => 0,
+                'user_id'                   => 3,
+                'feedback'                => " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+
+                'created_at'     => date("Y-m-d H:i:s"),
+                'updated_at'     => date("Y-m-d H:i:s"),
+            ],
+            [
+                'appointment_id' => 0,
+                'user_id'                   => 3,
+                'feedback'                => " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+
+                'created_at'     => date("Y-m-d H:i:s"),
+                'updated_at'     => date("Y-m-d H:i:s"),
+            ],
+            [
+                'appointment_id' => 0,
+                'user_id'                   => 3,
+                'feedback'                => " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+
+                'created_at'     => date("Y-m-d H:i:s"),
+                'updated_at'     => date("Y-m-d H:i:s"),
+            ],
+        ];
+
+
         Customer::insert($customers);
+        Feedback::insert($feedbacks);
     }
 }

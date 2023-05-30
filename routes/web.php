@@ -72,7 +72,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::put('account/{account}', 'AccountController@update')->name('account.update');
     Route::delete('account/{account}', 'AccountController@destroy')->name('account.destroy');
 
-    
+
 
     //Payroll
     Route::resource('payroll', 'PayrollController');
@@ -80,10 +80,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('my_payroll', 'PayrollController@my_payroll')->name('payroll.my_payroll');
     Route::get('my_attendance', 'AttendanceController@my_attendance')->name('attendance.my_attendance');
 
-    
+
 
     //Attendance
     Route::resource('attendances', 'AttendanceController');
     Route::post('attendances/{attendance}/attend', 'AttendanceController@attend')->name('attendance.attend');
-    
+    Route::post('feedback', 'FeedbackController@store')->name('feedback.store');
+    Route::get('feedback', 'FeedbackController@index')->name('feedback.index');
+
+
 });

@@ -8,6 +8,7 @@ use App\Models\Customer;
 use App\Models\User;
 use App\Models\Document;
 use App\Models\Service;
+use App\Models\Feedback;
 use Validator;
 use File;
 use Carbon\Carbon;
@@ -23,7 +24,8 @@ class HomeController extends Controller
     public function index()
     {
         $services = Service::where('isAvailable', true)->orderBy('name', 'asc')->get();
-        return view('customer.home', compact('services'));
+        $feedbacks = Feedback::latest()->paginate(4);
+        return view('customer.home', compact('services','feedbacks'));
     }
     public function send_msg(Request $request)
     {

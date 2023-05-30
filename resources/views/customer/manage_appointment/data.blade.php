@@ -35,6 +35,38 @@
             @if($appointment->status == 'PENDING')
               <a href="#" class="btn btn-sm btn-primary edit text-uppercase" edit="{{$appointment->id}}">Edit</a>
               <a href="#" class="btn btn-sm btn-danger cancel text-uppercase" cancel="{{$appointment->id}}">Cancel</a>
+
+            @endif
+          </div>
+          <div class="col-md-12 mt-2">
+
+          @if($appointment->status == 'COMPLETED')
+                @php
+                    $feedback = App\Models\Feedback::where('appointment_id',$appointment->id)->first();
+                    if($feedback == null){
+                        $feedback1 = 0;
+                    }else{
+                        $feedback1 = 1;
+                    }
+                @endphp
+                @if($feedback1 == 0)
+                <form method="post" class="myFeedbackForm">
+                    @csrf
+                    <div class="input-group">
+                        <input type="text" class="form-control feedback" name="feedback" placeholder="Send a feedback" required>
+                        <input type="hidden" class="form-control" name="appointment_id" value="{{$appointment->id}}">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><button  type="submit" class="btn text-primary" style="background-color:transparent;" ><i class="ri-send-plane-2-fill"></i></button></span>
+
+                        </div>
+                    </div>
+                </form>
+                @endif
+                <div id="feedback_section{{$appointment->id}}">
+                    <hr>
+                        <b class="text-primary">Your Feedback</b><br>
+                          <h6>{{$appointment->feedback->feedback ?? ''}}</h6> <br>
+                </div>
             @endif
           </div>
         </div>
@@ -109,6 +141,32 @@
             }
         });
     });
+
+    $('.myFeedbackForm').on('submit', function(event){
+        event.preventDefault();
+
+        $.ajax({
+            url: "/admin/feedback",
+            method:"POST",
+            data:$(this).serialize(),
+            dataType:"json",
+            beforeSend:function(){
+
+            },
+            success:function(data){
+                var feedbacks = '';
+                $.each(data.feedbacks, function(key,value){
+                    feedbacks += '<hr>';
+                    feedbacks += '<h6>'+value.feedback+'</h6> <br>';
+
+                });
+                $('#feedback_section'+data.appointment_id).empty().append(feedbacks);
+                $('.myFeedbackForm').hide();
+            }
+        });
+    });
+
+
   });
 </script>
 
